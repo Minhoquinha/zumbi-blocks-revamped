@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a4b8c4e18c7944da985fbe1f724cd5, type: 3}
+  m_Name: ZombieTextures
+  m_EditorClassIdentifier: 
+  Description: The textures for the zombies.
+  SkinTextureArray:
+  - {fileID: 2800000, guid: c9ef00b83fe1ae046b4090b312381ab8, type: 3}
+  - {fileID: 2800000, guid: 187033d3ff437fa40aa549e8163c4313, type: 3}
+  - {fileID: 2800000, guid: 32a8ea5968120d642b8b70f5651f0512, type: 3}
+  - {fileID: 2800000, guid: 721dafd140c3f39439dde6fb7a4ff82d, type: 3}
+  - {fileID: 2800000, guid: 0c05af0a6f2289a4db0b84530a0be279, type: 3}
+  - {fileID: 2800000, guid: 7f95e3b954fbc794a9807b86f0deef99, type: 3}
+  ShirtTextureArray:
+  - {fileID: 2800000, guid: 21ec7044f7e12ce478fa2e4b296efa86, type: 3}
+  - {fileID: 2800000, guid: f9a499e8174f6b4478d33c8825242019, type: 3}
+  - {fileID: 2800000, guid: 02eb6facab6130c4cb889ecb037a3bdb, type: 3}
+  - {fileID: 2800000, guid: 8afb3885405d7a245bce1a2e9af4b992, type: 3}
+  - {fileID: 2800000, guid: 39d69c5b3ea584947928be5364ae97ef, type: 3}
+  - {fileID: 2800000, guid: 4faaf625bf04f53478b8b081156c18db, type: 3}
+  - {fileID: 2800000, guid: 19ab2112ac4beab4d96904b297ab176b, type: 3}
+  - {fileID: 2800000, guid: 5e47df888b578c24e91ead4b687a28aa, type: 3}
+  PantsTextureArray:
+  - {fileID: 2800000, guid: 4d2b392a2967e1c4087c09b14ba2aed5, type: 3}
+  - {fileID: 2800000, guid: db0fb50a3737cfb4ea37757a4163cb4d, type: 3}
+  - {fileID: 2800000, guid: 0996ba1b2b0f84140a9a860dfeae8a7f, type: 3}
+  - {fileID: 2800000, guid: 747585fcc1f45dc46bf37643c838aa89, type: 3}
+  - {fileID: 2800000, guid: 49a3307f539e5214098cbad323677ac3, type: 3}

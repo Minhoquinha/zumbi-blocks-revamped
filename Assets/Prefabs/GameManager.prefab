@@ -1,0 +1,595 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2797918815416727601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2801110660961233099}
+  - component: {fileID: 2830304706114891425}
+  - component: {fileID: 2830266106579504315}
+  - component: {fileID: 4623228362473705712}
+  - component: {fileID: 2830005631103894085}
+  - component: {fileID: 4955813162013777449}
+  - component: {fileID: 2829640071977145257}
+  - component: {fileID: 2830325474541749705}
+  - component: {fileID: 2785048927026818227}
+  - component: {fileID: 2774945677977826735}
+  - component: {fileID: 8340538791464096455}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &2801110660961233099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12, y: 80, z: 17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2830304706114891425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c4c86c8687f0846aded5bbf15445f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultTestPlayer: {fileID: 8446099021221563584, guid: 7aa8b7224cc0cf34a9e4afbf726560c0,
+    type: 3}
+  SceneArray:
+  - MenuTest
+  - GameMap1
+  - 
+  - 
+  - 
+  GameStatus: 1
+  SceneKeywordInGame: Game
+  SceneKeywordInMenu: Menu
+  WaveStartText: Press ENTER to start
+  GameFinished: 0
+  GameOverText: GAME OVER
+  SecondaryGameOverText: Press ESC to exit the game
+  CountTime: 1
+  PlayerJoinDelay: 1
+  GameOverDelay: 5
+  Sun: {fileID: 0}
+  SunSpeedDivisor: 4
+  UI: {fileID: 2829640071977145257}
+  PlayerManagerScript: {fileID: 2830266106579504315}
+  ControlsManagerScript: {fileID: 4623228362473705712}
+  WaveSpawnerScript: {fileID: 2830005631103894085}
+  LootSpawnerScript: {fileID: 4955813162013777449}
+  ItemCollectionScript: {fileID: 11400000, guid: efed530574612e74cb9c9ad7ac9621f7,
+    type: 2}
+  ZombieTextureCollectionScript: {fileID: 11400000, guid: 172d3f1f92226914cb11f73ea908541e,
+    type: 2}
+--- !u!114 &2830266106579504315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c56006e22f6aad45a4bbd6077f2a31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerDeathText: ' DIED.'
+  SpawnerFinder: 1
+  SpawnerArray:
+  - {fileID: 0}
+  GameManagerScript: {fileID: 2830304706114891425}
+  UI: {fileID: 2829640071977145257}
+  PlayerList: []
+--- !u!114 &4623228362473705712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e672e7a8b527e54daad0ca6373e3570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControlsCollectionScript: {fileID: 11400000, guid: 5a535457ed2ee244dbf50504c7a19fd9,
+    type: 2}
+  MouseSensitivity: 6
+  ControlArray:
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  - Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  Binding: 0
+  BindingString: <BIND>
+  CurrentBindingControl:
+    Name: 
+    Key: 0
+    MenuButton: {fileID: 0}
+  MenuButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  MouseSensitivitySlider: {fileID: 0}
+--- !u!114 &2830005631103894085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94334bd239c092e479cfbafc183ec665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CycleNum: 0
+  CycleDelay: 30
+  CycleHealthIncrease: 10
+  CycleAttackDamageIncrease: 5
+  SpawnWaves: 0
+  WaveIntroText: 'WAVE '
+  WaveDelay: 5
+  AllZombiesActive: 1
+  ZombieArray:
+  - ZombiePrefab: {fileID: 2025732057007414708, guid: f818ccb01eeb2f6448e7bc5cc8161586,
+      type: 3}
+    Default: 1
+    Active: 1
+    Chance: 20
+  - ZombiePrefab: {fileID: 8759988696209381223, guid: d52f3e1c5169a6347b705f8e9704fbe5,
+      type: 3}
+    Default: 0
+    Active: 1
+    Chance: 20
+  ZombieAmount: 40
+  ZombieKillPercent: 80
+  ZombieDeathCount: 1
+  PrintWaveInfo: 0
+  SpawnerFinder: 1
+  SpawnerArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  UI: {fileID: 2829640071977145257}
+--- !u!114 &4955813162013777449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c032a653bfc8cc42bf2ae78736a6936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManagerScript: {fileID: 2830304706114891425}
+  EnemyWaveSpawner: {fileID: 2830005631103894085}
+  LootArray:
+  - LootPrefab: {fileID: 1243799117888562425, guid: 0e3e3d7bfc5a35848b4826507480781a,
+      type: 3}
+    Active: 1
+    Chance: 30
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 5922434783897795336, guid: a6475a58aa61529408fbb1279c72efe1,
+      type: 3}
+    Active: 1
+    Chance: 15
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 1752827354433517756, guid: 6c5581881dc2e0c458b609fa23564e0c,
+      type: 3}
+    Active: 1
+    Chance: 15
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 4099928030940176840, guid: f62eaa436a3afba42824368312635f54,
+      type: 3}
+    Active: 1
+    Chance: 15
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 5454299013491845843, guid: 2ba21b077413af447b81caed975b5906,
+      type: 3}
+    Active: 1
+    Chance: 5
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 8992399059674686106, guid: d31cfe4cdbe243b4da22036bcd406395,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 8588028611863563087, guid: cffac2db45979334784b0371f237f570,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 30
+    CurrentWaitTime: 0
+  SpawnerArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SpawnLoots: 0
+--- !u!114 &2829640071977145257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c8f1a2c6fafcf44847097a00d0f2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: {fileID: 0}
+  MenuPanels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PauseMenuPanel: {fileID: 0}
+  UsePCenterText: 1
+  PCenterText: {fileID: 0}
+  PCenterTextDefaultTime: 5
+  UseSCenterText: 1
+  SCenterText: {fileID: 0}
+  SCenterTextDefaultTime: 5
+  UseStopWatch: 1
+  StopWatch: {fileID: 0}
+  GameManagerScript: {fileID: 2830304706114891425}
+  Screen: {fileID: 0}
+--- !u!114 &2830325474541749705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5d7b300b12aae4b958a0ad6b7c7d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainAudioMixer: {fileID: 24300002, guid: fb310e2a97e602048921023c6ce9a9d6, type: 2}
+  SoundArray:
+  - Name: ZBDevTrack
+    Clip: {fileID: 8300000, guid: 8f5d89e8f3eae914fa61086abe6f839f, type: 3}
+    Source: {fileID: 0}
+    Mixer: {fileID: 24300002, guid: fb310e2a97e602048921023c6ce9a9d6, type: 2}
+    Volume: 1
+    Pitch: 1
+    Loop: 1
+    Mute: 0
+  - Name: ZBDevTrack2
+    Clip: {fileID: 8300000, guid: 054fbd75cdb65fc4f995ebd6317e2b02, type: 3}
+    Source: {fileID: 0}
+    Mixer: {fileID: 24300002, guid: fb310e2a97e602048921023c6ce9a9d6, type: 2}
+    Volume: 1
+    Pitch: 1
+    Loop: 1
+    Mute: 0
+  - Name: ZBDevTrack3
+    Clip: {fileID: 8300000, guid: 3f66886daf87d1747bb7f3a96eb87d2f, type: 3}
+    Source: {fileID: 0}
+    Mixer: {fileID: 24300002, guid: fb310e2a97e602048921023c6ce9a9d6, type: 2}
+    Volume: 1
+    Pitch: 1
+    Loop: 1
+    Mute: 0
+--- !u!33 &2785048927026818227
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2774945677977826735
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 889a3c18e45ad6348ae5fbaf41b54f12, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8340538791464096455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b0c36924b1d69489a4e4bb35e900a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audio: {fileID: 2830325474541749705}
+  PlaySongs: 0
+  SongArray:
+  - ZBDevTrack
+  - ZBDevTrack2
+  - ZBDevTrack3

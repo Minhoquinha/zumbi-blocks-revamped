@@ -726,6 +726,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5639030988293468309}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1247322083 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5639030989473607536, guid: 09689a1710507414baee1997b8df8a80,
+    type: 3}
+  m_PrefabInstance: {fileID: 5639030988293468309}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247322081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506972bfbf6be7042ab8e5b959b200ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1259402040 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5269305306693304385, guid: 1c9d4ba68700bd14a9993b39b07af66f,
@@ -1083,6 +1095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Logo
+      objectReference: {fileID: 0}
+    - target: {fileID: 373690617631058137, guid: bc2f66b62d199454f80354457967cb2e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 373690617631058138, guid: bc2f66b62d199454f80354457967cb2e,
         type: 3}
@@ -2020,6 +2037,11 @@ PrefabInstance:
       propertyPath: MenuPanels.Array.data[9]
       value: 
       objectReference: {fileID: 4947464486729868196}
+    - target: {fileID: 2830304706114891425, guid: b6250a637c42f85468268e1948c87f3f,
+        type: 3}
+      propertyPath: OptionsManagerScript
+      value: 
+      objectReference: {fileID: 1247322083}
     - target: {fileID: 4623228362473705712, guid: b6250a637c42f85468268e1948c87f3f,
         type: 3}
       propertyPath: MouseSensitivitySlider
@@ -2352,6 +2374,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MenuBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946564008952727100, guid: f298b929ffa92454c97e7fd06808fd98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2946564008952727107, guid: f298b929ffa92454c97e7fd06808fd98,
         type: 3}
@@ -3665,6 +3692,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainMenuPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468339579119471763, guid: ac6a5dfc4c9efda4b8f38f4dd8a40b68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6468339579132498418, guid: ac6a5dfc4c9efda4b8f38f4dd8a40b68,
         type: 3}

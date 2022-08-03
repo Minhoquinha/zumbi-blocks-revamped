@@ -305,16 +305,16 @@ MonoBehaviour:
       type: 3}
     Default: 1
     Active: 1
-    Chance: 20
+    Chance: 40
   - ZombiePrefab: {fileID: 8759988696209381223, guid: d52f3e1c5169a6347b705f8e9704fbe5,
       type: 3}
     Default: 0
-    Active: 1
-    Chance: 20
+    Active: 0
+    Chance: 10
   ZombieAmount: 40
   ZombieKillPercent: 80
   ZombieDeathCount: 1
-  PrintWaveInfo: 0
+  PrintWaveInfo: 1
   SpawnerFinder: 1
   SpawnerArray:
   - {fileID: 0}

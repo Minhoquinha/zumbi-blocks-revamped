@@ -54,6 +54,9 @@ public class OptionsManager : MonoBehaviour
                 GraphicsQualityArray [i] = GraphicsQualityDropdown.options[i].text;
             }
         }
+
+        SetDefaultOptions();
+        LoadOptions();
     }
 
     public void SetResolution (int ResolutionIndex)
@@ -100,5 +103,58 @@ public class OptionsManager : MonoBehaviour
         }
 
         OptionsScript.GraphicsQuality = Quality;
+    }
+
+    public void SetDefaultOptions ()
+    {
+        OptionsScript.Resolution = 0;
+        OptionsScript.Fullscreen = true;
+        OptionsScript.Volume = -40f;
+        OptionsScript.GraphicsQuality = 3;
+
+        //Save OptionsScript to a .json file//
+        string DefaultOptionsJSON = JsonUtility.ToJson(OptionsScript);
+        File.WriteAllText(Application.dataPath + "/defaultoptions.json", DefaultOptionsJSON);
+
+        if (!File.Exists(Application.dataPath + "/options.json"))
+        {
+            File.WriteAllText(Application.dataPath + "/options.json", DefaultOptionsJSON);
+        }
+        //Save OptionsScript to a .json file//
+    }
+
+    public void ResetAllOptions ()
+    {
+        if (File.Exists(Application.dataPath + "/defaultoptions.json"))
+        {
+            string DefaultOptionsJSON = File.ReadAllText(Application.dataPath + "/defaultoptions.json");
+            JsonUtility.FromJsonOverwrite(DefaultOptionsJSON, OptionsScript);
+        }
+    }
+
+    public void LoadOptions ()
+    {
+        if (File.Exists(Application.dataPath + "/options.json"))
+        {
+            string OptionsJSON = File.ReadAllText(Application.dataPath + "/options.json");
+            JsonUtility.FromJsonOverwrite(OptionsJSON, OptionsScript);
+        }
+        else
+        {
+            ResetAllOptions();
+        }
+
+        SetResolution(OptionsScript.Resolution);
+        SetFullscreen(OptionsScript.Fullscreen);
+        SetVolume(OptionsScript.Volume);
+        SetGraphicsQuality(OptionsScript.GraphicsQuality);
+    }
+
+    public void SaveOptions()
+    {
+        //Save OptionsScript to a .json file//
+        string OptionsJSON = JsonUtility.ToJson(OptionsScript);
+        File.WriteAllText(Application.dataPath + "/options.json", OptionsJSON);
+        //Save OptionsScript to a .json file//
     }
 }

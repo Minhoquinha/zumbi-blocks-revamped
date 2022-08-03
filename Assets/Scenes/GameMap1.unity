@@ -1277,16 +1277,6 @@ PrefabInstance:
       propertyPath: PauseMenuPanel
       value: 
       objectReference: {fileID: 463481843}
-    - target: {fileID: 2830005631103894085, guid: b6250a637c42f85468268e1948c87f3f,
-        type: 3}
-      propertyPath: PrintWaveInfo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2830005631103894085, guid: b6250a637c42f85468268e1948c87f3f,
-        type: 3}
-      propertyPath: ZombieArray.Array.data[1].Active
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2830304706114891425, guid: b6250a637c42f85468268e1948c87f3f,
         type: 3}
       propertyPath: Sun

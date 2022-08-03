@@ -116,7 +116,7 @@ public class ControlsManager : MonoBehaviour
         SaveControls();
     }
 
-    void SetDefaultControls()
+    public void SetDefaultControls()
     {
         MouseSensitivity = 6f;
 

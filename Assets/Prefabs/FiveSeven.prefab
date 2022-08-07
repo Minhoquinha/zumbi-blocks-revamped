@@ -5323,7 +5323,7 @@ MonoBehaviour:
   AimingSpreadDivisor: 1.4
   AimingFieldOfView: 0
   StandingSpread: 18
-  WalkingSpread: 28
+  WalkingSpread: 25
   CrouchingSpread: 12
   AerialSpread: 180
   CurrentSpread: 0

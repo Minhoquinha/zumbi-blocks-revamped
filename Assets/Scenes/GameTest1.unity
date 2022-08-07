@@ -2923,16 +2923,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RPG-7
       objectReference: {fileID: 0}
-    - target: {fileID: 2046866468008311495, guid: 99b90b901089d964fb05ed14c139f766,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6066190774142393805, guid: 99b90b901089d964fb05ed14c139f766,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7148973706599306813, guid: 99b90b901089d964fb05ed14c139f766,
         type: 3}
       propertyPath: m_RootOrder
@@ -6146,11 +6136,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: USP-S
-      objectReference: {fileID: 0}
-    - target: {fileID: 821393700064992115, guid: d0534c879136c00468b34d43ed0af9f2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0534c879136c00468b34d43ed0af9f2, type: 3}
@@ -9444,30 +9429,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2491359412520692937, guid: fa9f3602521f1084897d1dcb824f3ea6,
-        type: 3}
-      propertyPath: MaxRange
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 2491359412520692937, guid: fa9f3602521f1084897d1dcb824f3ea6,
-        type: 3}
-      propertyPath: NoSpread
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2491359412520692937, guid: fa9f3602521f1084897d1dcb824f3ea6,
-        type: 3}
-      propertyPath: ShowImpacts
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4240665353520888713, guid: fa9f3602521f1084897d1dcb824f3ea6,
         type: 3}
       propertyPath: m_Name
       value: Glock
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240665353520888713, guid: fa9f3602521f1084897d1dcb824f3ea6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4240665353520888714, guid: fa9f3602521f1084897d1dcb824f3ea6,
         type: 3}
@@ -12588,21 +12553,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1362788482618780294, guid: 696c62133a79bde409356885abaec1c6,
-        type: 3}
-      propertyPath: MaxRange
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1362788482618780294, guid: 696c62133a79bde409356885abaec1c6,
-        type: 3}
-      propertyPath: NoSpread
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1362788482618780294, guid: 696c62133a79bde409356885abaec1c6,
-        type: 3}
-      propertyPath: ShowImpacts
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8077441490139240287, guid: 696c62133a79bde409356885abaec1c6,
         type: 3}
       propertyPath: m_RootOrder
@@ -12662,11 +12612,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DesertEagle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8186683411319930810, guid: 696c62133a79bde409356885abaec1c6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696c62133a79bde409356885abaec1c6, type: 3}
@@ -13637,11 +13582,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FiveSeven
-      objectReference: {fileID: 0}
-    - target: {fileID: 7947760654095444106, guid: 093a45d7f69e0684bb776e33e0c2e10a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 093a45d7f69e0684bb776e33e0c2e10a, type: 3}

@@ -5201,7 +5201,7 @@ MonoBehaviour:
   Damage: 45
   Penetration: 160
   DamageDropoffResistance: 600
-  MaxRange: 200
+  MaxRange: 300
   FireRate: 4
   CurrentFireDelay: 0
   HeadshotDamageMultiplier: 2
@@ -5210,9 +5210,9 @@ MonoBehaviour:
   ArmshotDamageMultiplier: 0.75
   AimingSpreadDivisor: 1.4
   AimingFieldOfView: 60
-  StandingSpread: 20
+  StandingSpread: 17
   WalkingSpread: 90
-  CrouchingSpread: 10
+  CrouchingSpread: 12
   AerialSpread: 300
   CurrentSpread: 0
   RecoilResetTime: 0.2

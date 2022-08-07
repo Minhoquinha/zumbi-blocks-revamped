@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3328426939659478296
 Transform:
   m_ObjectHideFlags: 0
@@ -339,8 +339,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4240665353520888713}
-  m_LocalRotation: {x: -0.0000017707281, y: -0.0000000018159562, z: 0.000005064371,
-    w: -1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -397,7 +396,7 @@ MonoBehaviour:
   Damage: 14
   Penetration: 100
   DamageDropoffResistance: 200
-  MaxRange: 100
+  MaxRange: 300
   FireRate: 7
   CurrentFireDelay: 0.2
   HeadshotDamageMultiplier: 2
@@ -1050,7 +1049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3203807675578353533
 Transform:
   m_ObjectHideFlags: 0

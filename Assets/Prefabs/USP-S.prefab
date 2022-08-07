@@ -84,7 +84,7 @@ MonoBehaviour:
   ProjectileBased: 0
   BulletCount: 1
   Damage: 18
-  Penetration: 95
+  Penetration: 100
   DamageDropoffResistance: 190
   MaxRange: 300
   FireRate: 6
@@ -96,7 +96,7 @@ MonoBehaviour:
   AimingSpreadDivisor: 2
   AimingFieldOfView: 60
   StandingSpread: 18
-  WalkingSpread: 25
+  WalkingSpread: 28
   CrouchingSpread: 14
   AerialSpread: 200
   CurrentSpread: 0

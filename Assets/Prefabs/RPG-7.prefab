@@ -5179,9 +5179,9 @@ MonoBehaviour:
   ArmshotDamageMultiplier: 0.75
   AimingSpreadDivisor: 2
   AimingFieldOfView: 60
-  StandingSpread: 300
-  WalkingSpread: 300
-  CrouchingSpread: 300
+  StandingSpread: 15
+  WalkingSpread: 15
+  CrouchingSpread: 15
   AerialSpread: 300
   CurrentSpread: 0
   RecoilResetTime: 0.5

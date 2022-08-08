@@ -5215,7 +5215,7 @@ MonoBehaviour:
   CrouchingSpread: 12
   AerialSpread: 300
   CurrentSpread: 0
-  RecoilResetTime: 0.2
+  RecoilResetTime: 0.5
   LastShotTime: 0
   RecoilPattern:
   - {x: -1, y: 0, z: 0}

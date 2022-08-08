@@ -397,7 +397,7 @@ MonoBehaviour:
   Penetration: 100
   DamageDropoffResistance: 200
   MaxRange: 300
-  FireRate: 7
+  FireRate: 8
   CurrentFireDelay: 0.2
   HeadshotDamageMultiplier: 2
   BodyshotDamageMultiplier: 1
@@ -410,27 +410,27 @@ MonoBehaviour:
   CrouchingSpread: 16
   AerialSpread: 200
   CurrentSpread: 0
-  RecoilResetTime: 0.2
+  RecoilResetTime: 0.5
   LastShotTime: 0
   RecoilPattern:
   - {x: -0.2, y: 0, z: 0}
-  - {x: -0.3, y: 0.05, z: 0}
-  - {x: -0.3, y: 0.05, z: 0}
-  - {x: -0.3, y: 0.05, z: 0}
-  - {x: -0.6, y: -0.2, z: 0}
-  - {x: -0.6, y: -0.2, z: 0}
-  - {x: -0.6, y: -0.2, z: 0}
-  - {x: -0.6, y: -0.2, z: 0}
-  - {x: -0.2, y: 0.4, z: 0}
-  - {x: -0.2, y: 0.4, z: 0}
-  - {x: -0.2, y: 0.4, z: 0}
-  - {x: -0.2, y: 0.4, z: 0}
-  - {x: -0.2, y: 0.4, z: 0}
-  - {x: -0.2, y: -0.4, z: 0}
-  - {x: -0.2, y: -0.4, z: 0}
-  - {x: -0.2, y: -0.4, z: 0}
-  - {x: -0.2, y: -0.4, z: 0}
-  - {x: -0.2, y: -0.4, z: 0}
+  - {x: -0.15, y: 0.05, z: 0}
+  - {x: -0.15, y: -0.05, z: 0}
+  - {x: -0.05, y: 0.05, z: 0}
+  - {x: -0.05, y: -0.05, z: 0}
+  - {x: 0, y: -0.1, z: 0}
+  - {x: 0.15, y: 0.15, z: 0}
+  - {x: 0, y: -0.2, z: 0}
+  - {x: 0, y: -0.05, z: 0}
+  - {x: -0.1, y: 0.15, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0.05, z: 0}
+  - {x: -0.2, y: 0, z: 0}
+  - {x: 0, y: -0.1, z: 0}
+  - {x: 0, y: 0.2, z: 0}
+  - {x: 0, y: -0.05, z: 0}
+  - {x: 0.1, y: 0.05, z: 0}
+  - {x: -0.15, y: -0.1, z: 0}
   CurrentRecoilIndex: 0
   RecoilDivergence: {x: 0, y: 0, z: 0}
   ReloadDelay: 1

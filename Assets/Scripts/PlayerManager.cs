@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour 
@@ -6,6 +7,10 @@ public class PlayerManager : MonoBehaviour
     [Header("Main")]
     public static PlayerManager Instance;
     public string PlayerDeathText; //Text that shows when a player dies//
+
+    [Header("Default Loadout")]
+    public bool GiveLoadout = true;
+    public Item [] InventorySlots;
 
     [Header("Main References")]
     [Space(50)]
@@ -49,11 +54,47 @@ public class PlayerManager : MonoBehaviour
         {
             Transform CurrentPlayer = SpawnerArray [RandomSpawner].Spawn(Player);
 
+            if (GiveLoadout)
+            {
+                foreach (Item CurrentItem in InventorySlots)
+                {
+                    StartCoroutine(GiveLoadoutItem(CurrentPlayer, SpawnLoadoutItem(CurrentItem)));
+                }
+            }
+
             Debug.Log("Player " + CurrentPlayer.name + " spawned;");
         }
         else
         {
             Debug.LogError("Null Spawner used to spawn Player " + Player.name + ";");
+        }
+    }
+
+    public Item SpawnLoadoutItem (Item CurrentItem)
+    {
+        if (CurrentItem != null)
+        {
+            Item CurrentItemInstance = Instantiate(CurrentItem, transform);
+            return CurrentItemInstance;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public IEnumerator GiveLoadoutItem (Transform CurrentPlayer, Item CurrentItemInstance)
+    {
+        yield return new WaitForSeconds(0.4f);
+
+        if (CurrentItemInstance != null)
+        {
+            Transform CurrentPlayerCamera = CurrentPlayer.GetComponentInChildren<Camera>().transform;
+            PlayerInventory PlayerInventoryScript = CurrentPlayer.GetComponent<PlayerInventory>();
+            CurrentItemInstance.transform.position = CurrentPlayerCamera.position;
+            CurrentItemInstance.transform.rotation = CurrentPlayerCamera.rotation;
+
+            PlayerInventoryScript.PickUpItem(CurrentItemInstance);
         }
     }
 

@@ -44,17 +44,15 @@ public class EnemyStats : MonoBehaviour
     private Collider MainCollider;
     private Collider[] RagdollColliders;
     private ParticleSystem BloodEruption;
-    private int BloodExplosionIndex = 0;
     public Material AliveMaterial;
     public Material DeadMaterial;
     public GameObject Graphics;
     public GameObject AttackEffect;
 
-    public ImpactEffectCollection ImpactEffectCollectionScript;
-    private GameObject [] ImpactEffectArray; //Array for impact effects, each index represent the surface the bullet has hit//
-    private int FleshEffectIndex;
-    private int MetalEffectIndex;
     private GameManager GameManagerScript;
+    private ScriptableObjectManager ScriptableObjectManagerScript;
+    private PhysicMaterialCollection PhysicMaterialCollectionScript;
+    private ImpactEffectCollection ImpactEffectCollectionScript;
     public WaveSpawner Spawner;
     [HideInInspector]
     public PlayerStats [] TargetStats;
@@ -65,19 +63,15 @@ public class EnemyStats : MonoBehaviour
     void Awake ()
     {
         GameManagerScript = FindObjectOfType<GameManager>();
+        ScriptableObjectManagerScript = GameManagerScript.GetComponent<ScriptableObjectManager>();
+        PhysicMaterialCollectionScript = ScriptableObjectManagerScript.PhysicMaterialCollectionScript;
+        ImpactEffectCollectionScript = ScriptableObjectManagerScript.ImpactEffectCollectionScript;
 
         MainRigidbody = GetComponent<Rigidbody>();
         MainCollider = GetComponent<Collider>();
         RagdollRigidbodies = GetComponentsInChildren<Rigidbody>();
         RagdollColliders = GetComponentsInChildren<Collider>();
         BloodEruption = GetComponentInChildren<ParticleSystem>();
-
-        if (ImpactEffectCollectionScript != null)
-        {
-            FleshEffectIndex = ImpactEffectCollectionScript.FleshEffectIndex;
-            MetalEffectIndex = ImpactEffectCollectionScript.MetalEffectIndex;
-            BloodExplosionIndex = ImpactEffectCollectionScript.BloodExplosionIndex;
-        }
 
         for (int i = 0; i < RagdollColliders.Length; i++)
         {
@@ -233,7 +227,7 @@ public class EnemyStats : MonoBehaviour
                             BloodEruption.Play();
                         }
 
-                        GameObject BloodExplosion = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray[BloodExplosionIndex], RagdollPart.transform.position, Random.rotation);
+                        GameObject BloodExplosion = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray[ImpactEffectCollection.BloodExplosionIndex], RagdollPart.transform.position, Random.rotation);
 
                         Destroy(RagdollPart.gameObject);
                         Destroy(BloodExplosion, 5f);
@@ -344,6 +338,7 @@ public class EnemyStats : MonoBehaviour
 
         PlayerStats Player = HitObject.transform.GetComponentInParent<PlayerStats>();
         Destructible DestructibleObject = HitObject.transform.GetComponentInParent<Destructible>();
+        PhysicMaterial HitObjectMaterial = HitObject.transform.GetComponentInParent<Collider>().sharedMaterial;
         EnemyStats Ally = HitObject.transform.GetComponentInParent<EnemyStats>();
         GameObject Impact;
 
@@ -353,8 +348,6 @@ public class EnemyStats : MonoBehaviour
             {
                 Player.Hurt(AttackDamage);
             }
-
-            HitEffectIndex = FleshEffectIndex;
         }
         else if (DestructibleObject != null)
         {
@@ -362,21 +355,12 @@ public class EnemyStats : MonoBehaviour
             {
                 DestructibleObject.Hurt(AttackDamage, AttackPenetration);
             }
-
-            HitEffectIndex = MetalEffectIndex;
-        }
-        else if (Ally != null)
-        {
-            HitEffectIndex = FleshEffectIndex;
-        }
-        else
-        {
-            //Check object material to change HitEffectIndex//
-            HitEffectIndex = MetalEffectIndex;
         }
 
-        if (ImpactEffectCollectionScript != null)
+        if (Ally == null)
         {
+            HitEffectIndex = PhysicMaterialCollectionScript.SetImpact(HitObjectMaterial);
+
             Impact = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray [HitEffectIndex], HitObject.point, Quaternion.LookRotation(HitObject.normal));
             Destroy(Impact, 2f);
         }

@@ -121,8 +121,6 @@ MonoBehaviour:
   ExplosionEffect: {fileID: 5804375730883325265, guid: 531bf16b3e0dfff47ba491f97b4c7a41,
     type: 3}
   ExplosiveOwner: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!54 &1330154907022000403
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -138,4 +136,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

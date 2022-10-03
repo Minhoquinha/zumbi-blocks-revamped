@@ -127,10 +127,9 @@ public class Guns : MonoBehaviour
 
     private GameManager GameManagerScript;
     private ControlsManager ControlsManagerScript;
-    public ImpactEffectCollection ImpactEffectCollectionScript;
-    private int FleshEffectIndex;
-    private int MetalEffectIndex;
-    private int DebugEffectIndex;
+    private ScriptableObjectManager ScriptableObjectManagerScript;
+    private PhysicMaterialCollection PhysicMaterialCollectionScript;
+    private ImpactEffectCollection ImpactEffectCollectionScript;
 
     void Awake()
     {
@@ -143,6 +142,9 @@ public class Guns : MonoBehaviour
 
         GameManagerScript = FindObjectOfType<GameManager>();
         ControlsManagerScript = GameManagerScript.GetComponent<ControlsManager>();
+        ScriptableObjectManagerScript = GameManagerScript.GetComponent<ScriptableObjectManager>();
+        PhysicMaterialCollectionScript = ScriptableObjectManagerScript.PhysicMaterialCollectionScript;
+        ImpactEffectCollectionScript = ScriptableObjectManagerScript.ImpactEffectCollectionScript;
 
         if (ModelEquipped != null)
         {
@@ -152,10 +154,6 @@ public class Guns : MonoBehaviour
 
         ItemScript = GetComponent<Item>();
         ItemScript.CheckItemType();
-
-        FleshEffectIndex = ImpactEffectCollectionScript.FleshEffectIndex;
-        MetalEffectIndex = ImpactEffectCollectionScript.MetalEffectIndex;
-        DebugEffectIndex = ImpactEffectCollectionScript.DebugEffectIndex;
 
         Ammo = AmmoCapacity;
 
@@ -708,6 +706,7 @@ public class Guns : MonoBehaviour
         EnemyStats Enemy = HitObject.transform.GetComponentInParent<EnemyStats>();
         PlayerStats OtherPlayer = HitObject.transform.GetComponentInParent<PlayerStats>();
         Destructible DestructibleObject = HitObject.transform.GetComponentInParent<Destructible>();
+        PhysicMaterial HitObjectMaterial = HitObject.transform.GetComponentInParent<Collider>().sharedMaterial;
         GameObject Impact;
 
         if (Enemy != null)
@@ -793,8 +792,6 @@ public class Guns : MonoBehaviour
                     HUD.Hitmarker.CrossFadeAlpha(0f, HUD.HitmarkerDuration, false);
                 }
             }
-
-            HitEffectIndex = FleshEffectIndex;
         }
         else if (OtherPlayer != null)
         {
@@ -808,8 +805,6 @@ public class Guns : MonoBehaviour
                     HUD.Hitmarker.CrossFadeAlpha(0f, HUD.HitmarkerDuration, false);
                 }
             }
-
-            HitEffectIndex = FleshEffectIndex;
         }
         else if (DestructibleObject != null)
         {
@@ -823,14 +818,9 @@ public class Guns : MonoBehaviour
                     HUD.Hitmarker.CrossFadeAlpha(0f, HUD.HitmarkerDuration, false);
                 }
             }
+        }
 
-            HitEffectIndex = MetalEffectIndex;
-        }
-        else
-        {
-            //Check object material to change HitEffectIndex//
-            HitEffectIndex = MetalEffectIndex;
-        }
+        HitEffectIndex = PhysicMaterialCollectionScript.SetImpact(HitObjectMaterial);
 
         Impact = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray [HitEffectIndex], HitObject.point, Quaternion.LookRotation(HitObject.normal));
         Destroy(Impact, 2f);
@@ -838,7 +828,7 @@ public class Guns : MonoBehaviour
         if (ShowImpacts)
         {
             GameObject DebugImpact;
-            DebugImpact = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray [DebugEffectIndex], HitObject.point, Quaternion.LookRotation(HitObject.normal));
+            DebugImpact = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray [ImpactEffectCollection.DebugEffectIndex], HitObject.point, Quaternion.LookRotation(HitObject.normal));
             Destroy(DebugImpact, 120f);
         }
     }

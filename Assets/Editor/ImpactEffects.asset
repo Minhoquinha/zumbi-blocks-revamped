@@ -15,20 +15,23 @@ MonoBehaviour:
   ImpactEffectArray:
   - {fileID: 1812071749108846, guid: 2b20b6a2479cc024b8ce8c7961a64562, type: 3}
   - {fileID: 1030288030950182, guid: 76585a6d8119842408207ac6c36a295a, type: 3}
+  - {fileID: 3164429741704026800, guid: be76652427091dc499279f35eb210e8d, type: 3}
+  - {fileID: 4161539913046879781, guid: 3eecc39d27c50c84c9fb67ae2c99da52, type: 3}
+  - {fileID: 381647515929077054, guid: aa26363d90468b24fbd49dffda28daee, type: 3}
+  - {fileID: 4851186638985206340, guid: 3f17e0213b60a6e48bb73360105cf4a1, type: 3}
   - {fileID: 3706706462444679705, guid: d5397c0589fdfb44aa1a7680381b49fb, type: 3}
-  - {fileID: 4851186638985206340, guid: 3f17e0213b60a6e48bb73360105cf4a1, type: 3}
   - {fileID: 1709710060597126770, guid: d7d7abe0641c89344a7f965eb810aee2, type: 3}
-  - {fileID: 5804375730883325265, guid: 531bf16b3e0dfff47ba491f97b4c7a41, type: 3}
-  - {fileID: 4851186638985206340, guid: 3f17e0213b60a6e48bb73360105cf4a1, type: 3}
-  - {fileID: 4851186638985206340, guid: 3f17e0213b60a6e48bb73360105cf4a1, type: 3}
-  - {fileID: 4851186638985206340, guid: 3f17e0213b60a6e48bb73360105cf4a1, type: 3}
-  - {fileID: 4851186638985206340, guid: 3f17e0213b60a6e48bb73360105cf4a1, type: 3}
+  - {fileID: 3164429741704026800, guid: be76652427091dc499279f35eb210e8d, type: 3}
+  - {fileID: 3164429741704026800, guid: be76652427091dc499279f35eb210e8d, type: 3}
   - {fileID: 3439723401022700916, guid: 8e1006da53ae33b449389c1f7560496a, type: 3}
-  - {fileID: 4851186638985206340, guid: 3f17e0213b60a6e48bb73360105cf4a1, type: 3}
+  - {fileID: 3164429741704026800, guid: be76652427091dc499279f35eb210e8d, type: 3}
   Description: Impact effects.
   FleshEffectIndex: 0
   MetalEffectIndex: 1
-  BloodEruptionIndex: 2
-  BloodExplosionIndex: 3
-  ObjectDestructionIndex: 4
+  ConcreteEffectIndex: 2
+  WoodEffectIndex: 3
+  PlasticEffectIndex: 4
+  BloodExplosionIndex: 5
+  BloodEruptionIndex: 6
+  ObjectDestructionIndex: 7
   DebugEffectIndex: 10

@@ -90,7 +90,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4758903761925550689}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5100e02045b4d4a4abaa6943e1518c99, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -125,5 +125,5 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 32230c0f2332aef4cb7828d14d00439e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 57ffe59ca4c6fd540bdb1b05e3922379, type: 2}
   m_BuildHeightMesh: 0

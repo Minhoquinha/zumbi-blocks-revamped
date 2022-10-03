@@ -1038,8 +1038,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!54 &1785212900
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1395,21 +1393,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 614520680738587563, guid: 8d066720200b61b4e9688f197e5b413f,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 614520680738587563, guid: 8d066720200b61b4e9688f197e5b413f,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 6.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 614520680738587563, guid: 8d066720200b61b4e9688f197e5b413f,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 6.6
-      objectReference: {fileID: 0}
     - target: {fileID: 614520681093257307, guid: 8d066720200b61b4e9688f197e5b413f,
         type: 3}
       propertyPath: m_RootOrder
@@ -1464,21 +1447,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 614520681093257308, guid: 8d066720200b61b4e9688f197e5b413f,
-        type: 3}
-      propertyPath: m_Height
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 614520681093257308, guid: 8d066720200b61b4e9688f197e5b413f,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 614520681093257308, guid: 8d066720200b61b4e9688f197e5b413f,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 614520681093257310, guid: 8d066720200b61b4e9688f197e5b413f,
         type: 3}
@@ -2361,8 +2329,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!114 &970623415679065383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,8 +2360,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!82 &972768695644384538
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13099,11 +13063,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6841325796245173646, guid: 83d4c5c952d91a9419c06cffa77e8c4a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8505860708434973841, guid: 83d4c5c952d91a9419c06cffa77e8c4a,
         type: 3}
       propertyPath: m_RootOrder
@@ -18577,8 +18536,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!4 &2235057841311841642
 Transform:
   m_ObjectHideFlags: 0
@@ -23955,11 +23912,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4834508877614312989, guid: e094aaeecab618b46bc3ac2e709022eb,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6518456347286580252, guid: e094aaeecab618b46bc3ac2e709022eb,
         type: 3}
       propertyPath: m_RootOrder
@@ -24019,21 +23971,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ThrownGlowstick
-      objectReference: {fileID: 0}
-    - target: {fileID: 8059222895752255158, guid: e094aaeecab618b46bc3ac2e709022eb,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8059222895752255158, guid: e094aaeecab618b46bc3ac2e709022eb,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 8591321293422308928, guid: e094aaeecab618b46bc3ac2e709022eb,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e094aaeecab618b46bc3ac2e709022eb, type: 3}
@@ -24975,8 +24912,6 @@ MonoBehaviour:
   Muzzle: {fileID: 8775505113892850395}
   ReloadSound: {fileID: 86784902968005289}
   NoAmmoSound: {fileID: 972768695644384538}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!1 &3289570503745184743
 GameObject:
   m_ObjectHideFlags: 0
@@ -25382,8 +25317,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 8379280418453198973}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!82 &3608529990235642977
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30943,8 +30876,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!1 &4367735413931611346
 GameObject:
   m_ObjectHideFlags: 0
@@ -30992,8 +30923,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!65 &4381449466930089923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31155,8 +31084,6 @@ MonoBehaviour:
   Muzzle: {fileID: 9009698626999036531}
   ReloadSound: {fileID: 7545200995724728075}
   NoAmmoSound: {fileID: 2282413906508793332}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!4 &4494501411483399597
 Transform:
   m_ObjectHideFlags: 0
@@ -31559,8 +31486,6 @@ MonoBehaviour:
   Muzzle: {fileID: 4294135742925271142}
   ReloadSound: {fileID: 5495398069724168381}
   NoAmmoSound: {fileID: 5629302227105312797}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!82 &4670389491165818906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -32304,8 +32229,6 @@ MonoBehaviour:
   Muzzle: {fileID: 5418629868753837569}
   ReloadSound: {fileID: 1888495006773467461}
   NoAmmoSound: {fileID: 6390925547658201116}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!4 &5132549378455596870
 Transform:
   m_ObjectHideFlags: 0
@@ -32351,8 +32274,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!54 &5164716803596635617
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32501,8 +32422,6 @@ MonoBehaviour:
   Muzzle: {fileID: 1518329905452455848}
   ReloadSound: {fileID: 1447781119103365199}
   NoAmmoSound: {fileID: 7789892713717982813}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!33 &5216105322526852999
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -45646,8 +45565,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!33 &6911592824132611841
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -51008,8 +50925,6 @@ MonoBehaviour:
   Muzzle: {fileID: 2404369900446579601}
   ReloadSound: {fileID: 7237611997012606610}
   NoAmmoSound: {fileID: 7237611997012606700}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!114 &7237611997012606699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51721,8 +51636,6 @@ MonoBehaviour:
   ExplosionEffect: {fileID: 5804375730883325265, guid: 531bf16b3e0dfff47ba491f97b4c7a41,
     type: 3}
   ExplosiveOwner: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!54 &7606917275666881617
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -56785,8 +56698,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 919132148430402366}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!82 &7789892713717982813
 AudioSource:
   m_ObjectHideFlags: 0
@@ -57735,8 +57646,6 @@ MonoBehaviour:
   Muzzle: {fileID: 6655626372774667343}
   ReloadSound: {fileID: 4600181749432200764}
   NoAmmoSound: {fileID: 7870962489246799866}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!65 &8253205962736781905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58123,8 +58032,6 @@ MonoBehaviour:
   Muzzle: {fileID: 0}
   ReloadSound: {fileID: 2354919446014831513}
   NoAmmoSound: {fileID: 4897123275939876012}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!1 &8452408459657858612
 GameObject:
   m_ObjectHideFlags: 0
@@ -58289,8 +58196,6 @@ MonoBehaviour:
   Muzzle: {fileID: 9096331396309623939}
   ReloadSound: {fileID: 6621941888442555097}
   NoAmmoSound: {fileID: 7365924049437488898}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!65 &8519419914057865857
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58335,8 +58240,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!1 &8558349788114821529
 GameObject:
   m_ObjectHideFlags: 0
@@ -63769,8 +63672,6 @@ MonoBehaviour:
   Muzzle: {fileID: 8874071964216265290}
   ReloadSound: {fileID: 7818806683943970131}
   NoAmmoSound: {fileID: 3424062576698898867}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!1001 &8820907101335672418
 PrefabInstance:
   m_ObjectHideFlags: 0

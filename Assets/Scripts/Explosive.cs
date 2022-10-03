@@ -22,16 +22,21 @@ public class Explosive : MonoBehaviour
     public GameObject ExplosionEffect;
     [HideInInspector]
     public PlayerStats ExplosiveOwner;
-    public ImpactEffectCollection ImpactEffectCollectionScript;
-    private GameObject [] ImpactEffectArray; //Array for impact effects, each index represent the surface the bullet has hit//
-    private int FleshEffectIndex;
-    private int MetalEffectIndex;
+    private GameManager GameManagerScript;
+    private ScriptableObjectManager ScriptableObjectManagerScript;
+    private PhysicMaterialCollection PhysicMaterialCollectionScript;
+    private ImpactEffectCollection ImpactEffectCollectionScript;
+
+    void Awake()
+    {
+        GameManagerScript = FindObjectOfType<GameManager>();
+        ScriptableObjectManagerScript = GameManagerScript.GetComponent<ScriptableObjectManager>();
+        PhysicMaterialCollectionScript = ScriptableObjectManagerScript.PhysicMaterialCollectionScript;
+        ImpactEffectCollectionScript = ScriptableObjectManagerScript.ImpactEffectCollectionScript;
+    }
 
     void Start()
     {
-        FleshEffectIndex = ImpactEffectCollectionScript.FleshEffectIndex;
-        MetalEffectIndex = ImpactEffectCollectionScript.MetalEffectIndex;
-
         if (TimedExplosive)
         {
             StartCoroutine(Explode());
@@ -144,6 +149,7 @@ public class Explosive : MonoBehaviour
         EnemyStats Enemy = HitObject.transform.GetComponentInParent<EnemyStats>();
         PlayerStats Player = HitObject.transform.GetComponentInParent<PlayerStats>();
         Destructible DestructibleObject = HitObject.transform.GetComponentInParent<Destructible>();
+        PhysicMaterial HitObjectMaterial = HitObject.transform.GetComponentInParent<Collider>().sharedMaterial;
         GameObject Impact;
 
         float CurrentFragmentDamage = FragmentDamage / HitDistance;
@@ -154,8 +160,6 @@ public class Explosive : MonoBehaviour
             {
                 Enemy.Hurt(CurrentFragmentDamage, FragmentPenetration, 1f, false);
             }
-
-            HitEffectIndex = FleshEffectIndex;
         }
         else if (Player != null)
         {
@@ -163,8 +167,6 @@ public class Explosive : MonoBehaviour
             {
                 Player.Hurt(CurrentFragmentDamage);
             }
-
-            HitEffectIndex = FleshEffectIndex;
         }
         else if (DestructibleObject != null)
         {
@@ -172,14 +174,9 @@ public class Explosive : MonoBehaviour
             {
                 DestructibleObject.Hurt(CurrentFragmentDamage, FragmentPenetration);
             }
+        }
 
-            HitEffectIndex = MetalEffectIndex;
-        }
-        else
-        {
-            //Check object material to change HitEffectIndex//
-            HitEffectIndex = MetalEffectIndex;
-        }
+        HitEffectIndex = PhysicMaterialCollectionScript.SetImpact(HitObjectMaterial);
 
         Impact = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray [HitEffectIndex], HitObject.point, Quaternion.LookRotation(HitObject.normal));
         Destroy(Impact, 2f);

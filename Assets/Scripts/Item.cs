@@ -71,7 +71,7 @@ public class Item : MonoBehaviour
 
         foreach (Transform Player in PlayerManagerScript.PlayerList)
         {
-            if (UIActive)
+            if (Player != null && UIActive)
             {
                 Camera PlayerCamera = Player.GetComponentInChildren<Camera>();
 

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2785048927026818227}
   - component: {fileID: 2774945677977826735}
   - component: {fileID: 8340538791464096455}
+  - component: {fileID: 1670115311}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -75,10 +76,9 @@ MonoBehaviour:
   UI: {fileID: 2829640071977145257}
   PlayerManagerScript: {fileID: 2830266106579504315}
   ControlsManagerScript: {fileID: 4623228362473705712}
+  ScriptableObjectManagerScript: {fileID: 0}
   WaveSpawnerScript: {fileID: 2830005631103894085}
   LootSpawnerScript: {fileID: 4955813162013777449}
-  ItemCollectionScript: {fileID: 11400000, guid: efed530574612e74cb9c9ad7ac9621f7,
-    type: 2}
   ZombieTextureCollectionScript: {fileID: 11400000, guid: 172d3f1f92226914cb11f73ea908541e,
     type: 2}
 --- !u!114 &2830266106579504315
@@ -94,6 +94,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDeathText: ' DIED.'
+  GiveLoadout: 1
+  InventorySlots:
+  - {fileID: 0}
+  - {fileID: 3996728659653704232, guid: fa9f3602521f1084897d1dcb824f3ea6, type: 3}
+  - {fileID: 6777245346371492626, guid: 315fc65a6758f4d4090d172a45190099, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   SpawnerFinder: 1
   SpawnerArray:
   - {fileID: 0}
@@ -413,6 +425,24 @@ MonoBehaviour:
     Chance: 2
     WaitTime: 30
     CurrentWaitTime: 0
+  - LootPrefab: {fileID: 2855201687636324400, guid: 0f2eae89949dfb7499a734b61cf00e0d,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 1159227000610307451, guid: 63c716dcea3986d4e8d04876701635e4,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 8077441490139240287, guid: 696c62133a79bde409356885abaec1c6,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 30
+    CurrentWaitTime: 0
   SpawnerArray:
   - {fileID: 0}
   - {fileID: 0}
@@ -593,3 +623,21 @@ MonoBehaviour:
   - ZBDevTrack
   - ZBDevTrack2
   - ZBDevTrack3
+--- !u!114 &1670115311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a821f015e299ec48885ca9624871dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemCollectionScript: {fileID: 11400000, guid: efed530574612e74cb9c9ad7ac9621f7,
+    type: 2}
+  PhysicMaterialCollectionScript: {fileID: 11400000, guid: 42f1ecb7efa88be4a90f6466a0d39de6,
+    type: 2}
+  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
+    type: 2}

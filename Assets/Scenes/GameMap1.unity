@@ -8398,7 +8398,7 @@ PrefabInstance:
     - target: {fileID: 1766584330, guid: 2cad93b546427214e83f269e7a1b454e, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 57ffe59ca4c6fd540bdb1b05e3922379,
+      objectReference: {fileID: 23800000, guid: 1f71a0484fafdd2419cb8e1b58b90fb7,
         type: 2}
     - target: {fileID: 4758903761925550689, guid: 2cad93b546427214e83f269e7a1b454e,
         type: 3}
@@ -8888,6 +8888,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClosedBuilding2
       objectReference: {fileID: 0}
+    - target: {fileID: 2946419088740869967, guid: b08359e0841a9ef48a1cc4771a78ad4a,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 5100e02045b4d4a4abaa6943e1518c99,
+        type: 2}
     - target: {fileID: 3416387076451021303, guid: b08359e0841a9ef48a1cc4771a78ad4a,
         type: 3}
       propertyPath: m_RootOrder

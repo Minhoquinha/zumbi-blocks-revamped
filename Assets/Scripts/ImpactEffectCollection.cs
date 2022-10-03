@@ -10,12 +10,16 @@ public class ImpactEffectCollection : ScriptableObject
     public string Description;
 
     [Header ("Impact Effects' Indexes")]
-    public int FleshEffectIndex = 0;
-    public int MetalEffectIndex = 1;
-    public int BloodEruptionIndex = 2;
-    public int BloodExplosionIndex = 3;
-    public int ObjectDestructionIndex = 4;
-    public int DebugEffectIndex = 10;
+    public const int FleshEffectIndex = 0;
+    public const int MetalEffectIndex = 1;
+    public const int ConcreteEffectIndex = 2;
+    public const int WoodEffectIndex = 3;
+    public const int PlasticEffectIndex = 4;
+    public const int BloodExplosionIndex = 5;
+    public const int BloodEruptionIndex = 6;
+    public const int ObjectDestructionIndex = 7;
+
+    public const int DebugEffectIndex = 10;
 
     public GameObject this [int index]
     {

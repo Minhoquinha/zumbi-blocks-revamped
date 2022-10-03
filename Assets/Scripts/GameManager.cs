@@ -45,9 +45,9 @@ public class GameManager : MonoBehaviour
     public UIManager UI;
     public PlayerManager PlayerManagerScript;
     public ControlsManager ControlsManagerScript;
+    public ScriptableObjectManager ScriptableObjectManagerScript;
     public WaveSpawner WaveSpawnerScript;
     public LootSpawner LootSpawnerScript;
-    public ItemCollection ItemCollectionScript;
     public ZombieTextureCollection ZombieTextureCollectionScript;
 
     void Awake()
@@ -58,17 +58,17 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("More than one " + this.name + " loaded;");
+            Debug.LogError("More than one " + this.name + " loaded;");
             return;
         }
     }
 
     void Start()
     {
-        ItemCollectionScript.SetID();
         UI = GetComponent<UIManager>();
         PlayerManagerScript = GetComponent<PlayerManager>();
         ControlsManagerScript = GetComponent<ControlsManager>();
+        ScriptableObjectManagerScript = GetComponent<ScriptableObjectManager>();
         WaveSpawnerScript = GetComponent<WaveSpawner>();
         LootSpawnerScript = GetComponent<LootSpawner>();
         WaveSpawnerScript.SpawnWaves = false;

@@ -21,6 +21,9 @@ public class ControlsManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("Found controls.json file: " + File.Exists(Application.dataPath + "/controls.json"));
+        Debug.Log("Found defaultcontrols.json file: " + File.Exists(Application.dataPath + "/defaultcontrols.json"));
+
         Binding = false;
 
         SetDefaultControls();

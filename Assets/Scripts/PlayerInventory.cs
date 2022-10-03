@@ -63,9 +63,27 @@ public class PlayerInventory : MonoBehaviour
         CurrentDefaultItem = Instantiate(DefaultItem, FPCamera.transform);
         CurrentDefaultItem.transform.position = FPCamera.transform.position;
         CurrentDefaultItem.transform.rotation = FPCamera.transform.rotation;
-        CurrentDefaultItem.GetComponent<Melee>().Load();
-        CurrentDefaultItem.GetComponent<Melee>().Equip();
 
+        Melee CurrentDefaultMelee = CurrentDefaultItem.GetComponent<Melee>();
+        if (CurrentDefaultMelee != null)
+        {
+            CurrentDefaultMelee.Load();
+            CurrentDefaultMelee.Equip();
+        }
+
+        Guns CurrentDefaultGun = CurrentDefaultItem.GetComponent<Guns>();
+        if (CurrentDefaultGun != null)
+        {
+            CurrentDefaultGun.Load();
+            CurrentDefaultGun.Equip();
+        }
+
+        UsableItem CurrentDefaultUsable = CurrentDefaultItem.GetComponent<UsableItem>();
+        if (CurrentDefaultUsable != null)
+        {
+            CurrentDefaultUsable.Load();
+            CurrentDefaultUsable.Equip();
+        }
 
         Movement = GetComponent<PlayerMovement>();
         Player = GetComponent<PlayerStats>();
@@ -278,7 +296,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    void PickUpItem(Item PickedItem)
+    public void PickUpItem(Item PickedItem)
     {
         bool InventoryFull = true;
 
@@ -591,7 +609,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    void Interact ()
+    public void Interact ()
     {
         Vector3 InteractionPath = FPCamera.transform.forward;
 
@@ -611,7 +629,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    void DropItem (Quaternion DropRotation)
+    public void DropItem (Quaternion DropRotation)
     {
         if (InventorySlots [SelectedSlot - 1] != null)
         {

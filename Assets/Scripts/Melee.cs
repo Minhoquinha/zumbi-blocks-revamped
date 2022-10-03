@@ -45,10 +45,9 @@ public class Melee : MonoBehaviour
 
     private GameManager GameManagerScript;
     private ControlsManager ControlsManagerScript;
-    public ImpactEffectCollection ImpactEffectCollectionScript;
-    private GameObject [] ImpactEffectArray; //Array for impact effects, each index represent the surface the bullet has hit//
-    private int FleshEffectIndex;
-    private int MetalEffectIndex;
+    private ScriptableObjectManager ScriptableObjectManagerScript;
+    private PhysicMaterialCollection PhysicMaterialCollectionScript;
+    private ImpactEffectCollection ImpactEffectCollectionScript;
 
     private RaycastHit AimPoint;
     private RaycastHit HitPoint;
@@ -57,6 +56,9 @@ public class Melee : MonoBehaviour
     {
         GameManagerScript = FindObjectOfType<GameManager>();
         ControlsManagerScript = GameManagerScript.GetComponent<ControlsManager>();
+        ScriptableObjectManagerScript = GameManagerScript.GetComponent<ScriptableObjectManager>();
+        PhysicMaterialCollectionScript = ScriptableObjectManagerScript.PhysicMaterialCollectionScript;
+        ImpactEffectCollectionScript = ScriptableObjectManagerScript.ImpactEffectCollectionScript;
 
         if (ModelEquipped != null)
         {
@@ -66,9 +68,6 @@ public class Melee : MonoBehaviour
 
         ItemScript = GetComponent<Item>();
         ItemScript.CheckItemType();
-
-        FleshEffectIndex = ImpactEffectCollectionScript.FleshEffectIndex;
-        MetalEffectIndex = ImpactEffectCollectionScript.MetalEffectIndex;
 
         Unequip();
         enabled = false;
@@ -316,6 +315,7 @@ public class Melee : MonoBehaviour
         EnemyStats Enemy = HitObject.transform.GetComponentInParent<EnemyStats>();
         PlayerStats OtherPlayer = HitObject.transform.GetComponentInParent<PlayerStats>();
         Destructible DestructibleObject = HitObject.transform.GetComponentInParent<Destructible>();
+        PhysicMaterial HitObjectMaterial = HitObject.transform.GetComponentInParent<Collider>().sharedMaterial;
         GameObject Impact;
 
         if (Enemy != null)
@@ -330,8 +330,6 @@ public class Melee : MonoBehaviour
                     HUD.Hitmarker.CrossFadeAlpha(0f, HUD.HitmarkerDuration, false);
                 }
             }
-
-            HitEffectIndex = FleshEffectIndex;
         }
         else if (OtherPlayer != null)
         {
@@ -345,8 +343,6 @@ public class Melee : MonoBehaviour
                     HUD.Hitmarker.CrossFadeAlpha(0f, HUD.HitmarkerDuration, false);
                 }
             }
-
-            HitEffectIndex = FleshEffectIndex;
         }
         else if (DestructibleObject != null)
         {
@@ -360,14 +356,9 @@ public class Melee : MonoBehaviour
                     HUD.Hitmarker.CrossFadeAlpha(0f, HUD.HitmarkerDuration, false);
                 }
             }
+        }
 
-            HitEffectIndex = MetalEffectIndex;
-        }
-        else
-        {
-            //Check object material to change HitEffectIndex//
-            HitEffectIndex = MetalEffectIndex;
-        }
+        HitEffectIndex = PhysicMaterialCollectionScript.SetImpact(HitObjectMaterial);
 
         Impact = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray [HitEffectIndex], HitObject.point, Quaternion.LookRotation(HitObject.normal));
         Destroy(Impact, 2f);

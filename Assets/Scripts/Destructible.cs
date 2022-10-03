@@ -17,15 +17,17 @@ public class Destructible : MonoBehaviour
 
     [Header("Main References")]
     [Space(50)]
-    public ImpactEffectCollection ImpactEffectCollectionScript;
     private GameManager GameManagerScript;
-    private int ObjectDestructionIndex;
+    private ScriptableObjectManager ScriptableObjectManagerScript;
+    private PhysicMaterialCollection PhysicMaterialCollectionScript;
+    private ImpactEffectCollection ImpactEffectCollectionScript;
 
     void Awake()
     {
         GameManagerScript = FindObjectOfType<GameManager>();
-
-        ObjectDestructionIndex = ImpactEffectCollectionScript.ObjectDestructionIndex;
+        ScriptableObjectManagerScript = GameManagerScript.GetComponent<ScriptableObjectManager>();
+        PhysicMaterialCollectionScript = ScriptableObjectManagerScript.PhysicMaterialCollectionScript;
+        ImpactEffectCollectionScript = ScriptableObjectManagerScript.ImpactEffectCollectionScript;
     }
 
     void Start()
@@ -56,7 +58,7 @@ public class Destructible : MonoBehaviour
         Dead = true;
         Debug.Log(this.name + " died;");
 
-        GameObject DestructionEffect = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray [ObjectDestructionIndex], transform.position, Quaternion.Euler(transform.up));
+        GameObject DestructionEffect = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray [ImpactEffectCollection.ObjectDestructionIndex], transform.position, Quaternion.Euler(transform.up));
 
         Destroy(DestructionEffect, 2f);
         Destroy(gameObject, DestructionTime);

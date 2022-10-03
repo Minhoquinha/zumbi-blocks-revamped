@@ -23,6 +23,9 @@ public class OptionsManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("Found options.json file: " + File.Exists(Application.dataPath + "/options.json"));
+        Debug.Log("Found defaultoptions.json file: " + File.Exists(Application.dataPath + "/defaultoptions.json"));
+
         if (ResolutionDropdown != null)
         {
             ResolutionArray = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
@@ -57,6 +60,7 @@ public class OptionsManager : MonoBehaviour
 
         SetDefaultOptions();
         LoadOptions();
+        SaveOptions();
     }
 
     public void SetResolution (int ResolutionIndex)

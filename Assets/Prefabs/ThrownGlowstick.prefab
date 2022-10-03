@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5214166271609549991}
   - component: {fileID: 9219900931881253634}
   - component: {fileID: 6347643653623893960}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: GlowStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 5832007665568544176}
   - component: {fileID: 8229429452140486213}
   - component: {fileID: 4282207565831191242}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: ThrownGlowstick
-  m_TagString: Loot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!108 &4282207565831191242
 Light:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6970291869574854633}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

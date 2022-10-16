@@ -424,16 +424,20 @@ AnimatorStateMachine:
     m_Position: {x: -100, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1300060193939754449}
-    m_Position: {x: -100, y: -20, z: 0}
+    m_Position: {x: -100, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9153620130273999569}
-    m_Position: {x: -100, y: 20, z: 0}
+    m_Position: {x: -100, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5870961213627189242}
     m_Position: {x: -520, y: 480, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 509845937136827612}
+<<<<<<< Updated upstream
     m_Position: {x: -300, y: 220, z: 0}
+=======
+    m_Position: {x: -100, y: 130, z: 0}
+>>>>>>> Stashed changes
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: -8389924595623024636}
@@ -537,6 +541,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+<<<<<<< Updated upstream
   - m_Name: MeleeHit
     m_Type: 9
     m_DefaultFloat: 0
@@ -549,6 +554,8 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+=======
+>>>>>>> Stashed changes
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

@@ -18,7 +18,8 @@ public class EnemyStats : MonoBehaviour
 
     [Header("Passive Stats")]
     public float SpawnDelay; //Time it takes for this enemy to spawn.//
-    public float RagdolPartMass;
+    public float FlinchDelay; //Time this enemy takes when flinching.//
+    public float RagdollPartMass;
 
     [Header("Attacking")]
     public float AttackDamage;
@@ -97,7 +98,7 @@ public class EnemyStats : MonoBehaviour
             {
                 RagdollRigidbodies [i].isKinematic = true;
                 RagdollRigidbodies [i].useGravity = false;
-                RagdollRigidbodies [i].mass = RagdolPartMass;
+                RagdollRigidbodies [i].mass = RagdollPartMass;
                 RagdollRigidbodies [i].velocity = new Vector3(0f, 0f, 0f);
                 RagdollRigidbodies [i].angularVelocity = new Vector3(0f, 0f, 0f);
             }
@@ -168,7 +169,7 @@ public class EnemyStats : MonoBehaviour
         AI.Agent.acceleration = CurrentAcceleration;
     }
 
-    public void Hurt(float Damage, float Penetration, float DamageMultiplier, bool Headshot)
+    public void Hurt(float Damage, float Penetration, float DamageMultiplier, bool Headshot, bool Knockback)
     {
         if (Dead)
         {
@@ -181,14 +182,19 @@ public class EnemyStats : MonoBehaviour
 
         if (PrintDamageFactors)
         {
-            print("FinalDamage:" + (Damage * DamageMultiplier / ArmorResistance));
-            print("ArmorResistance:" + ArmorResistance);
+            Debug.Log("FinalDamage:" + (Damage * DamageMultiplier / ArmorResistance));
+            Debug.Log("ArmorResistance:" + ArmorResistance);
         }
 
         if (CurrentHealth <= 0f)
         {
             CurrentHealth = 0f;
             Death(Headshot);
+        }
+        else if (Knockback)
+        {
+            AI.Flinch();
+            StopAllCoroutines();
         }
     }
 
@@ -249,6 +255,7 @@ public class EnemyStats : MonoBehaviour
                 CurrentSpeed = SpeedWhileAttacking;
                 CurrentAngularSpeed = AngularSpeedWhileAttacking;
                 CurrentAcceleration = AccelerationWhileAttacking;
+
                 StartCoroutine(Attack(TargetHeight));
             }
         }

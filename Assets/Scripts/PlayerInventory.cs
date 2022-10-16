@@ -591,7 +591,6 @@ public class PlayerInventory : MonoBehaviour
 
             if (ItemRigidbody != null)
             {
-                ItemRigidbody.isKinematic = true;
                 ItemRigidbody.useGravity = false;
                 ItemRigidbody.velocity = new Vector3(0f, 0f, 0f);
                 ItemRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
@@ -605,7 +604,7 @@ public class PlayerInventory : MonoBehaviour
 
             SelectItem();
 
-            Debug.Log(gameObject.name + " picked up " + AimPoint.transform.name + ";");
+            Debug.Log(gameObject.name + " picked up " + PickedItem.name + ";");
         }
     }
 

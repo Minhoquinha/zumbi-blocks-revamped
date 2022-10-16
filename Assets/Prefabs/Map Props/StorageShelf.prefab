@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1103867790694038917}
   - component: {fileID: 5263483389437971188}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StorageShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 1045681127963410836}
   - component: {fileID: 5543302056873368303}
   - component: {fileID: 5609804722757817520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StorageShelf_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 4954714953230185216}
   - component: {fileID: 1675913908140697613}
   - component: {fileID: 4643974273263005965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StorageShelf_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

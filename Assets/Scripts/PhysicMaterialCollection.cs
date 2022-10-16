@@ -14,10 +14,12 @@ public class PhysicMaterialCollection : ScriptableObject
     public const int EnemyMaterialIndex = 1;
     public const int ItemMaterialIndex = 2;
     public const int GrenadeMaterialIndex = 3;
-    public const int MetalMaterialIndex = 4;
-    public const int ConcreteMaterialIndex = 5;
-    public const int WoodMaterialIndex = 6;
-    public const int PlasticMaterialIndex = 7;
+    public const int StickyMaterialIndex = 4;
+    public const int MetalMaterialIndex = 5;
+    public const int ConcreteMaterialIndex = 6;
+    public const int WoodMaterialIndex = 7;
+    public const int PlasticMaterialIndex = 8;
+    public const int FabricMaterialIndex = 9;
 
     public const int DebugMaterialIndex = 10;
 
@@ -104,6 +106,10 @@ public class PhysicMaterialCollection : ScriptableObject
                 ImpactIndex = ImpactEffectCollection.MetalEffectIndex;
                 break;
 
+            case StickyMaterialIndex:
+                ImpactIndex = ImpactEffectCollection.PlasticEffectIndex;
+                break;
+
             case MetalMaterialIndex:
                 ImpactIndex = ImpactEffectCollection.MetalEffectIndex;
                 break;
@@ -117,6 +123,10 @@ public class PhysicMaterialCollection : ScriptableObject
                 break;
 
             case PlasticMaterialIndex:
+                ImpactIndex = ImpactEffectCollection.PlasticEffectIndex;
+                break;
+
+            case FabricMaterialIndex:
                 ImpactIndex = ImpactEffectCollection.PlasticEffectIndex;
                 break;
 

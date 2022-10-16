@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.11480207, g: 0.11976777, b: 0.105756596, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1024,6 +1024,7 @@ MonoBehaviour:
   Damage: 34
   Penetration: 100
   AttackReach: 1.2
+  Knockback: 0
   AttackSpeed: 1
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -2315,6 +2316,7 @@ MonoBehaviour:
   Damage: 26
   Penetration: 100
   AttackReach: 2
+  Knockback: 0
   AttackSpeed: 1.5
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -2346,6 +2348,7 @@ MonoBehaviour:
   Damage: 18
   Penetration: 100
   AttackReach: 1.5
+  Knockback: 0
   AttackSpeed: 2.2
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -18522,6 +18525,7 @@ MonoBehaviour:
   Damage: 18
   Penetration: 100
   AttackReach: 1.6
+  Knockback: 0
   AttackSpeed: 2.5
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -25303,6 +25307,7 @@ MonoBehaviour:
   Damage: 17
   Penetration: 100
   AttackReach: 1.5
+  Knockback: 0
   AttackSpeed: 2.4
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -30862,6 +30867,7 @@ MonoBehaviour:
   Damage: 36
   Penetration: 100
   AttackReach: 1.7
+  Knockback: 0
   AttackSpeed: 1
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -30909,6 +30915,7 @@ MonoBehaviour:
   Damage: 30
   Penetration: 100
   AttackReach: 1.3
+  Knockback: 0
   AttackSpeed: 2.4
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -32260,6 +32267,7 @@ MonoBehaviour:
   Damage: 40
   Penetration: 100
   AttackReach: 2.5
+  Knockback: 0
   AttackSpeed: 1.8
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -45551,6 +45559,7 @@ MonoBehaviour:
   Damage: 24
   Penetration: 100
   AttackReach: 1.2
+  Knockback: 0
   AttackSpeed: 2
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -56684,6 +56693,7 @@ MonoBehaviour:
   Damage: 20
   Penetration: 100
   AttackReach: 1.5
+  Knockback: 0
   AttackSpeed: 2
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -58226,6 +58236,7 @@ MonoBehaviour:
   Damage: 30
   Penetration: 100
   AttackReach: 1.7
+  Knockback: 0
   AttackSpeed: 1
   FixedAttackDelay: 0
   CurrentAttackDelay: 0

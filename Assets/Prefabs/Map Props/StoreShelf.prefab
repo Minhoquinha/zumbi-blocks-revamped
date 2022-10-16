@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8810631101358871278}
   - component: {fileID: 7437700595371086005}
   - component: {fileID: 348614522078533812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StoreShelf_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5059021058130325743}
   - component: {fileID: 31348658714347422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StoreShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 2962651901775486891}
   - component: {fileID: 8067448296819916508}
   - component: {fileID: 8820614184789147208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StoreShelf_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

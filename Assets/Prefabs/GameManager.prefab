@@ -20,10 +20,10 @@ GameObject:
   - component: {fileID: 2774945677977826735}
   - component: {fileID: 8340538791464096455}
   - component: {fileID: 1670115311}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameManager
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
   UI: {fileID: 2829640071977145257}
   PlayerManagerScript: {fileID: 2830266106579504315}
   ControlsManagerScript: {fileID: 4623228362473705712}
-  ScriptableObjectManagerScript: {fileID: 0}
+  ScriptableObjectManagerScript: {fileID: 1670115311}
   WaveSpawnerScript: {fileID: 2830005631103894085}
   LootSpawnerScript: {fileID: 4955813162013777449}
   ZombieTextureCollectionScript: {fileID: 11400000, guid: 172d3f1f92226914cb11f73ea908541e,
@@ -98,7 +98,7 @@ MonoBehaviour:
   InventorySlots:
   - {fileID: 0}
   - {fileID: 3996728659653704232, guid: fa9f3602521f1084897d1dcb824f3ea6, type: 3}
-  - {fileID: 6777245346371492626, guid: 315fc65a6758f4d4090d172a45190099, type: 3}
+  - {fileID: 4425907084491446350, guid: 8a4023d1e66a807408e74a63d37625b0, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -442,6 +442,42 @@ MonoBehaviour:
     Active: 1
     Chance: 2
     WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 3168815830837108546, guid: e9b7764e061097446867ac9b9df6eead,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 60
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 4243915567690531616, guid: 396c17e2caa88624da95a7ca06512389,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 60
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 5639261745762302084, guid: 7c2b6dc9c50e52f459385050c43228fb,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 120
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 2065824900919840609, guid: 153daaec274ca524f842d949cea0d109,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 120
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 2287110118972971090, guid: 7bff6fbcbe935df43867a1731ebc1624,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 120
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 5375572196761063268, guid: a09ddee34a27c8d40b9ac53e80b4379e,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 120
     CurrentWaitTime: 0
   SpawnerArray:
   - {fileID: 0}

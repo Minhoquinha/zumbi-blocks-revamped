@@ -12,6 +12,7 @@ public class Melee : MonoBehaviour
     public float Damage;
     public float Penetration = 100f; //How easily can the weapon pierce through armor//
     public float AttackReach; //Anything beyond this is will not be affected by Raycast//
+    public bool Knockback = false; //Whether or not this weapon knocks the zombies back//
     public float AttackSpeed; //Number of attacks per second//
     public float FixedAttackDelay; //Time it takes for the attack to hit after performing an attack//
     [HideInInspector]
@@ -322,7 +323,7 @@ public class Melee : MonoBehaviour
         {
             if (!Enemy.Dead)
             {
-                Enemy.Hurt(Damage, Penetration, 1f, false);
+                Enemy.Hurt(Damage, Penetration, 1f, false, Knockback);
 
                 if (HUD != null)
                 {

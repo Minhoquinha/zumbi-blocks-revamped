@@ -100,7 +100,8 @@ MonoBehaviour:
   SolidLayer:
     serializedVersion: 2
     m_Bits: 8192
-  DroppedItemPrefab: {fileID: 0}
+  DroppedItemPrefab: {fileID: 522238836447867500, guid: 9b12da2e6ab3e41418200e3d79634b17,
+    type: 3}
   DroppedItemLifetime: 10
   DropForce: {x: 0, y: 0, z: 1}
   DropSpin: {x: 10, y: 10, z: 10}

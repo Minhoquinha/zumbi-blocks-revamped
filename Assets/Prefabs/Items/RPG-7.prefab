@@ -5702,6 +5702,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -1428423059866732201, guid: fde43640806d175469f8e09e033b62f2,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1248866842927958428, guid: fde43640806d175469f8e09e033b62f2,
         type: 3}
       propertyPath: m_Layer

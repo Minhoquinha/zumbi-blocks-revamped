@@ -227,10 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d0fbbdf8ae26b43b3c698a7822ae21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TouchDistance: 1
-  VisionDistance: 50
-  FieldOfView: 70
-  Audition: 30
+  TouchDistance: 0.6
+  VisionDistance: 40
+  FieldOfView: 60
+  Audition: 40
   SmellDistance: 12
   SmellFactor: 10
   AIActive: 1
@@ -258,6 +258,7 @@ MonoBehaviour:
   SpawnAnimationNameArray:
   - ComingOutGround
   AnimatorController: {fileID: 0}
+  PrintPlayerDetection: 0
   AttackTransform: {fileID: 3087692834465681833}
   Agent: {fileID: 0}
   Enemy: {fileID: 0}
@@ -283,7 +284,8 @@ MonoBehaviour:
   Acceleration: 150
   SlowResistance: 0
   SpawnDelay: 3
-  RagdolPartMass: 0.4
+  FlinchDelay: 1
+  RagdollPartMass: 0
   AttackDamage: 22
   AttackPenetration: 100
   AttackSpeed: 1
@@ -1275,7 +1277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6082628909735485487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2025732057007414708}

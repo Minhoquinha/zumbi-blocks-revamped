@@ -82,7 +82,9 @@ public class Explosive : MonoBehaviour
         {
             if (!Enemy.Dead)
             {
-                Enemy.Hurt(CurrentBlastDamage, 10000f, 1f, false);
+                bool Knockback = BlastForce >= 150f;
+
+                Enemy.Hurt(CurrentBlastDamage, 10000f, 1f, false, Knockback);
 
                 if (ExplosiveOwner != null)
                 {
@@ -158,7 +160,7 @@ public class Explosive : MonoBehaviour
         {
             if (!Enemy.Dead)
             {
-                Enemy.Hurt(CurrentFragmentDamage, FragmentPenetration, 1f, false);
+                Enemy.Hurt(CurrentFragmentDamage, FragmentPenetration, 1f, false, false);
             }
         }
         else if (Player != null)

@@ -5252,7 +5252,8 @@ MonoBehaviour:
   ID: 29
   ItemAmount: 1
   ItemType: 0
-  ItemUIPrefab: {fileID: 0}
+  ItemUIPrefab: {fileID: 6549474709564873469, guid: 4d1461a6ee475464abe9c355001e68b4,
+    type: 3}
   UIActive: 0
   UIRenderDistance: 50
   PickUpSoundClip: {fileID: 8300000, guid: 31dd3aae69816c34596b27eaf569f1d9, type: 3}
@@ -5275,7 +5276,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5372,7 +5373,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

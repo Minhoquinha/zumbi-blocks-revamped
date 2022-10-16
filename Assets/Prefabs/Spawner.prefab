@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23743993584260300}
   - component: {fileID: 114841651347663006}
   - component: {fileID: 114286910705418770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawner
   m_TagString: Spawner
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4603760128968824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}

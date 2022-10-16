@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 125391215200592608}
   - component: {fileID: 409052310295851373}
   - component: {fileID: 1911890310211417954}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair.000_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3129980468482301576}
   - component: {fileID: 7869463166462388729}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 8325283746564927108}
   - component: {fileID: 5696957316867003113}
   - component: {fileID: 3235086303862747151}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair.000_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

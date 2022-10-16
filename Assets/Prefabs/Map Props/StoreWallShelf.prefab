@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4589020256436586098}
   - component: {fileID: 8788042627048485123}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StoreWallShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 4192389811294931740}
   - component: {fileID: 2108030966462328021}
   - component: {fileID: 1062446630954203201}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StoreWallShelf_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 8137245635904210204}
   - component: {fileID: 5808248119863803193}
   - component: {fileID: 1315507832301540180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StoreWallShelf_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

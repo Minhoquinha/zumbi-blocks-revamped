@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3092530221570726926}
   - component: {fileID: 7831971353663941503}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallBuildingWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 7464179471675650036}
   - component: {fileID: 4479346012546380898}
   - component: {fileID: 3269726199053515675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallBuildingWall_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 5329504503779926971}
   - component: {fileID: 2300301018205632349}
   - component: {fileID: 6401814212554207130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallBuildingWall_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

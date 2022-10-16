@@ -51,6 +51,7 @@ MonoBehaviour:
   Damage: 14
   Penetration: 100
   AttackReach: 1.2
+  Knockback: 0
   AttackSpeed: 1.6
   FixedAttackDelay: 0.4
   CurrentAttackDelay: 0
@@ -65,8 +66,6 @@ MonoBehaviour:
   InspectAnimationName: Inspect
   ModelUnequipped: {fileID: 3254717352371500283}
   ModelEquipped: {fileID: 7757197187048931030}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
 --- !u!114 &3841997248216015712
 MonoBehaviour:
   m_ObjectHideFlags: 0

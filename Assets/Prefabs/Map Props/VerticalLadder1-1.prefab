@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8890655140178338809}
   - component: {fileID: 6666740282845058867}
   - component: {fileID: 1351444549477210858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VerticalLadder1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5423619653600865935}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VerticalLadder1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

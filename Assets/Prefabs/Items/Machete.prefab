@@ -81,6 +81,7 @@ MonoBehaviour:
   Damage: 36
   Penetration: 100
   AttackReach: 1.7
+  Knockback: 0
   AttackSpeed: 1
   FixedAttackDelay: 0
   CurrentAttackDelay: 0
@@ -112,7 +113,8 @@ MonoBehaviour:
   ID: 6
   ItemAmount: 1
   ItemType: 1
-  ItemUIPrefab: {fileID: 0}
+  ItemUIPrefab: {fileID: 6549474709564873469, guid: 4d1461a6ee475464abe9c355001e68b4,
+    type: 3}
   UIActive: 0
   UIRenderDistance: 50
   PickUpSoundClip: {fileID: 8300000, guid: 31dd3aae69816c34596b27eaf569f1d9, type: 3}

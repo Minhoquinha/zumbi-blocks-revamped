@@ -17,12 +17,12 @@ MonoBehaviour:
   - {fileID: 13400000, guid: a3b1acc231782d54386cde9abee56589, type: 2}
   - {fileID: 13400000, guid: dc238ac75fe8e5a438f0159f08df5057, type: 2}
   - {fileID: 13400000, guid: 4f52404d7e1f64648baac5e4cf7aa2b5, type: 2}
+  - {fileID: 13400000, guid: 489bebdbf914d0e4185b55eb989599e4, type: 2}
   - {fileID: 13400000, guid: 67db31eead11e8d6d00011d98d76c639, type: 2}
   - {fileID: 13400000, guid: 5100e02045b4d4a4abaa6943e1518c99, type: 2}
   - {fileID: 13400000, guid: cdf7d3f1ad11f8d6d00011d98d76c639, type: 2}
   - {fileID: 13400000, guid: 3e14c9824aad371498ceb0fa7116510f, type: 2}
-  - {fileID: 13400000, guid: 3e14c9824aad371498ceb0fa7116510f, type: 2}
-  - {fileID: 13400000, guid: 3e14c9824aad371498ceb0fa7116510f, type: 2}
+  - {fileID: 13400000, guid: cc4435a999d862a4e8058fc92e707fd1, type: 2}
   - {fileID: 13400000, guid: 25a9bfcff77d73f4fb511cc7a92c3962, type: 2}
   - {fileID: 13400000, guid: 3e14c9824aad371498ceb0fa7116510f, type: 2}
   Description: Physic materials.

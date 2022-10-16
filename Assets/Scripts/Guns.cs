@@ -784,7 +784,7 @@ public class Guns : MonoBehaviour
                         break;
                 }
 
-                Enemy.Hurt(CurrentDamage, Penetration, CurrentDamageMultiplier, Headshot);
+                Enemy.Hurt(CurrentDamage, Penetration, CurrentDamageMultiplier, Headshot, false);
 
                 if (HUD != null)
                 {
@@ -860,38 +860,40 @@ public class Guns : MonoBehaviour
     {
         yield return new WaitForSeconds(ReloadDelay);
 
-        ReloadSound.Play();
-
-        if (SingleBulletReload)
+        if (Equipped)
         {
-            TotalAmmo--;
-            Ammo++;
-            Reloading = false;
-        }
-        else
-        {
-            int ReloadingAmount = AmmoCapacity - Ammo;
+            ReloadSound.Play();
 
-            if (TotalAmmo > ReloadingAmount)
+            if (SingleBulletReload)
             {
-                TotalAmmo -= ReloadingAmount;
-                Ammo += ReloadingAmount;
+                TotalAmmo--;
+                Ammo++;
             }
             else
             {
-                Ammo += TotalAmmo;
-                TotalAmmo = 0;
+                int ReloadingAmount = AmmoCapacity - Ammo;
+
+                if (TotalAmmo > ReloadingAmount)
+                {
+                    TotalAmmo -= ReloadingAmount;
+                    Ammo += ReloadingAmount;
+                }
+                else
+                {
+                    Ammo += TotalAmmo;
+                    TotalAmmo = 0;
+                }
             }
 
-            Reloading = false;
+            if (HUD != null)
+            {
+                HUD.AmmoCounter.text = Ammo + "/" + TotalAmmo;
+            }
+
+            CurrentRecoilIndex = 0;
         }
 
-        if (HUD != null)
-        {
-            HUD.AmmoCounter.text = Ammo + "/" + TotalAmmo;
-        }
-
-        CurrentRecoilIndex = 0;
+        Reloading = false;
     }
 
     void Inspect ()

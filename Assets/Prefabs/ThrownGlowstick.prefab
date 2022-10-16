@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5214166271609549991}
   - component: {fileID: 9219900931881253634}
   - component: {fileID: 6347643653623893960}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: GlowStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 5832007665568544176}
   - component: {fileID: 8229429452140486213}
   - component: {fileID: 4282207565831191242}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: ThrownGlowstick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8059222895752255158}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3e14c9824aad371498ceb0fa7116510f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.04
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6970291869574854633}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

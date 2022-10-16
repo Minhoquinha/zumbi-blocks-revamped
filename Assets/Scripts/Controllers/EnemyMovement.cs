@@ -58,6 +58,9 @@ public class EnemyMovement : MonoBehaviour
 	[HideInInspector]
 	public Animator AnimatorController;
 
+	[Header("Debugging")]
+	public bool PrintPlayerDetection = false;
+
 	[Header("Main References")]
 	[Space(50)]
 	public Transform AttackTransform;
@@ -182,6 +185,9 @@ public class EnemyMovement : MonoBehaviour
 
 					EnemyStatus = EnemyState.Attacking;
 					Enemy.AttackStart(ObjectHeight);
+
+					CurrentActionDelay = Enemy.AttackDelay;
+
 				}
 			}
 		}
@@ -241,7 +247,8 @@ public class EnemyMovement : MonoBehaviour
 					if (CurrentAnimationName != "MeleeHitAnimationNameArray")
 					{
 						CurrentAnimationName = "MeleeHitAnimationNameArray";
-						AnimatorController.CrossFadeInFixedTime(MeleeHitAnimationNameArray [RandomMeleeHitAnimationNum], 0f);
+						AnimatorController.SetInteger("MeleeHitIndex", RandomMeleeHitAnimationNum);
+						AnimatorController.SetTrigger("MeleeHit");
 						RandomMeleeHitAnimationNum = Random.Range(0, MeleeHitAnimationNameArray.Length);
 					}
 				break;
@@ -333,6 +340,14 @@ public class EnemyMovement : MonoBehaviour
 			{
 				float DistanceFromPlayer = Vector3.Distance (Player [TargetNum].position, transform.position);
 
+				if (PrintPlayerDetection)
+                {
+					Debug.Log(gameObject.name + " can hear " + TargetStats [TargetNum].name + ":" + Hear(TargetNum, DistanceFromPlayer));
+					Debug.Log(gameObject.name + " can see " + TargetStats [TargetNum].name + ":" + See(TargetNum, DistanceFromPlayer));
+					Debug.Log(gameObject.name + " can smell " + TargetStats [TargetNum].name + ":" + Smell(TargetNum, DistanceFromPlayer));
+					Debug.Log(gameObject.name + " can touch " + TargetStats [TargetNum].name + ":" + Touch(TargetNum, DistanceFromPlayer));
+				}
+
 				if (Hear(TargetNum, DistanceFromPlayer) || See(TargetNum, DistanceFromPlayer) || Touch(TargetNum, DistanceFromPlayer) || Smell(TargetNum, DistanceFromPlayer))
 				{
 					if (CurrentPlayerTarget < 0)
@@ -365,7 +380,7 @@ public class EnemyMovement : MonoBehaviour
 				Agent.isStopped = false;
 				EnemyStatus = EnemyState.Pursuing;
 
-				if (DistanceFromPlayer < Enemy.AttackReach)
+				if (DistanceFromPlayer < Enemy.AttackReach + 0.1f)
 				{
 					FaceTarget(TargetNum);
 				}
@@ -386,6 +401,13 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, LookRotation, Time.deltaTime * 5f);
 		}
 	}
+
+	public void Flinch ()
+    {
+		Agent.isStopped = true;
+		CurrentActionDelay = Enemy.FlinchDelay;
+		EnemyStatus = EnemyState.Flinching;
+    }
 
 	void ForgetTarget ()
     {

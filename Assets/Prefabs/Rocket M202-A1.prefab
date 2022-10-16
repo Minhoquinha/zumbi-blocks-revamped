@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2534389569970461811}
   - component: {fileID: 7711714545620618705}
   - component: {fileID: 1027665151781105092}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3415173691185029517}
   - component: {fileID: 2635433176831293751}
   - component: {fileID: 3062860185793891210}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Rocket M202-A1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7605437783724559688}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 67db31eead11e8d6d00011d98d76c639, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.06

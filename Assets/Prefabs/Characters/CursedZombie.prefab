@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787558395389221992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8759988696209381223}
@@ -2088,6 +2088,7 @@ MonoBehaviour:
   VisionDistance: 0
   FieldOfView: 0
   Audition: 0
+  AuditionMin: 10
   SmellDistance: 0
   SmellFactor: 0
   AIActive: 1
@@ -2115,6 +2116,7 @@ MonoBehaviour:
   SpawnAnimationNameArray:
   - ComingOutGround
   AnimatorController: {fileID: 0}
+  PrintPlayerDetection: 0
   AttackTransform: {fileID: 0}
   Agent: {fileID: 2078122390491645792}
   Enemy: {fileID: 8276045883977436639}
@@ -2140,6 +2142,7 @@ MonoBehaviour:
   Acceleration: 150
   SlowResistance: 0
   SpawnDelay: 1
+  FlinchDelay: 0
   RagdolPartMass: 1
   AttackDamage: 98
   AttackPenetration: 100

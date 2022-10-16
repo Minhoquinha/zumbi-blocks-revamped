@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1496332577788180906}
   - component: {fileID: 5953219003658145499}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Benchchair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 5363777923960763659}
   - component: {fileID: 8412210101453513474}
   - component: {fileID: 1391247180407671476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Benchchair_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 1379282290743942278}
   - component: {fileID: 5421091396769963035}
   - component: {fileID: 4961445172928119853}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Benchchair_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

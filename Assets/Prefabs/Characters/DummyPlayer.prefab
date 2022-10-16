@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 143415712027104966}
   - component: {fileID: 114759380277077514}
   - component: {fileID: 82372902785331216}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DummyPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 33823955399846570}
   - component: {fileID: 23209958742704272}
   - component: {fileID: 65731350461095220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerHead
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387361616052160}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1efbc56033d55cb46bcfb3088a6bf076, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 33240738364208798}
   - component: {fileID: 23572844932039180}
   - component: {fileID: 65703404027974178}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerBody
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ Transform:
   m_GameObject: {fileID: 1466814393761220}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 1, z: 0.3}
+  m_LocalScale: {x: 1.2, y: 2, z: 0.6}
   m_Children: []
   m_Father: {fileID: 4784367566876694}
   m_RootOrder: 1
@@ -339,7 +339,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466814393761220}
-  m_Mesh: {fileID: 4300010, guid: 0d36a9eca421976428ef8ff17e82014a, type: 3}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &23572844932039180
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -388,12 +388,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466814393761220}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1efbc56033d55cb46bcfb3088a6bf076, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0000005, y: 2, z: 1.9999995}
-  m_Center: {x: 0.0008240642, y: -0.0032160282, z: -0.003222496}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1500540916132746
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4132367748188396}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

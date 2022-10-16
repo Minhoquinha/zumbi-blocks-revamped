@@ -353,7 +353,7 @@ MonoBehaviour:
   CrouchingStaminaGain: 5
   AerialStaminaGain: 2
   JumpingStaminaCost: 10
-  Smelliness: 10
+  Smelliness: 8
   CurrentSmelliness: 0
   CurrentNoise: 0
   StandingNoise: 100

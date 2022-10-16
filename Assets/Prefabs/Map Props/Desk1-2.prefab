@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 375695431690781019}
   - component: {fileID: 6369027410835751878}
   - component: {fileID: 1518833867688950497}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Desk.001_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6663553382822337167}
   - component: {fileID: 1883540205939781118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Desk1-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 2644786108533261722}
   - component: {fileID: 2886032827940655926}
   - component: {fileID: 2960464787661012875}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Desk.001_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3274113545023038230}
   - component: {fileID: 7126273506113635076}
   - component: {fileID: 8477750216784269719}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MarketWall_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8507629384443251802}
   - component: {fileID: 3479932796332735275}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MarketWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6352519799923054606}
   - component: {fileID: 7169603352867694864}
   - component: {fileID: 8186297983725710918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MarketWall_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

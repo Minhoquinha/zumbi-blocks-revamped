@@ -488,7 +488,8 @@ public class Guns : MonoBehaviour
     {
         Equipped = false;
         Reloading = false;
-        StopCoroutine(Reload());
+
+        StopAllCoroutines();
 
         if (AnimatorController != null)
         {

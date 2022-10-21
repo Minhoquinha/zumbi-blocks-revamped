@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Weather")]
     public GameObject Sun;
+    public float SunLightIntensity;
+    private float CurrentSunLightIntensity;
+    private Light SunLight;
     public float SunSpeedDivisor = 4f; //InGameTime divided by this number is the speed of the Sun's rotation//
 
     [Header ("Main References")]
@@ -69,10 +72,15 @@ public class GameManager : MonoBehaviour
         PlayerManagerScript = GetComponent<PlayerManager>();
         ControlsManagerScript = GetComponent<ControlsManager>();
         ScriptableObjectManagerScript = GetComponent<ScriptableObjectManager>();
+
         WaveSpawnerScript = GetComponent<WaveSpawner>();
         LootSpawnerScript = GetComponent<LootSpawner>();
         WaveSpawnerScript.SpawnWaves = false;
         LootSpawnerScript.SpawnLoots = false;
+
+        SunLight = Sun.GetComponent<Light>();
+        SunLight.intensity = SunLightIntensity;
+        CurrentSunLightIntensity = SunLightIntensity;
 
         CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         InitialTime = Time.time;
@@ -114,6 +122,9 @@ public class GameManager : MonoBehaviour
                     //360f multiplied by SunSpeedDivisor is the number of seconds one in-game full day takes//
                 
                     Sun.transform.rotation = Quaternion.Slerp(Sun.transform.rotation, LookRotation, Time.deltaTime * 5f);
+
+                    CurrentSunLightIntensity = SunLightIntensity * Mathf.Sin(InGameTime / SunSpeedDivisor * Mathf.Deg2Rad);
+                    SunLight.intensity = CurrentSunLightIntensity;
                 }
 
                 if (UI.UseStopWatch)

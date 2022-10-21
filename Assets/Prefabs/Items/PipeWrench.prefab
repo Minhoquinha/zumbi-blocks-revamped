@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7f43d0327f33f4a968d53e3fd218c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeleeName: PipeWrench
+  MeleeName: Pipe Wrench
   PlayerDependant: 0
   Damage: 23
   Penetration: 100
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 6367844156803450001}
-  ItemName: PipeWrench
+  ItemName: Pipe Wrench
   ID: 1
   ItemAmount: 1
   ItemType: 1

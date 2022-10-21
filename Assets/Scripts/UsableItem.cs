@@ -22,6 +22,7 @@ public class UsableItem : MonoBehaviour
     private Animator AnimatorController;
     public string IdleAnimationName = "Idle";
     public string UseAnimationName = "Use";
+    public string ThrowAnimationName = "Throw";
     public string EquipAnimationName = "Equip";
     private bool Equipped;
     public GameObject ModelUnequipped; //The gun when loose on the ground//
@@ -114,7 +115,7 @@ public class UsableItem : MonoBehaviour
             case ThrowableItemType:
                 if (Input.GetKey(ControlsManagerScript.ControlDictionary ["BasicThrow"]) && CurrentUseDelay <= 0f)
                 {
-                    Throw();
+                    ThrowStart();
                 }
                 break;
 
@@ -256,6 +257,8 @@ public class UsableItem : MonoBehaviour
     {
         Equipped = false;
 
+        StopAllCoroutines();
+
         if (AnimatorController != null)
         {
             AnimatorController.CrossFadeInFixedTime(EquipAnimationName, 0f);
@@ -271,8 +274,10 @@ public class UsableItem : MonoBehaviour
         }
     }
 
-    void Throw ()
+    void ThrowStart ()
     {
+        CurrentUseDelay = UseDelay;
+
         if (ItemScript.ItemAmount <= 0)
         {
             if (!RemoteController)
@@ -282,48 +287,61 @@ public class UsableItem : MonoBehaviour
         }
         else
         {
+            if (AnimatorController != null)
+            {
+                AnimatorController.CrossFadeInFixedTime(ThrowAnimationName, 0f);
+            }
+
             if (ThrowableItemPrefab != null)
             {
-                Rigidbody ThrownObject = Instantiate(ThrowableItemPrefab, FPCamera.transform.position, FPCamera.transform.rotation).GetComponent<Rigidbody>();
-                if (ThrownObject != null)
+                StartCoroutine(Throw());
+            }
+        }
+    }
+
+    IEnumerator Throw ()
+    {
+        yield return new WaitForSeconds(UseDelay);
+
+        Rigidbody ThrownObject = Instantiate(ThrowableItemPrefab, FPCamera.transform.position, FPCamera.transform.rotation).GetComponent<Rigidbody>();
+        if (ThrownObject != null)
+        {
+            Debug.Log(gameObject.name + " throws " + ItemName + ";");
+
+            Quaternion RotateToLocal = FPCamera.transform.rotation;
+            Vector3 CurrentThrowForce = RotateToLocal * ThrowForce;
+            Vector3 CurrentThrowSpin = RotateToLocal * ThrowSpin;
+
+            ThrownObject.AddForce(CurrentThrowForce, ForceMode.Impulse);
+            ThrownObject.angularVelocity = CurrentThrowSpin;
+
+            Explosive ThrownExplosive = ThrownObject.GetComponent<Explosive>();
+            if (ThrownExplosive != null)
+            {
+                ThrownExplosive.ExplosiveOwner = Player;
+
+                for (int i = 0; i < RemoteExplosiveArray.Length; i++)
                 {
-                    Debug.Log(gameObject.name + " throws " + ItemName + ";");
-
-                    Quaternion RotateToLocal = FPCamera.transform.rotation;
-                    Vector3 CurrentThrowForce = RotateToLocal * ThrowForce;
-                    Vector3 CurrentThrowSpin = RotateToLocal * ThrowSpin;
-
-                    ThrownObject.AddForce(CurrentThrowForce, ForceMode.Impulse);
-                    ThrownObject.angularVelocity = CurrentThrowSpin;
-
-                    Explosive ThrownExplosive = ThrownObject.GetComponent<Explosive>();
-                    if (ThrownExplosive != null)
+                    if (RemoteExplosiveArray [i] == null)
                     {
-                        ThrownExplosive.ExplosiveOwner = Player;
-
-                        for (int i = 0; i < RemoteExplosiveArray.Length; i++)
-                        {
-                            if (RemoteExplosiveArray [i] == null)
-                            {
-                                RemoteExplosiveArray [i] = ThrownExplosive;
-                                break;
-                            }
-                        }
+                        RemoteExplosiveArray [i] = ThrownExplosive;
+                        break;
                     }
-
-                    Destroy(ThrownObject.gameObject, ThrowableItemLifetime);
                 }
             }
 
-            ItemScript.ItemAmount--;
-            HUD.AmmoCounter.text = ItemScript.ItemAmount.ToString();
-            CurrentUseDelay = UseDelay;
-
-            if (ItemScript.ItemAmount <= 0 && !RemoteController)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(ThrownObject.gameObject, ThrowableItemLifetime);
         }
+
+        ItemScript.ItemAmount--;
+        HUD.AmmoCounter.text = ItemScript.ItemAmount.ToString();
+
+        if (ItemScript.ItemAmount <= 0 && !RemoteController)
+        {
+            Destroy(gameObject);
+        }
+
+        Equip();
     }
 
     void Place (RaycastHit AimPoint, Quaternion PlacedObjectRotation)
@@ -365,7 +383,6 @@ public class UsableItem : MonoBehaviour
 
             ItemScript.ItemAmount--;
             HUD.AmmoCounter.text = ItemScript.ItemAmount.ToString();
-            CurrentUseDelay = UseDelay;
 
             if (ItemScript.ItemAmount <= 0 && !RemoteController)
             {
@@ -380,20 +397,20 @@ public class UsableItem : MonoBehaviour
 
         if (!Alt)
         {
-            if (AnimatorController != null)
+            if (ItemScript.ItemAmount <= 0)
             {
-                AnimatorController.CrossFadeInFixedTime(UseAnimationName, 0f);
+                if (!RemoteController)
+                {
+                    Destroy(gameObject);
+                }
             }
-
-        if (ItemScript.ItemAmount <= 0)
-        {
-            if (!RemoteController)
-            {
-                Destroy(gameObject);
-            }
-        }
             else
             {
+                if (AnimatorController != null)
+                {
+                    AnimatorController.CrossFadeInFixedTime(UseAnimationName, 0f);
+                }
+
                 StartCoroutine(BasicUse());
             }
         }
@@ -445,13 +462,15 @@ public class UsableItem : MonoBehaviour
 
         if (DroppedItemPrefab != null)
         {
-            DropTrash();
+            Trash();
         }
 
         if (ItemScript.ItemAmount <= 0 && !RemoteController)
         {
             Destroy(gameObject);
         }
+
+        Equip();
     }
 
     IEnumerator AltUse()
@@ -470,12 +489,12 @@ public class UsableItem : MonoBehaviour
         }
     }
 
-    void DropTrash ()
+    void Trash ()
     {
         Rigidbody DroppedObject = Instantiate(DroppedItemPrefab, FPCamera.transform.position, FPCamera.transform.rotation).GetComponent<Rigidbody>();
         if (DroppedObject != null)
         {
-            Debug.Log(gameObject.name + " throws " + ItemName + ";");
+            Debug.Log(gameObject.name + " trashes " + ItemName + ";");
 
             Quaternion RotateToLocal = FPCamera.transform.rotation;
             Vector3 CurrentDropForce = RotateToLocal * DropForce;

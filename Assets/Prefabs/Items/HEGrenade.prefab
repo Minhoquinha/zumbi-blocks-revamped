@@ -79,11 +79,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: HEGrenade
   ItemType: 2
-  UseDelay: 2
+  UseDelay: 0.3
   EquipDelay: 0.4
   RemoteController: 0
   IdleAnimationName: Idle
   UseAnimationName: Use
+  ThrowAnimationName: Throw
   EquipAnimationName: Equip
   ModelUnequipped: {fileID: 3390905884913157591}
   ModelEquipped: {fileID: 7609025657326064787}

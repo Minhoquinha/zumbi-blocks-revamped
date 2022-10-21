@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7f43d0327f33f4a968d53e3fd218c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeleeName: FireAxe
+  MeleeName: Fire Axe
   PlayerDependant: 0
   Damage: 52
   Penetration: 180
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 7295855499157620416}
-  ItemName: FireAxe
+  ItemName: Fire Axe
   ID: 8
   ItemAmount: 1
   ItemType: 1

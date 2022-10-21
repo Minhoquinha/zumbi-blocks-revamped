@@ -5248,7 +5248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 2942996971400678375}
-  ItemName: Famas
+  ItemName: Famas F1
   ID: 29
   ItemAmount: 1
   ItemType: 0

@@ -21,7 +21,7 @@ RenderSettings:
   m_FogDensity: 0.001
   m_LinearFogStart: 10
   m_LinearFogEnd: 500.01
-  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.78679246, g: 0.91471696, b: 1, a: 1}
   m_AmbientGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientIntensity: 0.2
@@ -98,8 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: b301e7db0e05b9445a754006a5c2482a,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 7f05cd89fb5851c468142c7b9a207960,
     type: 2}
 --- !u!196 &4
@@ -207,6 +206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sun
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176230614469662028, guid: a80ea4c67b83e364a9407f0d12288072,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4176230614469662030, guid: a80ea4c67b83e364a9407f0d12288072,
         type: 3}

@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     private float CurrentSunLightIntensity;
     private Light SunLight;
     public float SunSpeedDivisor = 4f; //InGameTime divided by this number is the speed of the Sun's rotation//
+    public float SunStartPosition = 60f; //Sun's starting position in degrees//
 
     [Header ("Main References")]
     [Space(50)]
@@ -78,9 +79,12 @@ public class GameManager : MonoBehaviour
         WaveSpawnerScript.SpawnWaves = false;
         LootSpawnerScript.SpawnLoots = false;
 
-        SunLight = Sun.GetComponent<Light>();
-        SunLight.intensity = SunLightIntensity;
-        CurrentSunLightIntensity = SunLightIntensity;
+        if (Sun != null)
+        {
+            SunLight = Sun.GetComponent<Light>();
+            SunLight.intensity = SunLightIntensity;
+            CurrentSunLightIntensity = SunLightIntensity;
+        }
 
         CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         InitialTime = Time.time;
@@ -118,12 +122,12 @@ public class GameManager : MonoBehaviour
 
                 if (Sun != null)
                 {
-                    Quaternion LookRotation = Quaternion.Euler(new Vector3(InGameTime / SunSpeedDivisor, 0f, 0f));
+                    Quaternion LookRotation = Quaternion.Euler(new Vector3(InGameTime / SunSpeedDivisor + SunStartPosition, 0f, 0f));
                     //360f multiplied by SunSpeedDivisor is the number of seconds one in-game full day takes//
                 
                     Sun.transform.rotation = Quaternion.Slerp(Sun.transform.rotation, LookRotation, Time.deltaTime * 5f);
 
-                    CurrentSunLightIntensity = SunLightIntensity * Mathf.Sin(InGameTime / SunSpeedDivisor * Mathf.Deg2Rad);
+                    CurrentSunLightIntensity = SunLightIntensity * Mathf.Sin(Sun.transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
                     SunLight.intensity = CurrentSunLightIntensity;
                 }
 

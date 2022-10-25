@@ -72,6 +72,7 @@ MonoBehaviour:
   PlayerJoinDelay: 1
   GameOverDelay: 5
   Sun: {fileID: 0}
+  SunLightIntensity: 1.5
   SunSpeedDivisor: 4
   UI: {fileID: 2829640071977145257}
   PlayerManagerScript: {fileID: 2830266106579504315}
@@ -479,6 +480,18 @@ MonoBehaviour:
     Chance: 2
     WaitTime: 120
     CurrentWaitTime: 0
+  - LootPrefab: {fileID: 8532869310992776992, guid: dc47b202e40045845835142d7aede9de,
+      type: 3}
+    Active: 1
+    Chance: 1
+    WaitTime: 300
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 7148973706599306813, guid: 99b90b901089d964fb05ed14c139f766,
+      type: 3}
+    Active: 1
+    Chance: 1
+    WaitTime: 300
+    CurrentWaitTime: 0
   SpawnerArray:
   - {fileID: 0}
   - {fileID: 0}
@@ -648,7 +661,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2797918815416727601}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65b0c36924b1d69489a4e4bb35e900a0, type: 3}
   m_Name: 

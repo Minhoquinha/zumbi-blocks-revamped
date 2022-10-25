@@ -5164,7 +5164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92edf8b6ce47224f885a231ec2cb5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunName: Remington870
+  GunName: R870
   FullAuto: 0
   ProjectileBased: 0
   BulletCount: 8
@@ -5256,7 +5256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 3580003355952519578}
-  ItemName: Remington870
+  ItemName: R870
   ID: 26
   ItemAmount: 1
   ItemType: 0

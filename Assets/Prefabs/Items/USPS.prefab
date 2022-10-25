@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 821393698727193595}
   - component: {fileID: 821393698727193594}
   m_Layer: 9
-  m_Name: USP-S
+  m_Name: USPS
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92edf8b6ce47224f885a231ec2cb5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunName: Usp-S
+  GunName: USP-S
   FullAuto: 0
   ProjectileBased: 0
   BulletCount: 1
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 821393700064992115}
-  ItemName: Usp-S
+  ItemName: USP-S
   ID: 45
   ItemAmount: 1
   ItemType: 0

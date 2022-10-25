@@ -79,11 +79,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Glowstick
   ItemType: 2
-  UseDelay: 2
+  UseDelay: 0.2
   EquipDelay: 0.4
   RemoteController: 0
   IdleAnimationName: Idle
   UseAnimationName: Use
+  ThrowAnimationName: Throw
   EquipAnimationName: Equip
   ModelUnequipped: {fileID: 1560895715043746708}
   ModelEquipped: {fileID: 0}

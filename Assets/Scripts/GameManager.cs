@@ -38,7 +38,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Weather")]
     public GameObject Sun;
-    public float SunLightIntensity;
+    public float AmbientLightMaximumIntensity;
+    private float CurrentAmbientLightIntensity;
+    public float SunLightMaximumIntensity;
     private float CurrentSunLightIntensity;
     private Light SunLight;
     public float SunSpeedDivisor = 4f; //InGameTime divided by this number is the speed of the Sun's rotation//
@@ -82,8 +84,8 @@ public class GameManager : MonoBehaviour
         if (Sun != null)
         {
             SunLight = Sun.GetComponent<Light>();
-            SunLight.intensity = SunLightIntensity;
-            CurrentSunLightIntensity = SunLightIntensity;
+            SunLight.intensity = SunLightMaximumIntensity;
+            CurrentSunLightIntensity = SunLightMaximumIntensity;
         }
 
         CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -127,8 +129,13 @@ public class GameManager : MonoBehaviour
                 
                     Sun.transform.rotation = Quaternion.Slerp(Sun.transform.rotation, LookRotation, Time.deltaTime * 5f);
 
-                    CurrentSunLightIntensity = SunLightIntensity * Mathf.Sin(Sun.transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
+                    float SunSin = Mathf.Sin(Sun.transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
+
+                    CurrentSunLightIntensity = Mathf.Max(SunLightMaximumIntensity * SunSin, 0f);
                     SunLight.intensity = CurrentSunLightIntensity;
+
+                    CurrentAmbientLightIntensity = Mathf.Max(AmbientLightMaximumIntensity * SunSin, 0f);
+                    RenderSettings.ambientIntensity = CurrentAmbientLightIntensity;
                 }
 
                 if (UI.UseStopWatch)

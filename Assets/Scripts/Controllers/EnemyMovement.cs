@@ -157,6 +157,8 @@ public class EnemyMovement : MonoBehaviour
 
 		if (CurrentActionDelay <= 0f)
 		{
+			Enemy.Stunned = false;
+
 			Search();
 
 			if (CurrentPlayerTarget >= 0)
@@ -172,24 +174,7 @@ public class EnemyMovement : MonoBehaviour
 				EnemyStatus = EnemyState.Idle;
 			}
 
-			RaycastHit [] ObjectsInFront = Physics.RaycastAll(AttackTransform.position, transform.forward, Enemy.AttackReach, Enemy.AttackingMask);
-
-			foreach (RaycastHit Object in ObjectsInFront)
-            {
-				PlayerStats Player = Object.transform.GetComponentInParent<PlayerStats>();
-				Destructible DestructibleObject = Object.transform.GetComponentInParent<Destructible>();
-
-				if (Player != null || DestructibleObject != null)
-				{
-					float ObjectHeight = Object.transform.position.y;
-
-					EnemyStatus = EnemyState.Attacking;
-					Enemy.AttackStart(ObjectHeight);
-
-					CurrentActionDelay = Enemy.AttackDelay;
-
-				}
-			}
+			CheckFront();
 		}
         else
         {
@@ -402,11 +387,33 @@ public class EnemyMovement : MonoBehaviour
 		}
 	}
 
+	void CheckFront ()
+    {
+		RaycastHit [] ObjectsInFront = Physics.RaycastAll(AttackTransform.position, transform.forward, Enemy.AttackReach, Enemy.AttackingMask);
+
+		foreach (RaycastHit Object in ObjectsInFront)
+		{
+			PlayerStats Player = Object.transform.GetComponentInParent<PlayerStats>();
+			Destructible DestructibleObject = Object.transform.GetComponentInParent<Destructible>();
+
+			if (Player != null || DestructibleObject != null)
+			{
+				float ObjectHeight = Object.transform.position.y;
+
+				EnemyStatus = EnemyState.Attacking;
+				Enemy.AttackStart(ObjectHeight);
+
+				CurrentActionDelay = Enemy.AttackDelay;
+			}
+		}
+	}
+
 	public void Flinch ()
     {
 		Agent.isStopped = true;
 		CurrentActionDelay = Enemy.FlinchDelay;
 		EnemyStatus = EnemyState.Flinching;
+		Enemy.Stunned = true;
     }
 
 	void ForgetTarget ()

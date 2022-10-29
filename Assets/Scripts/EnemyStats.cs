@@ -20,6 +20,9 @@ public class EnemyStats : MonoBehaviour
     public float SpawnDelay; //Time it takes for this enemy to spawn.//
     public float FlinchDelay; //Time this enemy takes when flinching.//
     public float RagdollPartMass;
+    [HideInInspector]
+    public bool Dead;
+    public bool Stunned;
 
     [Header("Attacking")]
     public float AttackDamage;
@@ -57,9 +60,6 @@ public class EnemyStats : MonoBehaviour
     public WaveSpawner Spawner;
     [HideInInspector]
     public PlayerStats [] TargetStats;
-
-    [HideInInspector]
-    public bool Dead;
 
     void Awake ()
     {
@@ -194,7 +194,6 @@ public class EnemyStats : MonoBehaviour
         else if (Knockback)
         {
             AI.Flinch();
-            StopAllCoroutines();
         }
     }
 
@@ -242,12 +241,13 @@ public class EnemyStats : MonoBehaviour
             }
         }
 
+        StopAllCoroutines();
         Destroy(gameObject, 60f);
     }
 
     public void AttackStart(float TargetHeight)
     {
-        if (!Dead && CurrentAttackCooldown <= 0f)
+        if (!Dead && !Stunned && CurrentAttackCooldown <= 0f)
         {
             if (TargetHeight >= transform.position.y && TargetHeight <= transform.position.y + MainCollider.bounds.size.y)
             {
@@ -335,7 +335,7 @@ public class EnemyStats : MonoBehaviour
 
     void AttackHit (RaycastHit HitObject)
     {
-        if (Dead)
+        if (Dead || Stunned)
         {
             return;
         }

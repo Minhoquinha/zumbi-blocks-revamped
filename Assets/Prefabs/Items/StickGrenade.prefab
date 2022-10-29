@@ -77,13 +77,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c5d197027296442b5ca3661d9b809a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemName: StickGrenade
+  ItemName: Stick Grenade
   ItemType: 2
-  UseDelay: 2
+  UseDelay: 0.3
   EquipDelay: 0.4
   RemoteController: 0
   IdleAnimationName: Idle
   UseAnimationName: Use
+  ThrowAnimationName: Throw
   EquipAnimationName: Equip
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 981776890253468504}
-  ItemName: StickGrenade
+  ItemName: Stick Grenade
   ID: 39
   ItemAmount: 1
   ItemType: 2

@@ -37,6 +37,10 @@ public class EnemyMovement : MonoBehaviour
 	//How far this enemy can jump//
 	private float CurrentActionDelay;
 	//The enemy can't attack, search or pursue players while this delay is active//
+	public float KnockbackDelay;
+	//The enemy can't move while this delay is active, but can still attack and search//
+	private float CurrentKnockbackDelay;
+	//The enemy can't move while this delay is active, but can still attack and search//
 
 	[Header("Animations")]
 	public string TPoseAnimationName = "TPose";
@@ -148,6 +152,17 @@ public class EnemyMovement : MonoBehaviour
 			}
 
 			return;
+		}
+
+		if (CurrentKnockbackDelay <= 0f)
+        {
+			Agent.isStopped = false;
+			Enemy.MainRigidbody.isKinematic = true;
+			Enemy.MainRigidbody.freezeRotation = false;
+		}
+		else
+        {
+			CurrentKnockbackDelay -= Time.deltaTime;
 		}
 
         if (!AIActive)
@@ -423,7 +438,18 @@ public class EnemyMovement : MonoBehaviour
 		EnemyStatus = EnemyState.Idle;
 	}
 
-	void OnDrawGizmosSelected ()
+    void OnTriggerEnter (Collider CurrentCollider)
+    {
+		print("colliding");
+
+		Agent.isStopped = true;
+		Enemy.MainRigidbody.isKinematic = false;
+		Enemy.MainRigidbody.freezeRotation = true;
+
+		CurrentKnockbackDelay = KnockbackDelay;
+	}
+
+    void OnDrawGizmosSelected ()
 	{
 		Gizmos.color = Color.white;
 		Gizmos.DrawWireSphere (transform.position, TouchDistance);

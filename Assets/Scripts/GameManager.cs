@@ -67,10 +67,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("More than one " + this.name + " loaded;");
             return;
         }
-    }
 
-    void Start()
-    {
         UI = GetComponent<UIManager>();
         PlayerManagerScript = GetComponent<PlayerManager>();
         ControlsManagerScript = GetComponent<ControlsManager>();
@@ -80,7 +77,10 @@ public class GameManager : MonoBehaviour
         LootSpawnerScript = GetComponent<LootSpawner>();
         WaveSpawnerScript.SpawnWaves = false;
         LootSpawnerScript.SpawnLoots = false;
+    }
 
+    void Start()
+    {
         if (Sun != null)
         {
             SunLight = Sun.GetComponent<Light>();

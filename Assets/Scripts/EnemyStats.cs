@@ -27,6 +27,7 @@ public class EnemyStats : MonoBehaviour
     [Header("Attacking")]
     public float AttackDamage;
     public float AttackPenetration = 100f;
+    public float AttackBleedChance = 0.05f; //Chance from 0f to 1f that the attack causes players to bleed//
     public float AttackSpeed; //Number of attacks per second//
     private float CurrentAttackCooldown; //Time it takes to do the next attack//
     public float AttackDelay; //The time between starting an attack and hitting the target//
@@ -43,7 +44,7 @@ public class EnemyStats : MonoBehaviour
     [Header("Main References")]
     [Space(50)]
     public EnemyMovement AI;
-    private Rigidbody MainRigidbody;
+    public Rigidbody MainRigidbody;
     private Rigidbody[] RagdollRigidbodies;
     private Collider MainCollider;
     private Collider[] RagdollColliders;
@@ -73,6 +74,12 @@ public class EnemyStats : MonoBehaviour
         RagdollRigidbodies = GetComponentsInChildren<Rigidbody>();
         RagdollColliders = GetComponentsInChildren<Collider>();
         BloodEruption = GetComponentInChildren<ParticleSystem>();
+
+        if (BloodEruption != null)
+        {
+            ParticleSystem.MainModule BloodEruptionMainModule = BloodEruption.main;
+            BloodEruptionMainModule.loop = false;
+        }
 
         for (int i = 0; i < RagdollColliders.Length; i++)
         {
@@ -353,7 +360,7 @@ public class EnemyStats : MonoBehaviour
         {
             if (!Player.Dead)
             {
-                Player.Hurt(AttackDamage);
+                Player.Hurt(AttackDamage, AttackBleedChance);
             }
         }
         else if (DestructibleObject != null)

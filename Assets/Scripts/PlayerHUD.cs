@@ -9,6 +9,7 @@ public class PlayerHUD : MonoBehaviour
     public float MaxStamina; //Maximum stamina visible in the UI//
     public float MaxNoise; //Maximum noise visible in the UI//
     public float HitmarkerDuration = 1f; //How much time the hitmarker spends on the screen after being cross faded//
+    public float HurtScreenDuration = 1f; //How much time the hurt screen spends on the screen after being cross faded//
 
     [Header("Main References")]
     [Space(50)]
@@ -83,15 +84,6 @@ public class PlayerHUD : MonoBehaviour
     {
         if (SpectatorControlScript != null)
         {
-            if (DeathScreen != null)
-            {
-                DeathScreen.enabled = false;
-            }
-            if (HurtScreen != null)
-            {
-                HurtScreen.enabled = false;
-            }
-
             if (StatsPanel != null)
             {
                 StatsPanel.SetActive(false);
@@ -111,6 +103,12 @@ public class PlayerHUD : MonoBehaviour
             }
         }
 
+        if (HurtScreen != null)
+        {
+            HurtScreen.enabled = true;
+            HurtScreen.CrossFadeAlpha(0f, 0f, true);
+        }
+
         if (DynamicCrosshair != null && CenterCrosshair != null)
         {
             DynamicCrosshair.rectTransform.position = CenterCrosshair.rectTransform.position;
@@ -128,6 +126,10 @@ public class PlayerHUD : MonoBehaviour
         {
             Amount = MaxHealth;
         }
+        else if (Amount < 0f)
+        {
+            Amount = 0f;
+        }
 
         if (HealthBar != null)
         {
@@ -140,6 +142,10 @@ public class PlayerHUD : MonoBehaviour
         if (Amount > MaxStamina)
         {
             Amount = MaxStamina;
+        }
+        else if (Amount < 0f)
+        {
+            Amount = 0f;
         }
 
         if (StaminaBar != null)
@@ -154,10 +160,22 @@ public class PlayerHUD : MonoBehaviour
         {
             Amount = MaxNoise;
         }
+        else if (Amount < 0f)
+        {
+            Amount = 0f;
+        }
 
         if (NoiseBar != null)
         {
             NoiseBar.value = Amount / MaxNoise;
         }
+    }
+
+    public void HurtEffect(float Damage)
+    {
+        float HurtPower = Damage / MaxHealth;
+
+        HurtScreen.CrossFadeAlpha(HurtPower, 0f, false);
+        HurtScreen.CrossFadeAlpha(0f, HurtScreenDuration, false);
     }
 }

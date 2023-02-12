@@ -9,6 +9,7 @@ public class Destructible : MonoBehaviour
     [HideInInspector]
     public float CurrentHealth;
     public float Armor;
+    public bool BlockPath = true;
 
     [Header("Passive Stats")]
     public float DestructionTime;
@@ -18,6 +19,7 @@ public class Destructible : MonoBehaviour
     [Header("Main References")]
     [Space(50)]
     private GameManager GameManagerScript;
+    private NavMeshManager NavMeshManagerScript;
     private ScriptableObjectManager ScriptableObjectManagerScript;
     private PhysicMaterialCollection PhysicMaterialCollectionScript;
     private ImpactEffectCollection ImpactEffectCollectionScript;
@@ -25,6 +27,7 @@ public class Destructible : MonoBehaviour
     void Awake()
     {
         GameManagerScript = FindObjectOfType<GameManager>();
+        NavMeshManagerScript = FindObjectOfType<NavMeshManager>();
         ScriptableObjectManagerScript = GameManagerScript.GetComponent<ScriptableObjectManager>();
         PhysicMaterialCollectionScript = ScriptableObjectManagerScript.PhysicMaterialCollectionScript;
         ImpactEffectCollectionScript = ScriptableObjectManagerScript.ImpactEffectCollectionScript;
@@ -33,6 +36,11 @@ public class Destructible : MonoBehaviour
     void Start()
     {
         CurrentHealth = Health;
+
+        if (BlockPath)
+        {
+            NavMeshManagerScript.BakeNavMesh();
+        }
     }
 
     public void Hurt(float Damage, float Penetration)
@@ -59,6 +67,12 @@ public class Destructible : MonoBehaviour
         Debug.Log(this.name + " died;");
 
         GameObject DestructionEffect = Instantiate(ImpactEffectCollectionScript.ImpactEffectArray [ImpactEffectCollection.ObjectDestructionIndex], transform.position, Quaternion.Euler(transform.up));
+
+        if (BlockPath)
+        {
+            gameObject.SetActive(false);
+            NavMeshManagerScript.BakeNavMesh();
+        }
 
         Destroy(DestructionEffect, 2f);
         Destroy(gameObject, DestructionTime);

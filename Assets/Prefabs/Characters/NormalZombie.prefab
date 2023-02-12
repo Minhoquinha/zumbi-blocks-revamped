@@ -238,6 +238,7 @@ MonoBehaviour:
   ForgetTime: 4
   Jumper: 0
   JumpDistance: 0
+  KnockbackDelay: 0
   TPoseAnimationName: TPose
   StandingAnimationNameArray:
   - InactiveStanding
@@ -286,6 +287,8 @@ MonoBehaviour:
   SpawnDelay: 3
   FlinchDelay: 1
   RagdollPartMass: 0
+  Dead: 0
+  Stunned: 0
   AttackDamage: 22
   AttackPenetration: 100
   AttackSpeed: 1
@@ -300,13 +303,13 @@ MonoBehaviour:
   PrintDamageFactors: 0
   TestEnemy: 0
   AI: {fileID: 0}
+  MainRigidbody: {fileID: 0}
   AliveMaterial: {fileID: 0}
   DeadMaterial: {fileID: 0}
   Graphics: {fileID: 0}
   AttackEffect: {fileID: 0}
   Spawner: {fileID: 0}
   TargetStats: []
-  Dead: 0
 --- !u!95 &3200959454217892092
 Animator:
   serializedVersion: 3
@@ -2450,65 +2453,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5825104781748757274}
     m_Modifications:
-    - target: {fileID: 3581242637364972185, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582262712845952783, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582262712845952783, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582262712845952783, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582262712845952783, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3582262712845952783, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 3706706462444679705, guid: d5397c0589fdfb44aa1a7680381b49fb,
         type: 3}
       propertyPath: m_Name
       value: BloodEruption
       objectReference: {fileID: 0}
-    - target: {fileID: 3706706462444679705, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 3709167430592507559, guid: d5397c0589fdfb44aa1a7680381b49fb,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3709167430592507559, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3709167430592507559, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3709167430592507559, guid: d5397c0589fdfb44aa1a7680381b49fb,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3709167430592507559, guid: d5397c0589fdfb44aa1a7680381b49fb,
         type: 3}
@@ -2560,8 +2513,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7482858671826915013, guid: d5397c0589fdfb44aa1a7680381b49fb, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5397c0589fdfb44aa1a7680381b49fb, type: 3}
 --- !u!4 &911540483964738895 stripped
 Transform:

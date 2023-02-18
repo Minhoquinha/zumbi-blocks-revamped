@@ -2148,6 +2148,7 @@ MonoBehaviour:
   Stunned: 0
   AttackDamage: 98
   AttackPenetration: 100
+  AttackBleedChance: 0.05
   AttackSpeed: 0.5
   AttackDelay: 1
   AttackReach: 2
@@ -2161,6 +2162,8 @@ MonoBehaviour:
   TestEnemy: 0
   AI: {fileID: 0}
   MainRigidbody: {fileID: 0}
+  AliveLayer: 12
+  DeadLayer: 15
   AliveMaterial: {fileID: 0}
   DeadMaterial: {fileID: 0}
   Graphics: {fileID: 0}

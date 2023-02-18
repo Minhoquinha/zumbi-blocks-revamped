@@ -49,6 +49,8 @@ public class EnemyStats : MonoBehaviour
     private Collider MainCollider;
     private Collider[] RagdollColliders;
     private ParticleSystem BloodEruption;
+    public int AliveLayer; //The Layer used by the zombie when they are still alive//
+    public int DeadLayer; //The Layer used by the zombie when they are dead//
     public Material AliveMaterial;
     public Material DeadMaterial;
     public GameObject Graphics;
@@ -108,6 +110,8 @@ public class EnemyStats : MonoBehaviour
                 RagdollRigidbodies [i].mass = RagdollPartMass;
                 RagdollRigidbodies [i].velocity = new Vector3(0f, 0f, 0f);
                 RagdollRigidbodies [i].angularVelocity = new Vector3(0f, 0f, 0f);
+
+                RagdollRigidbodies [i].gameObject.layer = AliveLayer;
             }
         }
 
@@ -229,6 +233,8 @@ public class EnemyStats : MonoBehaviour
             {
                 if (RagdollPart != null)
                 {
+                    RagdollPart.gameObject.layer = DeadLayer;
+
                     RagdollPart.isKinematic = false;
                     RagdollPart.useGravity = true;
 

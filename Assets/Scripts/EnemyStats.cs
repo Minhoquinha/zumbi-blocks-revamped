@@ -20,10 +20,14 @@ public class EnemyStats : MonoBehaviour
     public float SpawnDelay; //Time it takes for this enemy to spawn.//
     public float FlinchDelay; //Time this enemy takes when flinching.//
     public float RagdollPartMass;
+    [HideInInspector]
+    public bool Dead;
+    public bool Stunned;
 
     [Header("Attacking")]
     public float AttackDamage;
     public float AttackPenetration = 100f;
+    public float AttackBleedChance = 0.05f; //Chance from 0f to 1f that the attack causes players to bleed//
     public float AttackSpeed; //Number of attacks per second//
     private float CurrentAttackCooldown; //Time it takes to do the next attack//
     public float AttackDelay; //The time between starting an attack and hitting the target//
@@ -40,11 +44,13 @@ public class EnemyStats : MonoBehaviour
     [Header("Main References")]
     [Space(50)]
     public EnemyMovement AI;
-    private Rigidbody MainRigidbody;
+    public Rigidbody MainRigidbody;
     private Rigidbody[] RagdollRigidbodies;
     private Collider MainCollider;
     private Collider[] RagdollColliders;
     private ParticleSystem BloodEruption;
+    public int AliveLayer; //The Layer used by the zombie when they are still alive//
+    public int DeadLayer; //The Layer used by the zombie when they are dead//
     public Material AliveMaterial;
     public Material DeadMaterial;
     public GameObject Graphics;
@@ -58,9 +64,6 @@ public class EnemyStats : MonoBehaviour
     [HideInInspector]
     public PlayerStats [] TargetStats;
 
-    [HideInInspector]
-    public bool Dead;
-
     void Awake ()
     {
         GameManagerScript = FindObjectOfType<GameManager>();
@@ -73,6 +76,12 @@ public class EnemyStats : MonoBehaviour
         RagdollRigidbodies = GetComponentsInChildren<Rigidbody>();
         RagdollColliders = GetComponentsInChildren<Collider>();
         BloodEruption = GetComponentInChildren<ParticleSystem>();
+
+        if (BloodEruption != null)
+        {
+            ParticleSystem.MainModule BloodEruptionMainModule = BloodEruption.main;
+            BloodEruptionMainModule.loop = false;
+        }
 
         for (int i = 0; i < RagdollColliders.Length; i++)
         {
@@ -101,6 +110,8 @@ public class EnemyStats : MonoBehaviour
                 RagdollRigidbodies [i].mass = RagdollPartMass;
                 RagdollRigidbodies [i].velocity = new Vector3(0f, 0f, 0f);
                 RagdollRigidbodies [i].angularVelocity = new Vector3(0f, 0f, 0f);
+
+                RagdollRigidbodies [i].gameObject.layer = AliveLayer;
             }
         }
 
@@ -194,7 +205,6 @@ public class EnemyStats : MonoBehaviour
         else if (Knockback)
         {
             AI.Flinch();
-            StopAllCoroutines();
         }
     }
 
@@ -223,6 +233,8 @@ public class EnemyStats : MonoBehaviour
             {
                 if (RagdollPart != null)
                 {
+                    RagdollPart.gameObject.layer = DeadLayer;
+
                     RagdollPart.isKinematic = false;
                     RagdollPart.useGravity = true;
 
@@ -242,12 +254,13 @@ public class EnemyStats : MonoBehaviour
             }
         }
 
+        StopAllCoroutines();
         Destroy(gameObject, 60f);
     }
 
     public void AttackStart(float TargetHeight)
     {
-        if (!Dead && CurrentAttackCooldown <= 0f)
+        if (!Dead && !Stunned && CurrentAttackCooldown <= 0f)
         {
             if (TargetHeight >= transform.position.y && TargetHeight <= transform.position.y + MainCollider.bounds.size.y)
             {
@@ -335,7 +348,7 @@ public class EnemyStats : MonoBehaviour
 
     void AttackHit (RaycastHit HitObject)
     {
-        if (Dead)
+        if (Dead || Stunned)
         {
             return;
         }
@@ -353,7 +366,7 @@ public class EnemyStats : MonoBehaviour
         {
             if (!Player.Dead)
             {
-                Player.Hurt(AttackDamage);
+                Player.Hurt(AttackDamage, AttackBleedChance);
             }
         }
         else if (DestructibleObject != null)

@@ -72,8 +72,10 @@ MonoBehaviour:
   PlayerJoinDelay: 1
   GameOverDelay: 5
   Sun: {fileID: 0}
-  SunLightIntensity: 1.5
+  AmbientLightMaximumIntensity: 1
+  SunLightMaximumIntensity: 1
   SunSpeedDivisor: 4
+  SunStartPosition: 60
   UI: {fileID: 2829640071977145257}
   PlayerManagerScript: {fileID: 2830266106579504315}
   ControlsManagerScript: {fileID: 4623228362473705712}

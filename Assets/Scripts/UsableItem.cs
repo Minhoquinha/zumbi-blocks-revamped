@@ -23,6 +23,7 @@ public class UsableItem : MonoBehaviour
     public string IdleAnimationName = "Idle";
     public string UseAnimationName = "Use";
     public string ThrowAnimationName = "Throw";
+    public string PlaceAnimationName = "Place";
     public string EquipAnimationName = "Equip";
     private bool Equipped;
     public GameObject ModelUnequipped; //The gun when loose on the ground//
@@ -120,17 +121,9 @@ public class UsableItem : MonoBehaviour
                 break;
 
             case PlaceableItemType:
-                Vector3 PlacePath = FPCamera.transform.forward;
-                RaycastHit AimPoint;
-
-                if (Physics.Raycast(FPCamera.transform.position, PlacePath, out AimPoint, PlaceableDistance, SolidLayer))
+                if (Input.GetKey(ControlsManagerScript.ControlDictionary ["BasicPlace"]) && CurrentUseDelay <= 0f)
                 {
-                    Quaternion PlacedObjectRotation = Quaternion.Euler(0f, FPCamera.transform.eulerAngles.y, 0f);
-
-                    if (Input.GetKey(ControlsManagerScript.ControlDictionary ["BasicPlace"]) && CurrentUseDelay <= 0f)
-                    {
-                        Place(AimPoint, PlacedObjectRotation);
-                    }
+                    PlaceStart();
                 }
                 break;
 
@@ -344,8 +337,10 @@ public class UsableItem : MonoBehaviour
         Equip();
     }
 
-    void Place (RaycastHit AimPoint, Quaternion PlacedObjectRotation)
+    void PlaceStart ()
     {
+        CurrentUseDelay = UseDelay;
+
         if (ItemScript.ItemAmount <= 0)
         {
             if (!RemoteController)
@@ -355,6 +350,26 @@ public class UsableItem : MonoBehaviour
         }
         else
         {
+            if (AnimatorController != null)
+            {
+                AnimatorController.CrossFadeInFixedTime(PlaceAnimationName, 0f);
+            }
+
+            StartCoroutine(Place());
+        }
+    }
+
+    IEnumerator Place()
+    {
+        yield return new WaitForSeconds(UseDelay);
+
+        Vector3 PlacePath = FPCamera.transform.forward;
+        RaycastHit AimPoint;
+
+        if (Physics.Raycast(FPCamera.transform.position, PlacePath, out AimPoint, PlaceableDistance, SolidLayer))
+        {
+            Quaternion PlacedObjectRotation = Quaternion.Euler(0f, FPCamera.transform.eulerAngles.y, 0f);
+
             if (PlaceableItemPrefab != null)
             {
                 Vector3 PlacedObjectPosition = new Vector3(AimPoint.point.x, AimPoint.point.y + (transform.lossyScale.y / 2f), AimPoint.point.z);
@@ -435,7 +450,7 @@ public class UsableItem : MonoBehaviour
 
         if (Player.CurrentHealth < Player.Health)
         {
-            Player.Heal(HealingPower);
+            Player.Heal(HealingPower, CureBleeding);
         }
         if (Player.CurrentStamina < Player.Stamina)
         {

@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &5214166271609549991
 Transform:
@@ -70,7 +70,7 @@ MeshRenderer:
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
+  m_ImportantGI: 1
   m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
@@ -125,8 +125,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 3e14c9824aad371498ceb0fa7116510f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.04
-  m_Height: 0.45
+  m_Radius: 0.06
+  m_Height: 0.5
   m_Direction: 1
   m_Center: {x: 0, y: -0.015, z: 0}
 --- !u!54 &8229429452140486213
@@ -158,12 +158,12 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.19607843, g: 1, b: 0.39215687, a: 1}
   m_Intensity: 2
-  m_Range: 10
+  m_Range: 14
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -189,9 +189,9 @@ Light:
       e33: 1
     m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
+  m_DrawHalo: 1
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

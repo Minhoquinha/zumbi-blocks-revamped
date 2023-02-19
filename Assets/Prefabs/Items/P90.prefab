@@ -83,7 +83,7 @@ MonoBehaviour:
   FullAuto: 1
   ProjectileBased: 0
   BulletCount: 1
-  Damage: 18
+  Damage: 20
   Penetration: 180
   DamageDropoffResistance: 150
   MaxRange: 100

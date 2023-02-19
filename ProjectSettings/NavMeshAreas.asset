@@ -10,9 +10,9 @@ NavMeshProjectSettings:
   - name: Not Walkable
     cost: 1
   - name: Jump
-    cost: 2
+    cost: 4
   - name: Destructible
-    cost: 5
+    cost: 6
   - name: 
     cost: 1
   - name: 

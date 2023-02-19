@@ -798,7 +798,7 @@ public class Guns : MonoBehaviour
         {
             if (!OtherPlayer.Dead)
             {
-                OtherPlayer.Hurt(CurrentDamage);
+                OtherPlayer.Hurt(CurrentDamage, 0f);
 
                 if (HUD != null)
                 {

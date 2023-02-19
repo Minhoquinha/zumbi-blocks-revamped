@@ -336,7 +336,7 @@ public class Melee : MonoBehaviour
         {
             if (!OtherPlayer.Dead)
             {
-                OtherPlayer.Hurt(Damage);
+                OtherPlayer.Hurt(Damage, 0f);
 
                 if (HUD != null)
                 {

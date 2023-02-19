@@ -15,6 +15,7 @@ public class Explosive : MonoBehaviour
     public float BlastDamage = 5f; //Damage dealt by the explosion's shockwave, goes through walls//
     public float FragmentDamage = 1f; //Damage dealt if an object is in direct line of sight of the explosion//
     public float FragmentPenetration = 100f;
+    public float FragmentBleedingChance = 0.01f; //Chance from 0f to 1f that the explosion's fragments cause players to bleed//
     private float HitDistance;
 
     [Header ("Main References")]
@@ -102,7 +103,7 @@ public class Explosive : MonoBehaviour
         {
             if (!Player.Dead)
             {
-                Player.Hurt(CurrentBlastDamage);
+                Player.Hurt(CurrentBlastDamage, 0f);
 
                 if (ExplosiveOwner != null)
                 {
@@ -167,7 +168,7 @@ public class Explosive : MonoBehaviour
         {
             if (!Player.Dead)
             {
-                Player.Hurt(CurrentFragmentDamage);
+                Player.Hurt(CurrentFragmentDamage, FragmentBleedingChance);
             }
         }
         else if (DestructibleObject != null)

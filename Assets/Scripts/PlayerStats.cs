@@ -58,6 +58,17 @@ public class PlayerStats : MonoBehaviour
     public float JumpingNoise; //How much noise is made on a single jump//
     public float NoiseReductionFactor; //How much noise is reduced per unit of time//
 
+    [Header("Health State")]
+    [HideInInspector]
+    public bool Dead;
+    public bool Bleeding = false;
+    public float AverageBleedingDuration = 60f; //The average total time the player spends bleeding after it started in seconds//
+    private float CurrentBleedingDuration = 60f; //The current time the player will spend bleeding in seconds//
+    public float BleedingDurationVariation = 10f; //The variation of time the player spends bleeding in seconds//
+    public float BleedingDamage = 2f; //The damage the player receives by bleeding each BleedingRate seconds//
+    public float BleedingRate = 0.7f; //The rate at which the player gets damaged by bleeding per second//
+    private float NextBleed = 0f; //Time it will take for the next bleeding damage in seconds//
+
     [Header("Main References")]
     [Space(50)]
     private GameManager GameManagerScript;
@@ -65,11 +76,10 @@ public class PlayerStats : MonoBehaviour
     public PlayerMovement PlayerMovementScript;
     public PlayerHUD HUD;
     public PlayerInventory PlayerInventoryScript;
-
     public CharacterController PlayerController;
     public AudioSource FleshSound;
-    [HideInInspector]
-    public bool Dead;
+    public ParticleSystem BloodEruption;
+
 
     void Awake()
     {
@@ -78,6 +88,13 @@ public class PlayerStats : MonoBehaviour
         PlayerController = GetComponent<CharacterController>();
         StandingHeight = PlayerController.height;
         CrouchingHeight = StandingHeight / 100f * CrouchHeightPercentage;
+
+        BloodEruption = GetComponentInChildren<ParticleSystem>();
+        if (BloodEruption != null)
+        {
+            ParticleSystem.MainModule BloodEruptionMainModule = BloodEruption.main;
+            BloodEruptionMainModule.loop = true;
+        }
     }
 
     void Start()
@@ -89,6 +106,9 @@ public class PlayerStats : MonoBehaviour
         CurrentHealth = Health;
         CurrentSmelliness = Smelliness;
         Dead = false;
+        Bleeding = false;
+        CurrentBleedingDuration = 0f;
+        NextBleed = 0f;
         if (Armor <= 0f)
         {
             Armor = 100f;
@@ -225,10 +245,32 @@ public class PlayerStats : MonoBehaviour
             {
                 HUD.NoiseChange(CurrentNoise);
             }
+
+            if (CurrentBleedingDuration <= 0f)
+            {
+                StopBleeding();
+            }
+            else
+            {
+                CurrentBleedingDuration -= Time.deltaTime;
+            }
+
+            if (Bleeding)
+            {
+                if  (NextBleed <= 0f)
+                {
+                    NextBleed = 1f / BleedingRate;
+                    Bleed();
+                }
+                else
+                {
+                    NextBleed -= Time.deltaTime;
+                }
+            }
 		}
     }
 
-    public void Hurt(float Damage)
+    public void Hurt(float Damage, float BleedChance)
     {
         if (Dead)
         {
@@ -238,10 +280,26 @@ public class PlayerStats : MonoBehaviour
         CurrentHealth -= Damage / (Armor / 100f);
         FleshSound.Play();
 
+        float Bleed = Random.value;
+
+        if (Bleed <= BleedChance)
+        {
+            float BleedingDuration = AverageBleedingDuration + Random.Range(-BleedingDurationVariation, BleedingDurationVariation);
+
+            CurrentBleedingDuration = BleedingDuration;
+
+            if (!Bleeding)
+            {
+                Bleeding = true;
+                BloodEruption.Play();
+            }
+        }
+
         if (HUD != null)
         {
             if (!Dummy)
             {
+                HUD.HurtEffect(Damage);
                 HUD.HealthChange(CurrentHealth);
             }
         }
@@ -253,7 +311,39 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void Heal(float Amount)
+    public void Bleed()
+    {
+        if (Dead)
+        {
+            return;
+        }
+
+        CurrentHealth -= BleedingDamage;
+
+        if (HUD != null)
+        {
+            if (!Dummy)
+            {
+                HUD.HurtEffect(BleedingDamage * 5f);
+                HUD.HealthChange(CurrentHealth);
+            }
+        }
+
+        if (CurrentHealth <= 0f)
+        {
+            CurrentHealth = 0f;
+            Death();
+        }
+    }
+
+    public void StopBleeding ()
+    {
+        CurrentBleedingDuration = 0f;
+        Bleeding = false;
+        BloodEruption.Stop();
+    }
+
+    public void Heal(float Amount, bool Stanch)
     {
         if (Dead)
         {
@@ -262,17 +352,22 @@ public class PlayerStats : MonoBehaviour
 
         CurrentHealth += Amount;
 
+        if (CurrentHealth > Health)
+        {
+            CurrentHealth = Health;
+        }
+
+        if (Stanch)
+        {
+            StopBleeding();
+        }
+
         if (HUD != null)
         {
             if (!Dummy)
             {
                 HUD.HealthChange(CurrentHealth);
             }
-        }
-
-        if (CurrentHealth > Health)
-        {
-            CurrentHealth = Health;
         }
     }
 

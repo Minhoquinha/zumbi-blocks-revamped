@@ -128,11 +128,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: Test barricade
   ItemType: 3
-  UseDelay: 1
+  UseDelay: 0.5
   EquipDelay: 0.4
   RemoteController: 0
   IdleAnimationName: Idle
   UseAnimationName: Use
+  ThrowAnimationName: Throw
+  PlaceAnimationName: Place
   EquipAnimationName: Equip
   ModelUnequipped: {fileID: 0}
   ModelEquipped: {fileID: 0}

@@ -37,6 +37,10 @@ public class EnemyMovement : MonoBehaviour
 	//How far this enemy can jump//
 	private float CurrentActionDelay;
 	//The enemy can't attack, search or pursue players while this delay is active//
+	public float KnockbackDelay;
+	//The enemy can't move while this delay is active, but can still attack and search//
+	private float CurrentKnockbackDelay;
+	//The enemy can't move while this delay is active, but can still attack and search//
 
 	[Header("Animations")]
 	public string TPoseAnimationName = "TPose";
@@ -150,6 +154,17 @@ public class EnemyMovement : MonoBehaviour
 			return;
 		}
 
+		if (CurrentKnockbackDelay <= 0f)
+        {
+			Agent.isStopped = false;
+			Enemy.MainRigidbody.isKinematic = true;
+			Enemy.MainRigidbody.freezeRotation = false;
+		}
+		else
+        {
+			CurrentKnockbackDelay -= Time.deltaTime;
+		}
+
         if (!AIActive)
 		{
 			return;
@@ -157,6 +172,8 @@ public class EnemyMovement : MonoBehaviour
 
 		if (CurrentActionDelay <= 0f)
 		{
+			Enemy.Stunned = false;
+
 			Search();
 
 			if (CurrentPlayerTarget >= 0)
@@ -172,24 +189,7 @@ public class EnemyMovement : MonoBehaviour
 				EnemyStatus = EnemyState.Idle;
 			}
 
-			RaycastHit [] ObjectsInFront = Physics.RaycastAll(AttackTransform.position, transform.forward, Enemy.AttackReach, Enemy.AttackingMask);
-
-			foreach (RaycastHit Object in ObjectsInFront)
-            {
-				PlayerStats Player = Object.transform.GetComponentInParent<PlayerStats>();
-				Destructible DestructibleObject = Object.transform.GetComponentInParent<Destructible>();
-
-				if (Player != null || DestructibleObject != null)
-				{
-					float ObjectHeight = Object.transform.position.y;
-
-					EnemyStatus = EnemyState.Attacking;
-					Enemy.AttackStart(ObjectHeight);
-
-					CurrentActionDelay = Enemy.AttackDelay;
-
-				}
-			}
+			CheckFront();
 		}
         else
         {
@@ -402,11 +402,33 @@ public class EnemyMovement : MonoBehaviour
 		}
 	}
 
+	void CheckFront ()
+    {
+		RaycastHit [] ObjectsInFront = Physics.RaycastAll(AttackTransform.position, transform.forward, Enemy.AttackReach, Enemy.AttackingMask);
+
+		foreach (RaycastHit Object in ObjectsInFront)
+		{
+			PlayerStats Player = Object.transform.GetComponentInParent<PlayerStats>();
+			Destructible DestructibleObject = Object.transform.GetComponentInParent<Destructible>();
+
+			if (Player != null || DestructibleObject != null)
+			{
+				float ObjectHeight = Object.transform.position.y;
+
+				EnemyStatus = EnemyState.Attacking;
+				Enemy.AttackStart(ObjectHeight);
+
+				CurrentActionDelay = Enemy.AttackDelay;
+			}
+		}
+	}
+
 	public void Flinch ()
     {
 		Agent.isStopped = true;
 		CurrentActionDelay = Enemy.FlinchDelay;
 		EnemyStatus = EnemyState.Flinching;
+		Enemy.Stunned = true;
     }
 
 	void ForgetTarget ()
@@ -416,7 +438,18 @@ public class EnemyMovement : MonoBehaviour
 		EnemyStatus = EnemyState.Idle;
 	}
 
-	void OnDrawGizmosSelected ()
+    void OnTriggerEnter (Collider CurrentCollider)
+    {
+		print("colliding");
+
+		Agent.isStopped = true;
+		Enemy.MainRigidbody.isKinematic = false;
+		Enemy.MainRigidbody.freezeRotation = true;
+
+		CurrentKnockbackDelay = KnockbackDelay;
+	}
+
+    void OnDrawGizmosSelected ()
 	{
 		Gizmos.color = Color.white;
 		Gizmos.DrawWireSphere (transform.position, TouchDistance);

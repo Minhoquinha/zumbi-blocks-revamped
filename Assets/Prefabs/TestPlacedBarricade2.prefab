@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1529792361804075606}
   - component: {fileID: 482987114886280570}
   - component: {fileID: -1999164218928945538}
-  - component: {fileID: 5919654635494203197}
+  - component: {fileID: 6548263630718373117}
   m_Layer: 13
   m_Name: TestPlacedBarricade2
   m_TagString: Untagged
@@ -115,10 +115,7 @@ MonoBehaviour:
   Armor: 100
   DestructionTime: 0
   Dead: 0
-  PhysicMaterialCollectionScript: {fileID: 0}
-  ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
-    type: 2}
---- !u!114 &5919654635494203197
+--- !u!114 &6548263630718373117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

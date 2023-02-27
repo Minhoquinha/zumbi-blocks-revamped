@@ -12,26 +12,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a4b8c4e18c7944da985fbe1f724cd5, type: 3}
   m_Name: ZombieTextures
   m_EditorClassIdentifier: 
+  ZombieTexturesArray:
+  - Name: NormalZombie
+    PrimaryTextureArray:
+    - {fileID: 2800000, guid: 2c81b39c921ba7f40ab4d96628667569, type: 3}
+    - {fileID: 2800000, guid: a11eaaff4aea787488d62bdca9279990, type: 3}
+    - {fileID: 2800000, guid: 25c343975abb72344ab50593b8baaac4, type: 3}
+    - {fileID: 2800000, guid: 60f838be520ced04d8309edd9450c77d, type: 3}
+    - {fileID: 2800000, guid: ab44a9a53d5eb2f4a8b0d7a994c6ca7c, type: 3}
+    - {fileID: 2800000, guid: 91eb4c36463f29a4aba7f880b0528c50, type: 3}
+    - {fileID: 2800000, guid: f99a0e93bc0aa854fa024c9ad55fbc45, type: 3}
+    - {fileID: 2800000, guid: 1e0bcca9472e4f24f9f9d9b00bb20a9f, type: 3}
+    SecondaryTextureArray:
+    - {fileID: 2800000, guid: a380959107fb8234d92dec50952fbe93, type: 3}
+    - {fileID: 2800000, guid: b85f00d8be6901c41945493fdc267f3a, type: 3}
+    - {fileID: 2800000, guid: da3f68744738dce48b9cdccbe4dd4327, type: 3}
+    - {fileID: 2800000, guid: 111587b57fe158c44ac478e3a69bd875, type: 3}
+    - {fileID: 2800000, guid: 1e01fe96e23708341b5ff6455244ab1b, type: 3}
+    TertiaryTextureArray:
+    - {fileID: 2800000, guid: 80242015e312e0a46824e119c5a3ba02, type: 3}
+    - {fileID: 2800000, guid: 6e35e2c11e90ac1499bc8bbcd508f99a, type: 3}
+    - {fileID: 2800000, guid: ea6a9960a7652c440ac66996309de0bd, type: 3}
+    - {fileID: 2800000, guid: d5401351229323c4f83a1d65699c933c, type: 3}
+    - {fileID: 2800000, guid: 927b3178753b9b64d8c1565bb007584d, type: 3}
+    - {fileID: 2800000, guid: b9a9a82f636b87a4382b93a0994fc7f2, type: 3}
+    QuaternaryTextureArray: []
+  - Name: CursedZombie
+    PrimaryTextureArray:
+    - {fileID: 2800000, guid: 2c81b39c921ba7f40ab4d96628667569, type: 3}
+    - {fileID: 2800000, guid: a11eaaff4aea787488d62bdca9279990, type: 3}
+    - {fileID: 2800000, guid: 25c343975abb72344ab50593b8baaac4, type: 3}
+    - {fileID: 2800000, guid: 60f838be520ced04d8309edd9450c77d, type: 3}
+    - {fileID: 2800000, guid: ab44a9a53d5eb2f4a8b0d7a994c6ca7c, type: 3}
+    - {fileID: 2800000, guid: 91eb4c36463f29a4aba7f880b0528c50, type: 3}
+    - {fileID: 2800000, guid: f99a0e93bc0aa854fa024c9ad55fbc45, type: 3}
+    - {fileID: 2800000, guid: 1e0bcca9472e4f24f9f9d9b00bb20a9f, type: 3}
+    SecondaryTextureArray:
+    - {fileID: 2800000, guid: a380959107fb8234d92dec50952fbe93, type: 3}
+    - {fileID: 2800000, guid: b85f00d8be6901c41945493fdc267f3a, type: 3}
+    - {fileID: 2800000, guid: da3f68744738dce48b9cdccbe4dd4327, type: 3}
+    - {fileID: 2800000, guid: 111587b57fe158c44ac478e3a69bd875, type: 3}
+    - {fileID: 2800000, guid: 1e01fe96e23708341b5ff6455244ab1b, type: 3}
+    TertiaryTextureArray:
+    - {fileID: 2800000, guid: 80242015e312e0a46824e119c5a3ba02, type: 3}
+    - {fileID: 2800000, guid: 6e35e2c11e90ac1499bc8bbcd508f99a, type: 3}
+    - {fileID: 2800000, guid: ea6a9960a7652c440ac66996309de0bd, type: 3}
+    - {fileID: 2800000, guid: d5401351229323c4f83a1d65699c933c, type: 3}
+    - {fileID: 2800000, guid: 927b3178753b9b64d8c1565bb007584d, type: 3}
+    - {fileID: 2800000, guid: b9a9a82f636b87a4382b93a0994fc7f2, type: 3}
+    QuaternaryTextureArray: []
+  - Name: SkeletonZombie
+    PrimaryTextureArray:
+    - {fileID: 2800000, guid: 3a2a44fe9e356a24abf3858268db5833, type: 3}
+    - {fileID: 2800000, guid: 812e96601e8269b47a4a43556d04784d, type: 3}
+    - {fileID: 2800000, guid: e7ccd07a83979d54d84a8d896116fea8, type: 3}
+    - {fileID: 2800000, guid: b732ec1e6c37826408b12b482941a4d3, type: 3}
+    - {fileID: 2800000, guid: 1d0a8212cf62e204982df4eb3fbdbcde, type: 3}
+    - {fileID: 2800000, guid: 840fef0400263614599911d7de03b08f, type: 3}
+    - {fileID: 2800000, guid: 842ef86258be2d640bdf5df84a6f1e73, type: 3}
+    SecondaryTextureArray:
+    - {fileID: 2800000, guid: a380959107fb8234d92dec50952fbe93, type: 3}
+    - {fileID: 2800000, guid: b85f00d8be6901c41945493fdc267f3a, type: 3}
+    - {fileID: 2800000, guid: da3f68744738dce48b9cdccbe4dd4327, type: 3}
+    - {fileID: 2800000, guid: 111587b57fe158c44ac478e3a69bd875, type: 3}
+    - {fileID: 2800000, guid: 1e01fe96e23708341b5ff6455244ab1b, type: 3}
+    TertiaryTextureArray: []
+    QuaternaryTextureArray: []
   Description: The textures for the zombies.
-  SkinTextureArray:
-  - {fileID: 2800000, guid: c9ef00b83fe1ae046b4090b312381ab8, type: 3}
-  - {fileID: 2800000, guid: 187033d3ff437fa40aa549e8163c4313, type: 3}
-  - {fileID: 2800000, guid: 32a8ea5968120d642b8b70f5651f0512, type: 3}
-  - {fileID: 2800000, guid: 721dafd140c3f39439dde6fb7a4ff82d, type: 3}
-  - {fileID: 2800000, guid: 0c05af0a6f2289a4db0b84530a0be279, type: 3}
-  - {fileID: 2800000, guid: 7f95e3b954fbc794a9807b86f0deef99, type: 3}
-  ShirtTextureArray:
-  - {fileID: 2800000, guid: 21ec7044f7e12ce478fa2e4b296efa86, type: 3}
-  - {fileID: 2800000, guid: f9a499e8174f6b4478d33c8825242019, type: 3}
-  - {fileID: 2800000, guid: 02eb6facab6130c4cb889ecb037a3bdb, type: 3}
-  - {fileID: 2800000, guid: 8afb3885405d7a245bce1a2e9af4b992, type: 3}
-  - {fileID: 2800000, guid: 39d69c5b3ea584947928be5364ae97ef, type: 3}
-  - {fileID: 2800000, guid: 4faaf625bf04f53478b8b081156c18db, type: 3}
-  - {fileID: 2800000, guid: 19ab2112ac4beab4d96904b297ab176b, type: 3}
-  - {fileID: 2800000, guid: 5e47df888b578c24e91ead4b687a28aa, type: 3}
-  PantsTextureArray:
-  - {fileID: 2800000, guid: 4d2b392a2967e1c4087c09b14ba2aed5, type: 3}
-  - {fileID: 2800000, guid: db0fb50a3737cfb4ea37757a4163cb4d, type: 3}
-  - {fileID: 2800000, guid: 0996ba1b2b0f84140a9a860dfeae8a7f, type: 3}
-  - {fileID: 2800000, guid: 747585fcc1f45dc46bf37643c838aa89, type: 3}
-  - {fileID: 2800000, guid: 49a3307f539e5214098cbad323677ac3, type: 3}

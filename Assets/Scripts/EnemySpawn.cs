@@ -5,11 +5,9 @@ public class EnemySpawn : MonoBehaviour
     [Header("Main")]
     public bool Assigned;
     public Transform SpawnPoint;
-
-    [Header("Zombie textures")]
-    public Texture [] SkinTextureArray; //List of all the skin textures of the zombie
-    public Texture [] ShirtTextureArray; //List of all the shirt textures of the zombie
-    public Texture [] PantsTextureArray; //List of all the pants textures of the zombie
+    [HideInInspector]
+    public ZombieTextureCollection ZombieTextureCollectionScript;
+    private ZombieTextures ZombieTexturesScript;
 
     void Awake () 
 	{
@@ -21,23 +19,69 @@ public class EnemySpawn : MonoBehaviour
         SpawnPoint.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
 
         Transform CurrentZombie = Instantiate(Zombie, SpawnPoint.position, Random.rotation);
-
         Renderer CurrentZombieRenderer = CurrentZombie.GetComponentInChildren<Renderer>();
+        string CurrentZombieName = CurrentZombie.name;
 
-        int CurrentShirtTexture = Random.Range(0, ShirtTextureArray.Length);
-        if (ShirtTextureArray [CurrentShirtTexture] != null && CurrentZombieRenderer.materials [0].mainTexture != null)
+        foreach (ZombieTextures CurrentZombieTextures in ZombieTextureCollectionScript.ZombieTexturesArray)
         {
-            CurrentZombieRenderer.materials [0].mainTexture = ShirtTextureArray [CurrentShirtTexture];
+            if (CurrentZombieName.Contains(CurrentZombieTextures.Name))
+            {
+                ZombieTexturesScript = CurrentZombieTextures;
+                break;
+            }
         }
-        int CurrentPantsTexture = Random.Range(0, PantsTextureArray.Length);
-        if (PantsTextureArray [CurrentPantsTexture] != null && CurrentZombieRenderer.materials [0].mainTexture != null)
+
+        if (ZombieTexturesScript != null)
         {
-            CurrentZombieRenderer.materials [1].mainTexture = PantsTextureArray [CurrentPantsTexture];
+            Texture [] CurrentPrimaryTextureArray = ZombieTexturesScript.PrimaryTextureArray;
+            Texture [] CurrentSecondaryTextureArray = ZombieTexturesScript.SecondaryTextureArray;
+            Texture [] CurrentTertiaryTextureArray = ZombieTexturesScript.TertiaryTextureArray;
+            Texture [] CurrentQuaternaryTextureArray = ZombieTexturesScript.QuaternaryTextureArray;
+
+            print(CurrentPrimaryTextureArray);
+            print(CurrentSecondaryTextureArray);
+            print(CurrentTertiaryTextureArray);
+            print(CurrentQuaternaryTextureArray);
+
+            if (CurrentPrimaryTextureArray != null && CurrentPrimaryTextureArray.Length > 0)
+            {
+                int CurrentPrimaryTexture = Random.Range(0, CurrentPrimaryTextureArray.Length);
+                if (CurrentPrimaryTextureArray [CurrentPrimaryTexture] != null && CurrentZombieRenderer.materials [0] != null)
+                {
+                    CurrentZombieRenderer.materials [0].mainTexture = CurrentPrimaryTextureArray [CurrentPrimaryTexture];
+                }
+            }
+
+            if (CurrentSecondaryTextureArray != null && CurrentSecondaryTextureArray.Length > 0)
+            {
+                int CurrentSecondaryTexture = Random.Range(0, CurrentSecondaryTextureArray.Length);
+                if (CurrentSecondaryTextureArray [CurrentSecondaryTexture] != null && CurrentZombieRenderer.materials [1] != null)
+                {
+                    CurrentZombieRenderer.materials [1].mainTexture = CurrentSecondaryTextureArray [CurrentSecondaryTexture];
+                }
+            }
+
+            if (CurrentTertiaryTextureArray != null && CurrentTertiaryTextureArray.Length > 0)
+            {
+                int CurrentTertiaryTexture = Random.Range(0, CurrentTertiaryTextureArray.Length);
+                if (CurrentTertiaryTextureArray [CurrentTertiaryTexture] != null && CurrentZombieRenderer.materials [2] != null)
+                {
+                    CurrentZombieRenderer.materials [2].mainTexture = CurrentTertiaryTextureArray [CurrentTertiaryTexture];
+                }
+            }
+
+            if (CurrentQuaternaryTextureArray != null && CurrentQuaternaryTextureArray.Length > 0)
+            {
+                int CurrentQuaternaryTexture = Random.Range(0, CurrentQuaternaryTextureArray.Length);
+                if (CurrentQuaternaryTextureArray [CurrentQuaternaryTexture] != null && CurrentZombieRenderer.materials [3] != null)
+                {
+                    CurrentZombieRenderer.materials [3].mainTexture = CurrentQuaternaryTextureArray [CurrentQuaternaryTexture];
+                }
+            }
         }
-        int CurrentSkinTexture = Random.Range(0, SkinTextureArray.Length);
-        if (SkinTextureArray [CurrentSkinTexture] != null && CurrentZombieRenderer.materials [0].mainTexture != null)
+        else
         {
-            CurrentZombieRenderer.materials [2].mainTexture = SkinTextureArray [CurrentSkinTexture];
+            Debug.LogError(CurrentZombieName + " at [" + SpawnPoint.position + "] spawns with no texture;");
         }
 
         EnemyMovement CurrentZombieMovement = CurrentZombie.GetComponent<EnemyMovement>();
@@ -46,6 +90,6 @@ public class EnemySpawn : MonoBehaviour
             CurrentZombieMovement.AIActive = ZombieAIActive;
         }
 
-        print("Spawned one " + CurrentZombie.name + " at [" + SpawnPoint.position + "]");
+        Debug.Log("Spawned " + CurrentZombieName + " at [" + SpawnPoint.position + "]");
     }
 }

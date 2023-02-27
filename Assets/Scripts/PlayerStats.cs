@@ -27,9 +27,7 @@ public class PlayerStats : MonoBehaviour
     public PlayerState PlayerMovementStatus;
     public float JumpHeight;
     public float CrouchHeightPercentage = 100f; //How many percents of the Player's height the Player has while crouching.//
-    [HideInInspector]
     public float StandingHeight;
-    [HideInInspector]
     public float CrouchingHeight;
 
     [Header("Stamina")]

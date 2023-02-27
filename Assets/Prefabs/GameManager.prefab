@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2774945677977826735}
   - component: {fileID: 8340538791464096455}
   - component: {fileID: 1670115311}
+  - component: {fileID: 1782476530}
   m_Layer: 8
   m_Name: GameManager
   m_TagString: Untagged
@@ -320,12 +321,17 @@ MonoBehaviour:
       type: 3}
     Default: 1
     Active: 1
-    Chance: 40
+    Chance: 15
   - ZombiePrefab: {fileID: 8759988696209381223, guid: d52f3e1c5169a6347b705f8e9704fbe5,
       type: 3}
     Default: 0
     Active: 0
     Chance: 10
+  - ZombiePrefab: {fileID: 7915193722213626511, guid: 174a7b0a0d278784f99a52b223dd6e27,
+      type: 3}
+    Default: 0
+    Active: 1
+    Chance: 15
   ZombieAmount: 40
   ZombieKillPercent: 80
   ZombieDeathCount: 1
@@ -398,7 +404,7 @@ MonoBehaviour:
     Chance: 15
     WaitTime: 30
     CurrentWaitTime: 0
-  - LootPrefab: {fileID: 1752827354433517756, guid: 6c5581881dc2e0c458b609fa23564e0c,
+  - LootPrefab: {fileID: 8930731706539185230, guid: f305fbac83d14d14f90795348c19183d,
       type: 3}
     Active: 1
     Chance: 15
@@ -493,6 +499,12 @@ MonoBehaviour:
     Active: 1
     Chance: 1
     WaitTime: 300
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 1752827354433517756, guid: 6c5581881dc2e0c458b609fa23564e0c,
+      type: 3}
+    Active: 1
+    Chance: 15
+    WaitTime: 30
     CurrentWaitTime: 0
   SpawnerArray:
   - {fileID: 0}
@@ -692,3 +704,18 @@ MonoBehaviour:
     type: 2}
   ImpactEffectCollectionScript: {fileID: 11400000, guid: 3f839a662e810f241845514a67f0cef6,
     type: 2}
+  ZombieTextureCollectionScript: {fileID: 11400000, guid: 172d3f1f92226914cb11f73ea908541e,
+    type: 2}
+--- !u!114 &1782476530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797918815416727601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42142575673094246a084a46b95ef3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentNavMeshSurface: {fileID: 0}

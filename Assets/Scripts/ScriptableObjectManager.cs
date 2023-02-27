@@ -9,6 +9,7 @@ public class ScriptableObjectManager : MonoBehaviour
     public ItemCollection ItemCollectionScript;
     public PhysicMaterialCollection PhysicMaterialCollectionScript;
     public ImpactEffectCollection ImpactEffectCollectionScript;
+    public ZombieTextureCollection ZombieTextureCollectionScript;
 
     void Awake()
     {

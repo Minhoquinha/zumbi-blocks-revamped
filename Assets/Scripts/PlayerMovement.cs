@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (Physics.CheckSphere(GroundCheckerTransform.position, GroundCheckerRadius, CollisionMask, QueryTriggerInteraction.Ignore))
+        if (Physics.CheckCapsule(GroundCheckerTransform.position, transform.position, GroundCheckerRadius, CollisionMask, QueryTriggerInteraction.Ignore))
         {
             Grounded = true;
         }
@@ -198,11 +198,5 @@ public class PlayerMovement : MonoBehaviour
             Player.CurrentStamina -= Player.JumpingStaminaCost;
             Player.PlayerMovementStatus = PlayerStats.PlayerState.Jumping;
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(GroundCheckerTransform.position, GroundCheckerRadius);
     }
 }

@@ -343,8 +343,8 @@ MonoBehaviour:
   PlayerMovementStatus: 0
   JumpHeight: 1.5
   CrouchHeightPercentage: 50
-  StandingHeight: 0
-  CrouchingHeight: 0
+  StandingHeight: 2.4
+  CrouchingHeight: 1.2
   Stamina: 40
   CurrentStamina: 0
   MinStamina: 0.2
@@ -673,7 +673,7 @@ MonoBehaviour:
   PlayerController: {fileID: 8405782617152360084}
   CollisionMask:
     serializedVersion: 2
-    m_Bits: 8449
+    m_Bits: 12545
 --- !u!137 &-6681753187657305908
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

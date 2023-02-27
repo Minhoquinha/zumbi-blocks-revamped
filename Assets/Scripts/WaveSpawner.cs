@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour 
 {
-    [Header("Zombie textures")]
-    private Texture [] SkinTextureArray; //List of all the skin textures of the zombie//
-    private Texture [] ShirtTextureArray; //List of all the shirt textures of the zombie//
-    private Texture [] PantsTextureArray; //List of all the pants textures of the zombie//
-
     [Header("Cycle Properties")]
     public int CycleNum = 0;
     public float CycleDelay = 30f; //Time between each cycle//
@@ -43,16 +38,15 @@ public class WaveSpawner : MonoBehaviour
     public EnemySpawn [] SpawnerArray;
     private GameManager GameManagerScript;
     public UIManager UI;
+    private ScriptableObjectManager ScriptableObjectManagerScript;
     private ZombieTextureCollection ZombieTextureCollectionScript;
 
     void Awake()
     {
         GameManagerScript = GetComponent<GameManager>();
         UI = GetComponent<UIManager>();
-        ZombieTextureCollectionScript = GameManagerScript.ZombieTextureCollectionScript;
-        SkinTextureArray = ZombieTextureCollectionScript.SkinTextureArray;
-        ShirtTextureArray = ZombieTextureCollectionScript.ShirtTextureArray;
-        PantsTextureArray = ZombieTextureCollectionScript.PantsTextureArray;
+        ScriptableObjectManagerScript = GetComponent<ScriptableObjectManager>();
+        ZombieTextureCollectionScript = ScriptableObjectManagerScript.ZombieTextureCollectionScript;
 
         if (ZombieArray.Length <= 0 && enabled)
         {
@@ -70,12 +64,7 @@ public class WaveSpawner : MonoBehaviour
 
         foreach (EnemySpawn Spawner in SpawnerArray)
         {
-            if (Spawner != null)
-            {
-                Spawner.SkinTextureArray = SkinTextureArray;
-                Spawner.ShirtTextureArray = ShirtTextureArray;
-                Spawner.PantsTextureArray = PantsTextureArray;
-            }
+            Spawner.ZombieTextureCollectionScript = ZombieTextureCollectionScript;
         }
     }
 

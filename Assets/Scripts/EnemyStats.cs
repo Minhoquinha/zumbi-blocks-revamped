@@ -79,6 +79,7 @@ public class EnemyStats : MonoBehaviour
 
         if (BloodEruption != null)
         {
+            //Unity is weird so this works even though the value changed is not reassigned to the main particle system... Just cope//
             ParticleSystem.MainModule BloodEruptionMainModule = BloodEruption.main;
             BloodEruptionMainModule.loop = false;
         }

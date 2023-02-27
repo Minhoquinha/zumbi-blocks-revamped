@@ -6,84 +6,58 @@ using UnityEngine;
 public class ZombieTextureCollection : ScriptableObject
 {
     [Header("Main")]
+    public ZombieTextures [] ZombieTexturesArray;
     public string Description;
 
-    [Header("Zombie textures")]
-    public Texture [] SkinTextureArray; //List of all the skin textures of the zombie
-    public Texture [] ShirtTextureArray; //List of all the shirt textures of the zombie
-    public Texture [] PantsTextureArray; //List of all the pants textures of the zombie
-
-    public Texture this [int index, int ArrayNum]
+    public ZombieTextures this [int index]
     {
         get
         {
-            switch (ArrayNum)
-            {
-                case 0:
-                    return SkinTextureArray [index];
-
-                case 1:
-                    return ShirtTextureArray [index];
-
-                case 2:
-                    return PantsTextureArray [index];
-
-                default:
-                    return null;
-            }
+            return ZombieTexturesArray [index];
         }
         set
         {
-            switch (ArrayNum)
-            {
-                case 0:
-                    SkinTextureArray [index] = value;
-                    break;
-
-                case 1:
-                    ShirtTextureArray [index] = value;
-                    break;
-
-                case 2:
-                    PantsTextureArray [index] = value;
-                    break;
-
-                default:
-                    throw new System.IndexOutOfRangeException("ZombieTextureCollection(): Invalid integer given to access arrays");
-            }
+            ZombieTexturesArray [index] = value;
         }
     }
 
-    public Texture PickRandom()
+    public ZombieTextures PickRandom()
     {
-        int RandomArrayNum = Random.Range(0, Random.Range(0, 2));
-        switch (RandomArrayNum)
-        {
-            case 0:
-                return SkinTextureArray [Random.Range(0, SkinTextureArray.Length)];
-
-            case 1:
-                return ShirtTextureArray [Random.Range(0, ShirtTextureArray.Length)];
-
-            case 2:
-                return PantsTextureArray [Random.Range(0, PantsTextureArray.Length)];
-
-            default:
-                return null;
-        }
+        return ZombieTexturesArray [Random.Range(0, ZombieTexturesArray.Length)];
     }
 
     public int Length
     {
         get
         {
-            int SumArrayLenghts = 0;
+            if (ZombieTexturesArray == null)
+            {
+                return 0;
+            }
 
-            SumArrayLenghts += SkinTextureArray.Length;
-            SumArrayLenghts += ShirtTextureArray.Length;
-            SumArrayLenghts += PantsTextureArray.Length;
-
-            return SumArrayLenghts;
+            return ZombieTexturesArray.Length;
         }
+    }
+
+    public int ConstrainIndex(int index, bool wrap = false)
+    {
+        if (ZombieTexturesArray.Length < 1)
+        {
+            throw new System.IndexOutOfRangeException("ZombieTextureCollection.ConstrainIndex(): no items in " + name);
+        }
+
+        if (index < 0) return 0;
+        if (index >= ZombieTexturesArray.Length)
+        {
+            if (wrap)
+            {
+                index = 0;
+            }
+            else
+            {
+                index = ZombieTexturesArray.Length - 1;
+            }
+        }
+        return index;
     }
 }

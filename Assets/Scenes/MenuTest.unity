@@ -2656,7 +2656,7 @@ PrefabInstance:
     - target: {fileID: 4597763139519541924, guid: bddb2d8017c610f4d93884ce5592af41,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4597763139519541924, guid: bddb2d8017c610f4d93884ce5592af41,
         type: 3}
@@ -2682,6 +2682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HurtScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597763139519541925, guid: bddb2d8017c610f4d93884ce5592af41,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bddb2d8017c610f4d93884ce5592af41, type: 3}
@@ -2925,6 +2930,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DeathScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 369324307425707095, guid: 14e0c4bcb9193b646bf898f8ac8a53c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14e0c4bcb9193b646bf898f8ac8a53c9, type: 3}

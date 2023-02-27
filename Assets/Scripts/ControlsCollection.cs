@@ -35,6 +35,7 @@ public class ControlsCollection : ScriptableObject
 			{
 				return 0;
 			}
+
 			return ControlArray.Length;
 		}
 	}

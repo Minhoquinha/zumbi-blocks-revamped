@@ -82,7 +82,7 @@ MonoBehaviour:
   Damage: 62
   Penetration: 300
   AttackReach: 3
-  Knockback: 0
+  Knockback: 1
   AttackSpeed: 0.6
   FixedAttackDelay: 0.35
   CurrentAttackDelay: 0

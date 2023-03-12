@@ -65,7 +65,7 @@ MonoBehaviour:
   GameStatus: 1
   SceneKeywordInGame: Game
   SceneKeywordInMenu: Menu
-  WaveStartText: Press ENTER to start
+  GameStartText: Press ENTER to start
   GameFinished: 0
   GameOverText: GAME OVER
   SecondaryGameOverText: Press ESC to exit the game
@@ -438,19 +438,19 @@ MonoBehaviour:
       type: 3}
     Active: 1
     Chance: 2
-    WaitTime: 30
+    WaitTime: 40
     CurrentWaitTime: 0
   - LootPrefab: {fileID: 1159227000610307451, guid: 63c716dcea3986d4e8d04876701635e4,
       type: 3}
     Active: 1
     Chance: 2
-    WaitTime: 30
+    WaitTime: 40
     CurrentWaitTime: 0
   - LootPrefab: {fileID: 8077441490139240287, guid: 696c62133a79bde409356885abaec1c6,
       type: 3}
     Active: 1
     Chance: 2
-    WaitTime: 30
+    WaitTime: 40
     CurrentWaitTime: 0
   - LootPrefab: {fileID: 3168815830837108546, guid: e9b7764e061097446867ac9b9df6eead,
       type: 3}
@@ -509,8 +509,20 @@ MonoBehaviour:
   - LootPrefab: {fileID: 7097283284843104878, guid: e5e8cccd4e86c6a4b9a81b6d078fa8a5,
       type: 3}
     Active: 1
-    Chance: 8
+    Chance: 5
     WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 7295855499157620417, guid: 315fc65a6758f4d4090d172a45190099,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 60
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 5051304696969661885, guid: 49684d26b64b5bd4d9d83e09bb1066c1,
+      type: 3}
+    Active: 1
+    Chance: 2
+    WaitTime: 60
     CurrentWaitTime: 0
   SpawnerArray:
   - {fileID: 0}

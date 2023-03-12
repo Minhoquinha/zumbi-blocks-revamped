@@ -195,7 +195,7 @@ MonoBehaviour:
   Penetration: 100
   AttackReach: 2
   Knockback: 1
-  AttackSpeed: 1.4
+  AttackSpeed: 1.3
   FixedAttackDelay: 0.2
   CurrentAttackDelay: 0
   Spread: 0

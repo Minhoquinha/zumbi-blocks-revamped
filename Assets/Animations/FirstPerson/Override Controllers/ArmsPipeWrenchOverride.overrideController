@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ArmsPipeWrench
+  m_Name: ArmsPipeWrenchOverride
   m_Controller: {fileID: 9100000, guid: e9499f8fc1954e941aa029ab6539aca3, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7572344613039948371, guid: f894edcf72fb3814ca9da2e46ab43343,

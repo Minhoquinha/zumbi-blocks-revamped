@@ -57,8 +57,6 @@ public class PlayerStats : MonoBehaviour
     public float NoiseReductionFactor; //How much noise is reduced per unit of time//
 
     [Header("Health State")]
-    [HideInInspector]
-    public bool Dead;
     public bool Bleeding = false;
     public float AverageBleedingDuration = 60f; //The average total time the player spends bleeding after it started in seconds//
     private float CurrentBleedingDuration = 60f; //The current time the player will spend bleeding in seconds//
@@ -66,6 +64,8 @@ public class PlayerStats : MonoBehaviour
     public float BleedingDamage = 2f; //The damage the player receives by bleeding each BleedingRate seconds//
     public float BleedingRate = 0.7f; //The rate at which the player gets damaged by bleeding per second//
     private float NextBleed = 0f; //Time it will take for the next bleeding damage in seconds//
+    [HideInInspector]
+    public bool Dead;
 
     [Header("Main References")]
     [Space(50)]
@@ -77,7 +77,6 @@ public class PlayerStats : MonoBehaviour
     public CharacterController PlayerController;
     public AudioSource FleshSound;
     public ParticleSystem BloodEruption;
-
 
     void Awake()
     {

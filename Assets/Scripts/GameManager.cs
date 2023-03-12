@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     //Scene keywords are used so the program knows what to do with a scene once it is loaded.//
     public string SceneKeywordInGame = "Game"; //A scene with this word in it's name is automatically loaded as an InGame scene.//
     public string SceneKeywordInMenu = "Menu"; //A scene with this word in it's name is automatically loaded as a Menu scene.//
-    public string WaveStartText; //Text that shows when the game starts//
+    public string GameStartText; //Text that shows when the game starts//
     public bool GameFinished;
     public string GameOverText; //Text that shows when the game is over//
     public string SecondaryGameOverText; //Text that shows when the game is over//
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
             GameStatus = GameState.InGame;
 
             PlayerManagerScript.PlayerSpawn(DefaultTestPlayer.transform);
-            UI.SCenterTextMessage(WaveStartText, 300f);
+            UI.SCenterTextMessage(GameStartText, 300f);
         }
         else
         {
@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
 
                         Cursor.lockState = CursorLockMode.Locked;
                         Cursor.visible = false;
-                        UI.SCenterTextMessage(WaveStartText, 300f);
+                        UI.SCenterTextMessage(GameStartText, 300f);
 
                         InGameInitialTime = TotalAppTime;
                         InGameTime = 0f;

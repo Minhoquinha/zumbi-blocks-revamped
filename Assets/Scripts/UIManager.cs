@@ -67,10 +67,7 @@ public class UIManager : MonoBehaviour
             Debug.LogWarning("More than one " + this.name + " loaded;");
             return;
         }
-    }
 
-    void Start()
-    {
         if (UseStopWatch && StopWatch == null)
         {
             UseStopWatch = false;
@@ -102,7 +99,6 @@ public class UIManager : MonoBehaviour
             Debug.LogWarning("SCenterText not found;");
         }
     }
-
     public void PCenterTextMessage (string Message, float CenterTextDuration)
     {
         if (UsePCenterText)
@@ -125,7 +121,7 @@ public class UIManager : MonoBehaviour
             SCenterText.enabled = true;
             SCenterText.text = Message;
 
-            if (CenterTextDuration == 0f)
+            if (CenterTextDuration <= 0f)
             {
                 CenterTextDuration = SCenterTextDefaultTime;
             }

@@ -51,7 +51,17 @@ ModelImporter:
   - first:
       74: -4311061830580930314
     second: Rig|Walk2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants Texture
+    second: {fileID: 2100000, guid: 8ef77918f39f89c408fd6779c57245a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin Texture
+    second: {fileID: 2100000, guid: 7d190607796be9a4aa665cfbf154ac75, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -133,7 +143,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0175
+    globalScale: 1.75
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
@@ -142,7 +152,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -7,6 +7,7 @@ public class LightItem : MonoBehaviour
     [Header("Main")]
     public Light MainLight;
     public bool LightState;
+    public AudioSource SwitchSound;
 
     private GameManager GameManagerScript;
     private ControlsManager ControlsManagerScript;
@@ -15,13 +16,22 @@ public class LightItem : MonoBehaviour
     {
         GameManagerScript = FindObjectOfType<GameManager>();
         ControlsManagerScript = GameManagerScript.GetComponent<ControlsManager>();
-        MainLight = GetComponentInChildren<Light>();
+        
+        MainLight = GetComponentInChildren<Light>(true);
+        if (MainLight != null)
+        {
+            SwitchSound = MainLight.GetComponent<AudioSource>();
+        }
     }
 
     void Start()
     {
         LightState = true;
-        MainLight.enabled = LightState;
+
+        if (MainLight != null)
+        {
+            MainLight.enabled = LightState;
+        }
     }
 
     void Update()
@@ -40,6 +50,14 @@ public class LightItem : MonoBehaviour
     public void SwitchLight ()
     {
         LightState = !LightState;
-        MainLight.enabled = LightState;
+        if (MainLight != null)
+        {
+            MainLight.enabled = LightState;
+        }
+
+        if (SwitchSound != null)
+        {
+            SwitchSound.Play();
+        }
     }
 }

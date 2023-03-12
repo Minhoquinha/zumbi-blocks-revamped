@@ -9,7 +9,8 @@ public class MouseController : MonoBehaviour
     private float RotationX = 0f;
 	private float RotationY = 0f;
     private Quaternion InitialRotation;
-    private float DefaultFieldOfView;
+    public float DefaultFieldOfView;
+    public float FPOnlyCameraFOVFactor = 2f/3f; //How much of the Camera's FOV should be used for FP only objects//
 
     [Header("Main References")]
     [Space(50)]
@@ -19,6 +20,7 @@ public class MouseController : MonoBehaviour
     public Transform PlayerBody;
 	private PlayerStats Player;
     private Camera FPCamera;
+    private Camera FPOnlyCamera;
     private GameManager GameManagerScript;
     private ControlsManager Controls;
     [HideInInspector]
@@ -30,8 +32,18 @@ public class MouseController : MonoBehaviour
     {
         GameManagerScript = FindObjectOfType<GameManager>();
         Controls = GameManagerScript.GetComponent<ControlsManager>();
+
         FPCamera = GetComponent<Camera>();
         DefaultFieldOfView = FPCamera.fieldOfView;
+        Camera [] AllCameras = GetComponentsInChildren<Camera>(true);
+        foreach (Camera CurrentCamera in AllCameras)
+        {
+            if (CurrentCamera != FPCamera)
+            {
+                FPOnlyCamera = CurrentCamera;
+                break;
+            }
+        }
     }
 
     void Start ()
@@ -108,6 +120,11 @@ public class MouseController : MonoBehaviour
         if (FPCamera != null)
         {
             FPCamera.fieldOfView = Mathf.Lerp(FPCamera.fieldOfView, CurrentFieldOfView, Time.deltaTime * 5f);
+        }
+
+        if (FPOnlyCamera != null)
+        {
+            FPOnlyCamera.fieldOfView = Mathf.Lerp(FPOnlyCamera.fieldOfView, CurrentFieldOfView * FPOnlyCameraFOVFactor, Time.deltaTime * 5f);
         }
     }
 }

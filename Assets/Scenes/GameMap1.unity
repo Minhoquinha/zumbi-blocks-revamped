@@ -1381,11 +1381,21 @@ PrefabInstance:
       propertyPath: PauseMenuPanel
       value: 
       objectReference: {fileID: 463481843}
+    - target: {fileID: 2829640071977145257, guid: b6250a637c42f85468268e1948c87f3f,
+        type: 3}
+      propertyPath: UseSCenterText
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2830304706114891425, guid: b6250a637c42f85468268e1948c87f3f,
         type: 3}
       propertyPath: Sun
       value: 
       objectReference: {fileID: 1561194493}
+    - target: {fileID: 2830304706114891425, guid: b6250a637c42f85468268e1948c87f3f,
+        type: 3}
+      propertyPath: GameStartText
+      value: Press ENTER to start
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6250a637c42f85468268e1948c87f3f, type: 3}
 --- !u!114 &233615309 stripped
@@ -2916,7 +2926,7 @@ RectTransform:
   - {fileID: 766575999}
   - {fileID: 327638601}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7543,7 +7553,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1747943090
 PrefabInstance:
@@ -9444,7 +9454,7 @@ PrefabInstance:
     - target: {fileID: 3413462479236291745, guid: 2ae8e89d2b69c9a4997c79b1db421d78,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3413462479236291745, guid: 2ae8e89d2b69c9a4997c79b1db421d78,
         type: 3}
@@ -9588,7 +9598,7 @@ PrefabInstance:
     - target: {fileID: 3229732486411670725, guid: 58952fe1e26e03446a15477f86f12923,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3229732486411670725, guid: 58952fe1e26e03446a15477f86f12923,
         type: 3}
@@ -9741,7 +9751,7 @@ PrefabInstance:
     - target: {fileID: 3167109803046295457, guid: 48bbb3bee00c9de47980fc2db68c8be8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3167109803046295457, guid: 48bbb3bee00c9de47980fc2db68c8be8,
         type: 3}

@@ -71,7 +71,7 @@ MonoBehaviour:
   SecondaryGameOverText: Press ESC to exit the game
   CountTime: 1
   PlayerJoinDelay: 1
-  GameOverDelay: 5
+  GameOverDelay: 2
   Sun: {fileID: 0}
   AmbientLightMaximumIntensity: 1
   SunLightMaximumIntensity: 1
@@ -506,7 +506,7 @@ MonoBehaviour:
     Chance: 15
     WaitTime: 30
     CurrentWaitTime: 0
-  - LootPrefab: {fileID: 1607404216617464820, guid: e5e8cccd4e86c6a4b9a81b6d078fa8a5,
+  - LootPrefab: {fileID: 7097283284843104878, guid: e5e8cccd4e86c6a4b9a81b6d078fa8a5,
       type: 3}
     Active: 1
     Chance: 8

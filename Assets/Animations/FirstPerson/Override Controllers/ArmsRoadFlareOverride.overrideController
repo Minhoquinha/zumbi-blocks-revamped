@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ArmsRoadFlareOverride
+  m_Controller: {fileID: 9100000, guid: b30378c3eba36684dad13c8588570f28, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 8350816339630823838, guid: f59d6a8cd807bfc42be4d746c526f2b5,
+      type: 3}
+    m_OverrideClip: {fileID: 8350816339630823838, guid: d6d18d2710a2440458e4d8aff1f6e9ed,
+      type: 3}
+  - m_OriginalClip: {fileID: -3100369314251171874, guid: f59d6a8cd807bfc42be4d746c526f2b5,
+      type: 3}
+    m_OverrideClip: {fileID: -3100369314251171874, guid: 08e8f5578fe36c946a01ed9aed6b011c,
+      type: 3}
+  - m_OriginalClip: {fileID: -8086047558812005389, guid: f59d6a8cd807bfc42be4d746c526f2b5,
+      type: 3}
+    m_OverrideClip: {fileID: -8086047558812005389, guid: 08e8f5578fe36c946a01ed9aed6b011c,
+      type: 3}
+  - m_OriginalClip: {fileID: 2667949614841947897, guid: f59d6a8cd807bfc42be4d746c526f2b5,
+      type: 3}
+    m_OverrideClip: {fileID: 2667949614841947897, guid: 08e8f5578fe36c946a01ed9aed6b011c,
+      type: 3}
+  - m_OriginalClip: {fileID: -217984378325724736, guid: f59d6a8cd807bfc42be4d746c526f2b5,
+      type: 3}
+    m_OverrideClip: {fileID: -6185155371445809522, guid: 08e8f5578fe36c946a01ed9aed6b011c,
+      type: 3}
+  - m_OriginalClip: {fileID: 3011061001972136635, guid: f59d6a8cd807bfc42be4d746c526f2b5,
+      type: 3}
+    m_OverrideClip: {fileID: 8350816339630823838, guid: d6d18d2710a2440458e4d8aff1f6e9ed,
+      type: 3}

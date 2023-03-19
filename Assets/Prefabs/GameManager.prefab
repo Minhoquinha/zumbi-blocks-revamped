@@ -524,6 +524,12 @@ MonoBehaviour:
     Chance: 2
     WaitTime: 60
     CurrentWaitTime: 0
+  - LootPrefab: {fileID: 782153723455679610, guid: 1e1aa7991861bd54e80a714ef596a5a7,
+      type: 3}
+    Active: 1
+    Chance: 15
+    WaitTime: 30
+    CurrentWaitTime: 0
   SpawnerArray:
   - {fileID: 0}
   - {fileID: 0}

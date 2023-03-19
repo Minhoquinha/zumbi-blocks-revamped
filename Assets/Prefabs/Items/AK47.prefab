@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 5863734015357801123}
   - component: {fileID: 2265351452436880069}
   m_Layer: 9
-  m_Name: AK-47
+  m_Name: AK47
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   - {x: -0.1, y: -2.2, z: 0}
   CurrentRecoilIndex: 0
   RecoilDivergence: {x: 0, y: 0, z: 0}
-  ReloadDelay: 1.5
+  ReloadDelay: 2
   TotalAmmo: 100
   AmmoCapacity: 30
   AmmoBoxCapacity: 30

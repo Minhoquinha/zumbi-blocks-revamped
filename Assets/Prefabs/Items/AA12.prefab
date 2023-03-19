@@ -5275,7 +5275,7 @@ GameObject:
   - component: {fileID: 8532869310992776996}
   - component: {fileID: 8532869310992776999}
   m_Layer: 9
-  m_Name: AA-12
+  m_Name: AA12
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5384,7 +5384,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   CurrentRecoilIndex: 0
   RecoilDivergence: {x: 0, y: 0, z: 0}
-  ReloadDelay: 2
+  ReloadDelay: 2.5
   TotalAmmo: 40
   AmmoCapacity: 20
   AmmoBoxCapacity: 10

@@ -67,14 +67,21 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector]
     public bool Dead;
 
+    [Header("Debugging")]
+    public bool Immortal = false;
+    public bool Tireless = false;
+    public bool Silent = false;
+    public bool Unbleedable = false;
+    public bool PrintHealthFactors = false;
+
     [Header("Main References")]
     [Space(50)]
-    private GameManager GameManagerScript;
-    public PlayerManager PlayerManagerScript;
-    public PlayerMovement PlayerMovementScript;
     public PlayerHUD HUD;
     public PlayerInventory PlayerInventoryScript;
     public CharacterController PlayerController;
+    private GameManager GameManagerScript;
+    public PlayerManager PlayerManagerScript;
+    public PlayerMovement PlayerMovementScript;
     public AudioSource FleshSound;
     public ParticleSystem BloodEruption;
 
@@ -177,60 +184,85 @@ public class PlayerStats : MonoBehaviour
             switch (PlayerMovementStatus)
             {
                 case PlayerState.Standing:
-                    if ((CurrentStamina < Stamina && StandingStaminaGain > 0f) || (CurrentStamina > 0f && StandingStaminaGain < 0f))
+                    if (!Tireless)
                     {
-                        CurrentStamina += Time.deltaTime * StandingStaminaGain;
+                        if ((CurrentStamina < Stamina && StandingStaminaGain > 0f) || (CurrentStamina > 0f && StandingStaminaGain < 0f))
+                        {
+                            CurrentStamina += Time.deltaTime * StandingStaminaGain;
+                        }
                     }
+
                     CurrentNoise = Mathf.Max(StandingNoise, CurrentNoise);
                     break;
 
                 case PlayerState.Walking:
-                    if ((CurrentStamina < Stamina && WalkingStaminaGain > 0f) || (CurrentStamina > 0f && WalkingStaminaGain < 0f))
+                    if (!Tireless)
                     {
-                        CurrentStamina += Time.deltaTime * WalkingStaminaGain;
+                        if ((CurrentStamina < Stamina && WalkingStaminaGain > 0f) || (CurrentStamina > 0f && WalkingStaminaGain < 0f))
+                        {
+                            CurrentStamina += Time.deltaTime * WalkingStaminaGain;
+                        }
                     }
+
                     CurrentNoise = Mathf.Max(WalkingNoise, CurrentNoise);
                     break;
 
                 case PlayerState.Crouching:
-                    if ((CurrentStamina < Stamina && CrouchingStaminaGain > 0f) || (CurrentStamina > 0f && CrouchingStaminaGain < 0f))
+                    if (!Tireless)
                     {
-                        CurrentStamina += Time.deltaTime * CrouchingStaminaGain;
+                        if ((CurrentStamina < Stamina && CrouchingStaminaGain > 0f) || (CurrentStamina > 0f && CrouchingStaminaGain < 0f))
+                        {
+                            CurrentStamina += Time.deltaTime * CrouchingStaminaGain;
+                        }
                     }
+
                     CurrentNoise = Mathf.Max(CrouchingNoise, CurrentNoise);
                     break;
 
                 case PlayerState.Sprinting:
-                    if ((CurrentStamina < Stamina && SprintingStaminaGain > 0f) || (CurrentStamina > 0f && SprintingStaminaGain < 0f))
+                    if (!Tireless)
                     {
-                        CurrentStamina += Time.deltaTime * SprintingStaminaGain;
+                        if ((CurrentStamina < Stamina && SprintingStaminaGain > 0f) || (CurrentStamina > 0f && SprintingStaminaGain < 0f))
+                        {
+                            CurrentStamina += Time.deltaTime * SprintingStaminaGain;
+                        }
                     }
+
                     CurrentNoise = Mathf.Max(SprintingNoise, CurrentNoise);
                     break;
 
                 case PlayerState.Falling:
-                    if ((CurrentStamina < Stamina && AerialStaminaGain > 0f) || (CurrentStamina > 0f && AerialStaminaGain < 0f))
+                    if (!Tireless)
                     {
-                        CurrentStamina += Time.deltaTime * AerialStaminaGain;
+                        if ((CurrentStamina < Stamina && AerialStaminaGain > 0f) || (CurrentStamina > 0f && AerialStaminaGain < 0f))
+                        {
+                            CurrentStamina += Time.deltaTime * AerialStaminaGain;
+                        }
                     }
                     break;
 
                 case PlayerState.Jumping:
-                    if ((CurrentStamina < Stamina && AerialStaminaGain > 0f) || (CurrentStamina > 0f && AerialStaminaGain < 0f))
+                    if (!Tireless)
                     {
-                        CurrentStamina += Time.deltaTime * AerialStaminaGain;
+                        if ((CurrentStamina < Stamina && AerialStaminaGain > 0f) || (CurrentStamina > 0f && AerialStaminaGain < 0f))
+                        {
+                            CurrentStamina += Time.deltaTime * AerialStaminaGain;
+                        }
                     }
                     break;
             }
 
-            if (CurrentStamina < 0f)
+            if (!Tireless)
             {
-                CurrentStamina = 0f;
-            }
+                if (CurrentStamina < 0f)
+                {
+                    CurrentStamina = 0f;
+                }
 
-            if (HUD != null)
-            {
-                HUD.StaminaChange(CurrentStamina);
+                if (HUD != null)
+                {
+                    HUD.StaminaChange(CurrentStamina);
+                }
             }
 
             if (CurrentNoise < 0f)
@@ -243,25 +275,28 @@ public class PlayerStats : MonoBehaviour
                 HUD.NoiseChange(CurrentNoise);
             }
 
-            if (CurrentBleedingDuration <= 0f)
+            if (!Unbleedable)
             {
-                StopBleeding();
-            }
-            else
-            {
-                CurrentBleedingDuration -= Time.deltaTime;
-            }
-
-            if (Bleeding)
-            {
-                if  (NextBleed <= 0f)
+                if (CurrentBleedingDuration <= 0f)
                 {
-                    NextBleed = 1f / BleedingRate;
-                    Bleed();
+                    StopBleeding();
                 }
                 else
                 {
-                    NextBleed -= Time.deltaTime;
+                    CurrentBleedingDuration -= Time.deltaTime;
+                }
+
+                if (Bleeding)
+                {
+                    if (NextBleed <= 0f)
+                    {
+                        NextBleed = 1f / BleedingRate;
+                        Bleed();
+                    }
+                    else
+                    {
+                        NextBleed -= Time.deltaTime;
+                    }
                 }
             }
 		}
@@ -269,7 +304,7 @@ public class PlayerStats : MonoBehaviour
 
     public void Hurt(float Damage, float BleedChance)
     {
-        if (Dead)
+        if (Dead || Damage <= 0f)
         {
             return;
         }
@@ -277,9 +312,9 @@ public class PlayerStats : MonoBehaviour
         CurrentHealth -= Damage / (Armor / 100f);
         FleshSound.Play();
 
-        float Bleed = Random.value;
+        float BleedLuck = Random.value;
 
-        if (Bleed <= BleedChance)
+        if (BleedLuck <= BleedChance)
         {
             float BleedingDuration = AverageBleedingDuration + Random.Range(-BleedingDurationVariation, BleedingDurationVariation);
 
@@ -301,16 +336,30 @@ public class PlayerStats : MonoBehaviour
             }
         }
 
+        if (PrintHealthFactors)
+        {
+            Debug.Log(gameObject.name + " HEALTH FACTORS: HURT");
+            Debug.Log("Damage:" + Damage);
+            Debug.Log("BleedChance:" + BleedChance);
+            Debug.Log("BleedLuck:" + BleedLuck);
+            Debug.Log("Bleeding:" + Bleeding);
+            Debug.Log("Dead:" + Dead);
+        }
+
         if (CurrentHealth <= 0f)
         {
 			CurrentHealth = 0f;
-            Death();
+
+            if (!Immortal)
+            {
+                Death();
+            }
         }
     }
 
     public void Bleed()
     {
-        if (Dead)
+        if (Dead || Unbleedable)
         {
             return;
         }
@@ -324,6 +373,14 @@ public class PlayerStats : MonoBehaviour
                 HUD.HurtEffect(BleedingDamage * 5f);
                 HUD.HealthChange(CurrentHealth);
             }
+        }
+
+        if (PrintHealthFactors)
+        {
+            Debug.Log(gameObject.name + " HEALTH FACTORS: BLEED");
+            Debug.Log("BleedingDamage:" + BleedingDamage);
+            Debug.Log("Bleeding:" + Bleeding);
+            Debug.Log("Dead:" + Dead);
         }
 
         if (CurrentHealth <= 0f)
@@ -342,7 +399,7 @@ public class PlayerStats : MonoBehaviour
 
     public void Heal(float Amount, bool Stanch)
     {
-        if (Dead)
+        if (Dead || Amount <= 0f)
         {
             return;
         }
@@ -366,11 +423,20 @@ public class PlayerStats : MonoBehaviour
                 HUD.HealthChange(CurrentHealth);
             }
         }
+
+        if (PrintHealthFactors)
+        {
+            Debug.Log(gameObject.name + " HEALTH FACTORS: HEAL");
+            Debug.Log("Amount:" + Amount);
+            Debug.Log("Stanch:" + Stanch);
+            Debug.Log("Bleeding:" + Bleeding);
+            Debug.Log("Dead:" + Dead);
+        }
     }
 
     public void GiveStamina(float Amount)
     {
-        if (Dead)
+        if (Dead || Amount <= 0f)
         {
             return;
         }
@@ -389,10 +455,17 @@ public class PlayerStats : MonoBehaviour
         {
             CurrentStamina = Stamina;
         }
+
+        if (PrintHealthFactors)
+        {
+            Debug.Log(gameObject.name + " HEALTH FACTORS: GIVESTAMINA");
+            Debug.Log("Amount:" + Amount);
+            Debug.Log("Dead:" + Dead);
+        }
     }
     public void Death()
     {
-        if (!Dead)
+        if (!Dead && !Immortal)
         {
             Dead = true;
             Debug.Log(this.name + " died;");

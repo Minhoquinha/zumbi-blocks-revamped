@@ -283,7 +283,7 @@ public class Guns : MonoBehaviour
                     CurrentSpread = 0f;
                 }
 
-                if (TryFire)
+                if (TryFire && !Reloading)
                 {
                     Fire();
                 }
@@ -508,6 +508,8 @@ public class Guns : MonoBehaviour
 
     void Fire()
     {
+        CurrentFireDelay = 1f / FireRate;
+
         if (Ammo > 0)
         {
             if (MultiMuzzle)
@@ -525,8 +527,6 @@ public class Guns : MonoBehaviour
             {
                 Player.CurrentNoise = Loudness;
             }
-
-            CurrentFireDelay = 1f / FireRate;
 
             if (!InfiniteAmmo)
             {
@@ -736,9 +736,10 @@ public class Guns : MonoBehaviour
 
                 if (PrintDamageFactors)
                 {
-                    print("CurrentDamage:" + CurrentDamage);
-                    print("WallResistance:" + WallResistance);
-                    print("DamageDropoff:" + DamageDropoff);
+                    Debug.Log(gameObject.name + " DAMAGE FACTORS:");
+                    Debug.Log("CurrentDamage:" + CurrentDamage);
+                    Debug.Log("WallResistance:" + WallResistance);
+                    Debug.Log("DamageDropoff:" + DamageDropoff);
                 }
 
                 if (CurrentDamage < 0f)
@@ -836,25 +837,28 @@ public class Guns : MonoBehaviour
 
     void StartReload ()
     {
-		if (TotalAmmo > 0)
-		{
-            Reloading = true;
-
-            if (AnimatorController != null)
+        if (!Reloading)
+        {
+            if (TotalAmmo > 0)
             {
-                AnimatorController.CrossFadeInFixedTime(ReloadAnimationName, 0f);
+                Reloading = true;
+
+                if (AnimatorController != null)
+                {
+                    AnimatorController.CrossFadeInFixedTime(ReloadAnimationName, 0f);
+                }
+
+                AnimatorController.SetLayerWeight(1, 0);
+
+                StartCoroutine(Reload());
+
+                CurrentFireDelay = ReloadDelay;
             }
-
-            AnimatorController.SetLayerWeight(1, 0);
-
-            StartCoroutine(Reload());
-
-            CurrentFireDelay = ReloadDelay;
+            else
+            {
+                NoAmmoSound.Play();
+            }
         }
-		else
-		{
-			NoAmmoSound.Play ();
-		}
     }
 
     IEnumerator Reload ()

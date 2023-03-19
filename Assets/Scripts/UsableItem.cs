@@ -416,6 +416,7 @@ public class UsableItem : MonoBehaviour
             {
                 if (!RemoteController)
                 {
+                    Unequip();
                     Destroy(gameObject);
                 }
             }

@@ -117,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
             Quaternion RotateToLocal = Quaternion.Euler(0f, PlayerHeadTransform.eulerAngles.y, 0f);
             MovementIntent = RotateToLocal * MovementIntent;
         }
+        MovementIntent.Normalize();
 
         if (Grounded)
         {
@@ -179,7 +180,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 HeadPosition = new Vector3(transform.position.x, transform.position.y + CurrentHeight / 2f, transform.position.z);
         PlayerHeadTransform.position = HeadPosition;
 
-        PlayerController.Move(CurrentSpeed * Time.deltaTime * MovementIntent);
+        Vector3 CurrentHorizontalMovement = CurrentSpeed * Time.deltaTime * MovementIntent;
+        PlayerController.Move(CurrentHorizontalMovement);
         PlayerController.Move(Velocity * Time.deltaTime);
     }
 

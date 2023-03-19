@@ -1381,21 +1381,11 @@ PrefabInstance:
       propertyPath: PauseMenuPanel
       value: 
       objectReference: {fileID: 463481843}
-    - target: {fileID: 2829640071977145257, guid: b6250a637c42f85468268e1948c87f3f,
-        type: 3}
-      propertyPath: UseSCenterText
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2830304706114891425, guid: b6250a637c42f85468268e1948c87f3f,
         type: 3}
       propertyPath: Sun
       value: 
       objectReference: {fileID: 1561194493}
-    - target: {fileID: 2830304706114891425, guid: b6250a637c42f85468268e1948c87f3f,
-        type: 3}
-      propertyPath: GameStartText
-      value: Press ENTER to start
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6250a637c42f85468268e1948c87f3f, type: 3}
 --- !u!114 &233615309 stripped

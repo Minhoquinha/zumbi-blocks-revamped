@@ -111,38 +111,54 @@ public class UsableItem : MonoBehaviour
             CurrentUseDelay -= Time.deltaTime;
         }
 
-        switch (ItemType)
+        bool TryBasicThrow;
+        bool TryBasicPlace;
+        bool TryBasicUse;
+        bool TryAltUse;
+
+        if (Player.PlayerMovementStatus != PlayerStats.PlayerState.Sprinting)
         {
-            case ThrowableItemType:
-                if (Input.GetKey(ControlsManagerScript.ControlDictionary ["BasicThrow"]) && CurrentUseDelay <= 0f)
+            TryBasicThrow = Input.GetKeyDown(ControlsManagerScript.ControlDictionary ["BasicThrow"]);
+            TryBasicPlace = Input.GetKeyDown(ControlsManagerScript.ControlDictionary ["BasicPlace"]);
+            TryBasicUse = Input.GetKeyDown(ControlsManagerScript.ControlDictionary ["BasicUse"]);
+            TryAltUse = Input.GetKeyDown(ControlsManagerScript.ControlDictionary ["AltUse"]);
+
+            if (CurrentUseDelay <= 0f)
+            {
+                switch (ItemType)
                 {
-                    ThrowStart();
-                }
-                break;
+                    case ThrowableItemType:
+                        if (TryBasicThrow)
+                        {
+                            ThrowStart();
+                        }
+                        break;
 
-            case PlaceableItemType:
-                if (Input.GetKey(ControlsManagerScript.ControlDictionary ["BasicPlace"]) && CurrentUseDelay <= 0f)
+                    case PlaceableItemType:
+                        if (TryBasicPlace)
+                        {
+                            PlaceStart();
+                        }
+                        break;
+
+                    case SingleUseItemType:
+                        if (TryBasicUse)
+                        {
+                            UseStart(false);
+                        }
+                        break;
+
+                    default:
+                        Debug.LogError(ItemName + "is an invalid item;");
+                        Destroy(gameObject);
+                        break;
+                }
+
+                if (RemoteController && TryAltUse)
                 {
-                    PlaceStart();
+                    UseStart(true);
                 }
-                break;
-
-            case SingleUseItemType:
-                if (Input.GetKey(ControlsManagerScript.ControlDictionary ["BasicUse"]) && CurrentUseDelay <= 0f)
-                {
-                    UseStart(false);
-                }
-                break;
-
-            default:
-                Debug.LogError(ItemName + "is an invalid item;");
-                Destroy(gameObject);
-                break;
-        }
-
-        if (RemoteController && Input.GetKey(ControlsManagerScript.ControlDictionary ["AltUse"]) && CurrentUseDelay <= 0f)
-        {
-            UseStart(true);
+            }
         }
 
         switch (Player.PlayerMovementStatus)

@@ -117,9 +117,9 @@ MonoBehaviour:
   ProjectileBased: 0
   BulletCount: 1
   Damage: 180
-  Penetration: 100
-  DamageDropoffResistance: 100
-  MaxRange: 100
+  Penetration: 400
+  DamageDropoffResistance: 1200
+  MaxRange: 1000
   FireRate: 1
   CurrentFireDelay: 0
   HeadshotDamageMultiplier: 2

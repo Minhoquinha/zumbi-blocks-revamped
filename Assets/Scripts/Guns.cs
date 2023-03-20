@@ -201,11 +201,11 @@ public class Guns : MonoBehaviour
 			CurrentFireDelay -= Time.deltaTime;
         }
 
-        bool TryFire = false;
-        bool TryReload = false;
-        bool TryAim = false;
+        bool TryFire;
+        bool TryReload;
+        bool TryAim;
+        bool TryInspect;
         AimingDownSight = false;
-        bool TryInspect = false;
 
         if (Player.PlayerMovementStatus != PlayerStats.PlayerState.Sprinting)
         {
@@ -283,33 +283,42 @@ public class Guns : MonoBehaviour
                     CurrentSpread = 0f;
                 }
 
-                if (TryFire && !Reloading)
+                if (!Reloading)
                 {
-                    Fire();
-                }
+                    if (TryFire)
+                    {
+                        Fire();
+                    }
 
-                if (TryReload && Ammo < AmmoCapacity && !Reloading)
-                {
-                    StartReload();
-                }
+                    if (TryReload && Ammo < AmmoCapacity)
+                    {
+                        StartReload();
+                    }
 
-                if (TryInspect && !Reloading && !AimingDownSight)
-                {
-                    Inspect();
+                    if (TryInspect && !AimingDownSight)
+                    {
+                        Inspect();
+                    }
                 }
 
                 if (HasBoltLockBack)
                 {
-                    if (Ammo == 0 && Reloading == false)
+                    if (Ammo == 0 && !Reloading)
                     {
                         AnimatorController.SetLayerWeight(1, 1);
                     }
-                    else if (Ammo > 0 && Reloading == true)
+                    else
                     {
                         AnimatorController.SetLayerWeight(1, 0);
                     }
                 }
             }
+        }
+
+        if (Time.time - LastShotTime >= RecoilResetTime)
+        {
+            Vector3 TargetDirection = Vector3.Lerp(RecoilDivergence, FPCamera.transform.forward, Time.deltaTime * 2f);
+            SetGunRotation(TargetDirection);
         }
 
         if (AimingDownSight)
@@ -335,12 +344,6 @@ public class Guns : MonoBehaviour
             }
 
             MouseControllerScript.Zoom(DefaultFieldOfView);
-        }
-
-        if (!TryFire && Time.time - LastShotTime >= RecoilResetTime)
-        {
-            Vector3 TargetDirection = Vector3.Lerp(RecoilDivergence, FPCamera.transform.forward, Time.deltaTime * 2f);
-            SetGunRotation(TargetDirection);
         }
 
         switch (Player.PlayerMovementStatus)
@@ -566,7 +569,6 @@ public class Guns : MonoBehaviour
 
                 if (!ProjectileBased)
                 {
-
                     if (AimingAtObject)
                     {
                         RaycastHit [] HitObjects = Physics.RaycastAll(MuzzleTransform.position, BulletPath, MaxRange);

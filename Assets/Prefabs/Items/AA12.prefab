@@ -5384,7 +5384,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   CurrentRecoilIndex: 0
   RecoilDivergence: {x: 0, y: 0, z: 0}
-  ReloadDelay: 2.5
+  ReloadDelay: 3
   TotalAmmo: 40
   AmmoCapacity: 20
   AmmoBoxCapacity: 10

@@ -5027,7 +5027,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 96
+  Priority: 16
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5310,8 +5310,8 @@ MonoBehaviour:
   FullAuto: 0
   ProjectileBased: 0
   BulletCount: 1
-  Damage: 24
-  Penetration: 180
+  Damage: 25
+  Penetration: 190
   DamageDropoffResistance: 300
   MaxRange: 400
   FireRate: 8
@@ -5321,7 +5321,7 @@ MonoBehaviour:
   LegshotDamageMultiplier: 0.75
   ArmshotDamageMultiplier: 0.75
   AimingSpreadDivisor: 1.4
-  AimingFieldOfView: 0
+  AimingFieldOfView: 60
   StandingSpread: 18
   WalkingSpread: 25
   CrouchingSpread: 12

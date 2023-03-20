@@ -250,7 +250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3371104331617283342
 Transform:
   m_ObjectHideFlags: 0
@@ -380,11 +380,11 @@ MonoBehaviour:
   FullAuto: 1
   ProjectileBased: 0
   BulletCount: 1
-  Damage: 28
-  Penetration: 230
-  DamageDropoffResistance: 700
-  MaxRange: 400
-  FireRate: 10
+  Damage: 32
+  Penetration: 240
+  DamageDropoffResistance: 750
+  MaxRange: 480
+  FireRate: 9
   CurrentFireDelay: 0
   HeadshotDamageMultiplier: 2
   BodyshotDamageMultiplier: 1

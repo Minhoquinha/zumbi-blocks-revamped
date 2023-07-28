@@ -1816,7 +1816,9 @@ MonoBehaviour:
   - Walk1
   - Walk2
   MeleeHitAnimationNameArray:
-  - MeleeHit1
+  - ShotHit1
+  - ShotHit2
+  - ShotHit3
   ShotHitAnimationNameArray:
   - ShotHit1
   - ShotHit2

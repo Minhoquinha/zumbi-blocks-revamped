@@ -50,7 +50,7 @@ public class EnemyMovement : MonoBehaviour
 	public string [] SpecialStandingAnimationNameArray = { "SpecialStanding" };
 	public string [] AttackAnimationNameArray = { "Attack1", "Attack2" };
 	public string [] WalkAnimationNameArray = { "Walk1", "Walk2" };
-	public string [] MeleeHitAnimationNameArray = { "MeleeHit1" };
+	public string [] MeleeHitAnimationNameArray = { "ShotHit1", "ShotHit2", "ShotHit3" };
 	public string [] ShotHitAnimationNameArray = { "ShotHit1", "ShotHit2", "ShotHit3" };
 	public string [] SpawnAnimationNameArray = { "ComingOutGround" };
 	public string [] FallingAnimationNameArray = { "Falling" };

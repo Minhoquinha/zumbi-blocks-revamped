@@ -239,6 +239,7 @@ MonoBehaviour:
   Jumper: 0
   JumpDistance: 0
   KnockbackDelay: 0
+  FallDelay: 0.2
   TPoseAnimationName: TPose
   StandingAnimationNameArray:
   - InactiveStanding
@@ -258,6 +259,8 @@ MonoBehaviour:
   - ShotHit3
   SpawnAnimationNameArray:
   - ComingOutGround
+  FallingAnimationNameArray:
+  - Falling
   AnimatorController: {fileID: 0}
   PrintPlayerDetection: 0
   AttackTransform: {fileID: 3087692834465681833}

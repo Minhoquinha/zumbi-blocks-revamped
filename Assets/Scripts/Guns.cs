@@ -10,7 +10,7 @@ public class Guns : MonoBehaviour
     [Header("Main Stats")]
     public bool FullAuto; //Determines if this weapon is automatic//
     public bool ProjectileBased; //Determines if this weapon uses projectiles instead of hit scans//
-    public int BulletCount; //Determines the amount of bulles this gun fires with each shot, normally used for shotguns//
+    public int BulletCount; //Determines the amount of bullets this gun fires with each shot, normally used for shotguns//
     private int NextBullet; //The number of the next bullet the gun is going to fire out of a burst, normally used for shotguns//
     public float Damage;
     private float CurrentDamage; //The amount of damage that the bullet is going to inflict after calculating penetration and bullet dropoff (DOES NOT account for damage multipliers and armor)//

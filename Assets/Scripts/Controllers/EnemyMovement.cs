@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-	[Header ("Sensors")]
+	[Header("Sensors")]
 	public float TouchDistance;
 	//How far this enemy can detect something without seeing or hearing them//
 	public float VisionDistance;
@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     public bool AIActive;
 	public enum EnemyState
 	{
-		Spawning, Idle, Alert, Pursuing, Attacking, Flinching
+		Spawning, Idle, Alert, Pursuing, Attacking, Flinching, Falling
 	}
 	public EnemyState EnemyStatus;
 	private int CurrentPlayerTarget;
@@ -38,7 +38,9 @@ public class EnemyMovement : MonoBehaviour
 	private float CurrentActionDelay;
 	//The enemy can't attack, search or pursue players while this delay is active//
 	public float KnockbackDelay;
-	//The enemy can't move while this delay is active, but can still attack and search//
+    //The enemy can't move while this delay is active, but can still attack and search//
+    public float FallDelay;
+	//Delay for falling off cliffs. The enemy can't attack, search or pursue players while this delay is active//
 	private float CurrentKnockbackDelay;
 	//The enemy can't move while this delay is active, but can still attack and search//
 
@@ -51,6 +53,7 @@ public class EnemyMovement : MonoBehaviour
 	public string [] MeleeHitAnimationNameArray = { "MeleeHit1" };
 	public string [] ShotHitAnimationNameArray = { "ShotHit1", "ShotHit2", "ShotHit3" };
 	public string [] SpawnAnimationNameArray = { "ComingOutGround" };
+	public string [] FallingAnimationNameArray = { "Falling" };
 	private string CurrentAnimationName =  "TPose";
 	private int RandomStandingAnimationNum = 0;
 	private int RandomSpecialStandingAnimationNum = 0;
@@ -59,6 +62,7 @@ public class EnemyMovement : MonoBehaviour
 	private int RandomMeleeHitAnimationNum = 0;
 	private int RandomShotHitAnimationNum = 0;
 	private int RandomSpawnAnimationNum = 0;
+	private int RandomFallingAnimationNum = 0;
 	[HideInInspector]
 	public Animator AnimatorController;
 
@@ -99,6 +103,7 @@ public class EnemyMovement : MonoBehaviour
 		RandomMeleeHitAnimationNum = Random.Range(0, MeleeHitAnimationNameArray.Length);
 		RandomShotHitAnimationNum = Random.Range(0, ShotHitAnimationNameArray.Length);
 		RandomSpawnAnimationNum = Random.Range(0, SpawnAnimationNameArray.Length);
+		RandomFallingAnimationNum = Random.Range(0, FallingAnimationNameArray.Length);
 
 		CurrentPlayerTarget = -1;
 		CurrentForgetTime = ForgetTime;
@@ -152,6 +157,13 @@ public class EnemyMovement : MonoBehaviour
 			}
 
 			return;
+		}
+
+		if (Agent.isOnOffMeshLink)
+        {
+			EnemyStatus = EnemyState.Falling;
+			Enemy.Stunned = true;
+			CurrentActionDelay = FallDelay;
 		}
 
 		if (CurrentKnockbackDelay <= 0f)
@@ -250,6 +262,16 @@ public class EnemyMovement : MonoBehaviour
 						AnimatorController.SetInteger("MeleeHitIndex", RandomMeleeHitAnimationNum);
 						AnimatorController.SetTrigger("MeleeHit");
 						RandomMeleeHitAnimationNum = Random.Range(0, MeleeHitAnimationNameArray.Length);
+					}
+				break;
+
+				case EnemyState.Falling:
+					if (CurrentAnimationName != "FallingAnimationNameArray")
+					{
+						CurrentAnimationName = "FallingAnimationNameArray";
+						AnimatorController.SetInteger("FallingIndex", RandomFallingAnimationNum);
+						AnimatorController.SetTrigger("Falling");
+						RandomFallingAnimationNum = Random.Range(0, FallingAnimationNameArray.Length);
 					}
 				break;
 
@@ -429,7 +451,12 @@ public class EnemyMovement : MonoBehaviour
 		CurrentActionDelay = Enemy.FlinchDelay;
 		EnemyStatus = EnemyState.Flinching;
 		Enemy.Stunned = true;
-    }
+
+		CurrentAnimationName = "MeleeHitAnimationNameArray";
+		AnimatorController.SetInteger("MeleeHitIndex", RandomMeleeHitAnimationNum);
+		AnimatorController.SetTrigger("MeleeHit");
+		RandomMeleeHitAnimationNum = Random.Range(0, MeleeHitAnimationNameArray.Length);
+	}
 
 	void ForgetTarget ()
     {

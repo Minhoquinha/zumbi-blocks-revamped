@@ -5100,7 +5100,7 @@ GameObject:
   - component: {fileID: 4265153740380541628}
   - component: {fileID: 839060891663095618}
   m_Layer: 9
-  m_Name: RPG-7
+  m_Name: RPG7
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5205,7 +5205,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 614520681093257310, guid: 8d066720200b61b4e9688f197e5b413f,
     type: 3}
   ProjectileLifetime: 60
-  ProjectileForce: {x: 0, y: 0, z: 14}
+  ProjectileForce: {x: 0, y: 0, z: 10}
   HasBoltLockBack: 1
   IdleAnimationName: Idle
   FireAnimationName: Fire

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glowaurora-32x
+  m_Name: GlowRedaurora-32x
   m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 2
@@ -21,5 +21,5 @@ Material:
     m_TexEnvs: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 0.19607843, g: 1, b: 0.39215687, a: 1}
+    - _Color: {r: 1, g: 0.19607843, b: 0.19607843, a: 1}
   m_BuildTextureStacks: []

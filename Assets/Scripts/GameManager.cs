@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Main")]
     public static GameManager Instance;
     public PlayerStats DefaultTestPlayer; //The player that is spawned in the game; Will be removed in the future.//
-
+    
     [Header("Game State")]
     public string[] SceneArray;
     private int CurrentSceneIndex;
@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
     public WaveSpawner WaveSpawnerScript;
     public LootSpawner LootSpawnerScript;
     public ZombieTextureCollection ZombieTextureCollectionScript;
+    public string SystemTimeString;
+    private bool Christmas = false;
+    public GameObject [] ChristmasLightStringArray = new GameObject [16];
 
     void Awake()
     {
@@ -77,6 +80,10 @@ public class GameManager : MonoBehaviour
         LootSpawnerScript = GetComponent<LootSpawner>();
         WaveSpawnerScript.SpawnWaves = false;
         LootSpawnerScript.SpawnLoots = false;
+
+        CheckRealTime();
+
+        ChristmasAction(Christmas);
     }
 
     void Start()
@@ -296,4 +303,45 @@ public class GameManager : MonoBehaviour
         CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         Application.Quit();
 	}
+
+    public void CheckRealTime ()
+    {
+        SystemTimeString = DateTime.Now.ToString("HH:mm dd MMMM, yyyy");
+        Debug.Log("System Time: " + SystemTimeString + ";");
+
+        if (DateTime.Now.Month == 12)
+        {
+            Christmas = true;
+        }
+        else
+        {
+            Christmas = false;
+        }
+
+        print(DateTime.Now.Month);
+    }
+
+    public void ChristmasAction (bool Yes)
+    {
+        if (Yes)
+        {
+            foreach (GameObject CurrentChristmasLightString in ChristmasLightStringArray)
+            {
+                if (CurrentChristmasLightString != null)
+                {
+                    CurrentChristmasLightString.SetActive(true);
+                }
+            }
+        }
+        else
+        {
+            foreach (GameObject CurrentChristmasLightString in ChristmasLightStringArray)
+            {
+                if (CurrentChristmasLightString != null)
+                {
+                    CurrentChristmasLightString.SetActive(false);
+                }
+            }
+        }
+    }
 }

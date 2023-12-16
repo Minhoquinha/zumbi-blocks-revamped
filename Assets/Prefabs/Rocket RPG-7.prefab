@@ -166,7 +166,8 @@ MonoBehaviour:
   BlastForce: 180
   BlastDamage: 10
   FragmentDamage: 180
-  FragmentPenetration: 110
+  FragmentPenetration: 300
+  FragmentBleedingChance: 0.01
   ExplosionEffect: {fileID: 5804375730883325265, guid: 531bf16b3e0dfff47ba491f97b4c7a41,
     type: 3}
   ExplosiveOwner: {fileID: 0}

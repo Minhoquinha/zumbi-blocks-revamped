@@ -70,4 +70,8 @@ MonoBehaviour:
   - {fileID: 8105110560277767860, guid: 552d83eed64d78d439ae7e227fc03630, type: 3}
   - {fileID: 3056780022273637560, guid: f305fbac83d14d14f90795348c19183d, type: 3}
   - {fileID: 8176115687171962575, guid: 1e1aa7991861bd54e80a714ef596a5a7, type: 3}
+  - {fileID: 3004283624842729795, guid: 729277d609e445a40abddabb8ae5bae6, type: 3}
+  - {fileID: 325535579646997202, guid: 3710c3c35d4094d4eacb46056c36c514, type: 3}
+  - {fileID: 5351123238868795411, guid: 42eaf55770a3d124dbd389c73ac69bc8, type: 3}
+  - {fileID: 6161885241905183142, guid: 78107c8a5b7e31c4b89a166efe188dcd, type: 3}
   Description: ms in game should appear here.r here.

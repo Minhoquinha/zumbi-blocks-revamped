@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1330886170}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.11480207, g: 0.11976777, b: 0.105756596, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -385,7 +385,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1142053513}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576660621}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9c4c86c8687f0846aded5bbf15445f6, type: 3}
@@ -4955,6 +4955,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a83829fcb26794fa41825cf3054c92, type: 3}
+--- !u!114 &741151148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 542732347, guid: 3c285cf7876750944b2b427e1000e50d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5439514521839311334}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &744985015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7557,6 +7569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1782476530, guid: b6250a637c42f85468268e1948c87f3f, type: 3}
+      propertyPath: CurrentNavMeshSurface
+      value: 
+      objectReference: {fileID: 741151148}
     - target: {fileID: 2797918815416727601, guid: b6250a637c42f85468268e1948c87f3f,
         type: 3}
       propertyPath: m_Name
@@ -10736,24 +10752,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 66aac48f270062747912c980e658a9fc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd47a209ffa52846ab1d77249e6be2a, type: 3}
---- !u!1 &1576660621 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2797918815416727601, guid: b6250a637c42f85468268e1948c87f3f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1142053513}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1576660622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576660621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42142575673094246a084a46b95ef3e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1577841709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15150,6 +15148,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 542732347, guid: 3c285cf7876750944b2b427e1000e50d, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: cd2b3affce44f9b43878af35c418ac0a,
+        type: 2}
     - target: {fileID: 5439514522712924929, guid: 3c285cf7876750944b2b427e1000e50d,
         type: 3}
       propertyPath: m_RootOrder

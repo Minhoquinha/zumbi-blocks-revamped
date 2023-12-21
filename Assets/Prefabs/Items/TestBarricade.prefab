@@ -145,11 +145,13 @@ MonoBehaviour:
   PlaceableItemPrefab: {fileID: 6673809698272836250, guid: 57d64a55d8a05224ebaa8ba1b1a1aa3f,
     type: 3}
   PlaceableDistance: 4
+  PlaceableItemOffset: {x: 0, y: 0, z: 0}
+  UseBoxColliderSize: 1
   HealingPower: 0
   CureBleeding: 0
   StaminaPower: 0
   Detonator: 0
-  SolidLayer:
+  WorldLayer:
     serializedVersion: 2
     m_Bits: 256
   DroppedItemPrefab: {fileID: 0}

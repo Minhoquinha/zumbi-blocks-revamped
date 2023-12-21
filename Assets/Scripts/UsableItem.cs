@@ -38,6 +38,8 @@ public class UsableItem : MonoBehaviour
     [Header("Placeable")]
     public GameObject PlaceableItemPrefab;
     public float PlaceableDistance; //How far can the placeable object be placed from the player//
+    public Vector3 PlaceableItemOffset = Vector3.zero;
+    public bool UseBoxColliderSize;
 
     [Header("Single Use")]
     public float HealingPower;
@@ -48,7 +50,7 @@ public class UsableItem : MonoBehaviour
 
     [Header("Main References")]
     [Space(50)]
-    public LayerMask SolidLayer;
+    public LayerMask WorldLayer;
     private GameManager GameManagerScript;
     private ControlsManager ControlsManagerScript;
     private Item ItemScript;
@@ -382,13 +384,23 @@ public class UsableItem : MonoBehaviour
         Vector3 PlacePath = FPCamera.transform.forward;
         RaycastHit AimPoint;
 
-        if (Physics.Raycast(FPCamera.transform.position, PlacePath, out AimPoint, PlaceableDistance, SolidLayer))
+        if (Physics.Raycast(FPCamera.transform.position, PlacePath, out AimPoint, PlaceableDistance, WorldLayer))
         {
             Quaternion PlacedObjectRotation = Quaternion.Euler(0f, FPCamera.transform.eulerAngles.y, 0f);
 
             if (PlaceableItemPrefab != null)
             {
-                Vector3 PlacedObjectPosition = new Vector3(AimPoint.point.x, AimPoint.point.y + (transform.lossyScale.y / 2f), AimPoint.point.z);
+                float BoxSizeYOffset = 0f;
+
+                if (UseBoxColliderSize)
+                {
+                    BoxCollider PlacedObjectCollider = PlaceableItemPrefab.GetComponent<BoxCollider>();
+                    BoxSizeYOffset = PlacedObjectCollider.size.y / 2f;
+                }
+
+                Vector3 PlacedObjectPosition = new Vector3(AimPoint.point.x, AimPoint.point.y + BoxSizeYOffset, AimPoint.point.z);
+                PlacedObjectPosition += PlaceableItemOffset;
+
                 Transform PlacedObject = Instantiate(PlaceableItemPrefab, PlacedObjectPosition, PlacedObjectRotation).transform;
 
                 if (PlacedObject != null)
@@ -408,7 +420,7 @@ public class UsableItem : MonoBehaviour
                         }
                     }
 
-                    Debug.Log(gameObject.name + " places " + ItemName + ";");
+                    Debug.Log(Player.name + " places " + ItemName + ";");
                 }
             }
 

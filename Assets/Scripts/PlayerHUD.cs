@@ -25,6 +25,7 @@ public class PlayerHUD : MonoBehaviour
     public Image CenterCrosshair;
     public Image DynamicCrosshair;
 	public Image Hitmarker;
+    public Image InteractionCrosshair;
     private Canvas CurrentCanvas;
     private SpectatorMovement SpectatorControlScript;
 
@@ -71,12 +72,14 @@ public class PlayerHUD : MonoBehaviour
         CenterCrosshair = Instantiate(CenterCrosshair, CurrentCanvas.transform);
         DynamicCrosshair = Instantiate(DynamicCrosshair, CurrentCanvas.transform);
         Hitmarker = Instantiate(Hitmarker, CurrentCanvas.transform);
+        InteractionCrosshair = Instantiate(InteractionCrosshair, CurrentCanvas.transform);
 
         CenterCrosshair.rectTransform.position = new Vector2 (Screen.width / 2f, Screen.height / 2f);
 
         CenterCrosshair.enabled = true;
         DynamicCrosshair.enabled = true;
         Hitmarker.enabled = true;
+        InteractionCrosshair.enabled = true;
 
         SpectatorControlScript = GetComponent<SpectatorMovement>();
     }
@@ -100,6 +103,10 @@ public class PlayerHUD : MonoBehaviour
             if (DynamicCrosshair != null)
             {
                 DynamicCrosshair.enabled = false;
+            }
+            if (InteractionCrosshair != null)
+            {
+                InteractionCrosshair.enabled = false;
             }
         }
 

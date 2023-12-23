@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 1681822049011238668}
   - component: {fileID: 3200959454217892092}
   - component: {fileID: 4835225648681801378}
+  - component: {fileID: 5102288409047218271}
   m_Layer: 12
   m_Name: NormalZombie
   m_TagString: Shootable
@@ -351,6 +352,18 @@ CapsuleCollider:
   m_Height: 2.8
   m_Direction: 1
   m_Center: {x: 0, y: 1.4, z: 0}
+--- !u!114 &5102288409047218271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681822049011238670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3215c6967fe1846a33ee4fe0bd0146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1808257249596582354
 GameObject:
   m_ObjectHideFlags: 0

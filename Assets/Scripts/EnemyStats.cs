@@ -44,6 +44,7 @@ public class EnemyStats : MonoBehaviour
     [Header("Main References")]
     [Space(50)]
     public EnemyMovement AI;
+    public EnemyInventory EnemyInventoryScript;
     public Rigidbody MainRigidbody;
     private Rigidbody[] RagdollRigidbodies;
     private Collider MainCollider;
@@ -133,6 +134,7 @@ public class EnemyStats : MonoBehaviour
     {
         Spawner = FindObjectOfType<WaveSpawner>();
         AI = GetComponent<EnemyMovement>();
+        EnemyInventoryScript = GetComponent<EnemyInventory>();
         Dead = false;
 
         AI.Agent.stoppingDistance = AttackReach - 0.2f;
@@ -253,6 +255,11 @@ public class EnemyStats : MonoBehaviour
                     }
                 }
             }
+        }
+
+        if (EnemyInventoryScript != null)
+        {
+            EnemyInventoryScript.DeathDrop();
         }
 
         StopAllCoroutines();

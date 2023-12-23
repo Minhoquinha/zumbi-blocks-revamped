@@ -139,8 +139,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6367844156803450001}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 6, z: 0}
+  m_LocalRotation: {x: 0.000000063698465, y: -0.6233326, z: -0.000000050776887, w: 0.78195685}
+  m_LocalPosition: {x: 8.86932, y: -2.2103548, z: -20.765268}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 908297831675441999}
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6367844156803450001}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a7f43d0327f33f4a968d53e3fd218c0, type: 3}
   m_Name: 
@@ -228,7 +228,7 @@ MonoBehaviour:
   ItemType: 1
   ItemUIPrefab: {fileID: 6549474709564873469, guid: 4d1461a6ee475464abe9c355001e68b4,
     type: 3}
-  UIActive: 0
+  UIActive: 1
   UIRenderDistance: 50
   PickUpSoundClip: {fileID: 8300000, guid: 31dd3aae69816c34596b27eaf569f1d9, type: 3}
 --- !u!1001 &1834726055525238824

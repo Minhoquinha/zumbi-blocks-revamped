@@ -27,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3447843836368444024}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34, y: 6, z: 0}
+  m_LocalRotation: {x: 0.00000008142046, y: 0.03128121, z: 0.0000000025481781, w: 0.99951065}
+  m_LocalPosition: {x: -32.322178, y: -2.2258189, z: -82.10767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7647193631986510718}
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3447843836368444024}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c5d197027296442b5ca3661d9b809a, type: 3}
   m_Name: 
@@ -85,6 +85,7 @@ MonoBehaviour:
   IdleAnimationName: Idle
   UseAnimationName: Use
   ThrowAnimationName: Throw
+  PlaceAnimationName: Place
   EquipAnimationName: Equip
   ModelUnequipped: {fileID: 3390905884913157591}
   ModelEquipped: {fileID: 7609025657326064787}
@@ -95,11 +96,13 @@ MonoBehaviour:
   ThrowSpin: {x: 180, y: 0, z: 0}
   PlaceableItemPrefab: {fileID: 0}
   PlaceableDistance: 0
+  PlaceableItemOffset: {x: 0, y: 0, z: 0}
+  UseBoxColliderSize: 0
   HealingPower: 0
   CureBleeding: 0
   StaminaPower: 0
   Detonator: 0
-  SolidLayer:
+  WorldLayer:
     serializedVersion: 2
     m_Bits: 0
   DroppedItemPrefab: {fileID: 0}
@@ -125,7 +128,7 @@ MonoBehaviour:
   ItemType: 2
   ItemUIPrefab: {fileID: 6549474709564873469, guid: 4d1461a6ee475464abe9c355001e68b4,
     type: 3}
-  UIActive: 0
+  UIActive: 1
   UIRenderDistance: 50
   PickUpSoundClip: {fileID: 8300000, guid: 31dd3aae69816c34596b27eaf569f1d9, type: 3}
 --- !u!1 &7609025657326064787

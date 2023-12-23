@@ -38,11 +38,6 @@ public class EnemySpawn : MonoBehaviour
             Texture [] CurrentTertiaryTextureArray = ZombieTexturesScript.TertiaryTextureArray;
             Texture [] CurrentQuaternaryTextureArray = ZombieTexturesScript.QuaternaryTextureArray;
 
-            print(CurrentPrimaryTextureArray);
-            print(CurrentSecondaryTextureArray);
-            print(CurrentTertiaryTextureArray);
-            print(CurrentQuaternaryTextureArray);
-
             if (CurrentPrimaryTextureArray != null && CurrentPrimaryTextureArray.Length > 0)
             {
                 int CurrentPrimaryTexture = Random.Range(0, CurrentPrimaryTextureArray.Length);

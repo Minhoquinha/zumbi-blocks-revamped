@@ -254,6 +254,8 @@ MonoBehaviour:
   MouseSensitivity: 6
   DownAngleLimit: 90
   UpAngleLimit: 90
+  DefaultFieldOfView: 0
+  FPOnlyCameraFOVFactor: 0.6666667
   HumanMode: 1
   PlayerHead: {fileID: 8407598178673434910}
   PlayerBody: {fileID: 8409027368463854282}
@@ -363,17 +365,22 @@ MonoBehaviour:
   CrouchingNoise: 150
   JumpingNoise: 800
   NoiseReductionFactor: 1000
-  Dead: 0
   Bleeding: 0
   AverageBleedingDuration: 60
   BleedingDurationVariation: 10
   BleedingDamage: 1
   BleedingRate: 0.5
-  PlayerManagerScript: {fileID: 0}
-  PlayerMovementScript: {fileID: 0}
+  Dead: 0
+  Immortal: 0
+  Tireless: 0
+  Silent: 0
+  Unbleedable: 0
+  PrintHealthFactors: 0
   HUD: {fileID: 8445732507695135376}
   PlayerInventoryScript: {fileID: 0}
   PlayerController: {fileID: 0}
+  PlayerManagerScript: {fileID: 0}
+  PlayerMovementScript: {fileID: 0}
   FleshSound: {fileID: 8468738797346764418}
   BloodEruption: {fileID: 0}
 --- !u!114 &8445732507695135376
@@ -412,6 +419,8 @@ MonoBehaviour:
     type: 3}
   Hitmarker: {fileID: 168279019610462163, guid: 963d4d7347334f146babd452da4ef8a7,
     type: 3}
+  InteractionCrosshair: {fileID: 1408864807158392416, guid: b0727543a01f24f44b52e4e1471816b7,
+    type: 3}
 --- !u!114 &8404745805694429713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +456,7 @@ MonoBehaviour:
   InteractionMask:
     serializedVersion: 2
     m_Bits: 512
-  InteractionReach: 3.5
+  InteractionReach: 4
   DropForce: {x: 0, y: 0, z: 2}
   DropSpin: {x: 10, y: 10, z: 10}
   RandomDropSpin: 0

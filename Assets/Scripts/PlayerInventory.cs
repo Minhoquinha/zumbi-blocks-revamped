@@ -110,9 +110,22 @@ public class PlayerInventory : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(ControlsManagerScript.ControlDictionary["ItemInteract"]))
+        Vector3 InteractionPath = FPCamera.transform.forward;
+
+        if (Physics.Raycast(FPCamera.transform.position, InteractionPath, out AimPoint, InteractionReach, InteractionMask))
         {
-            Interact();
+            HUD.InteractionCrosshair.CrossFadeAlpha(1f, 0f, false);
+            HUD.CenterCrosshair.CrossFadeAlpha(0f, 0f, false);
+
+            if (Input.GetKeyDown(ControlsManagerScript.ControlDictionary ["ItemInteract"]))
+            {
+                Interact();
+            }
+        }
+        else
+        {
+            HUD.InteractionCrosshair.CrossFadeAlpha(0f, 0f, false);
+            HUD.CenterCrosshair.CrossFadeAlpha(1f, 0f, false);
         }
 
         if (Input.GetKeyDown(ControlsManagerScript.ControlDictionary ["ItemDrop"]))
@@ -610,20 +623,15 @@ public class PlayerInventory : MonoBehaviour
 
     public void Interact ()
     {
-        Vector3 InteractionPath = FPCamera.transform.forward;
+        Debug.Log(gameObject.name + " interacts with " + AimPoint.transform.name + ";");
 
-        if (Physics.Raycast(FPCamera.transform.position, InteractionPath, out AimPoint, InteractionReach, InteractionMask))
+        if (AimPoint.transform.CompareTag("Loot"))
         {
-            Debug.Log(gameObject.name + " interacts with " + AimPoint.transform.name + ";");
+            Item PickedItem = AimPoint.transform.GetComponent<Item>();
 
-            if (AimPoint.transform.CompareTag("Loot"))
+            if (PickedItem != null)
             {
-                Item PickedItem = AimPoint.transform.GetComponent<Item>();
-
-                if (PickedItem != null)
-                {
-                    PickUpItem(PickedItem);
-                }
+                PickUpItem(PickedItem);
             }
         }
     }

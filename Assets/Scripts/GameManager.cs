@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     public string SystemTimeString;
     private bool Christmas = false;
     public GameObject [] ChristmasLightStringArray = new GameObject [16];
+    public GameObject ChristmasBanner;
 
     void Awake()
     {
@@ -317,8 +318,6 @@ public class GameManager : MonoBehaviour
         {
             Christmas = false;
         }
-
-        print(DateTime.Now.Month);
     }
 
     public void ChristmasAction (bool Yes)
@@ -332,6 +331,11 @@ public class GameManager : MonoBehaviour
                     CurrentChristmasLightString.SetActive(true);
                 }
             }
+
+            if (ChristmasBanner != null)
+            {
+                ChristmasBanner.SetActive(true);
+            }
         }
         else
         {
@@ -341,6 +345,11 @@ public class GameManager : MonoBehaviour
                 {
                     CurrentChristmasLightString.SetActive(false);
                 }
+            }
+
+            if (ChristmasBanner != null)
+            {
+                ChristmasBanner.SetActive(false);
             }
         }
     }

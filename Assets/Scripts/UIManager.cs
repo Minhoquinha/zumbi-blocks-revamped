@@ -16,21 +16,23 @@ public class UIManager : MonoBehaviour
     [HideInInspector]
     public const int PlayMenuPanel = 1;
     [HideInInspector]
-    public const int CharacterMenuPanel = 2;
+    public const int MapMenuPanel = 2;
     [HideInInspector]
-    public const int OptionsMenuPanel = 3;
+    public const int CharacterMenuPanel = 3;
     [HideInInspector]
-    public const int CreditsMenuPanel = 4;
+    public const int OptionsMenuPanel = 4;
     [HideInInspector]
-    public const int ServerListPanel = 5;
+    public const int CreditsMenuPanel = 5;
     [HideInInspector]
-    public const int AppearanceMenuPanel = 6;
+    public const int ServerListPanel = 6;
     [HideInInspector]
-    public const int ShopMenuPanel = 7;
+    public const int AppearanceMenuPanel = 7;
     [HideInInspector]
-    public const int LoadoutMenuPanel = 8;
+    public const int ShopMenuPanel = 8;
     [HideInInspector]
-    public const int ControlsMenuPanel = 9;
+    public const int LoadoutMenuPanel = 9;
+    [HideInInspector]
+    public const int ControlsMenuPanel = 10;
 
     public GameObject PauseMenuPanel;
 
@@ -99,9 +101,10 @@ public class UIManager : MonoBehaviour
             Debug.LogWarning("SCenterText not found;");
         }
     }
+
     public void PCenterTextMessage (string Message, float CenterTextDuration)
     {
-        if (UsePCenterText)
+        if (UsePCenterText && PCenterText != null)
         {
             PCenterText.enabled = true;
             PCenterText.text = Message;
@@ -116,7 +119,7 @@ public class UIManager : MonoBehaviour
 
     public void SCenterTextMessage (string Message, float CenterTextDuration)
     {
-        if (UseSCenterText)
+        if (UseSCenterText && SCenterText != null)
         {
             SCenterText.enabled = true;
             SCenterText.text = Message;

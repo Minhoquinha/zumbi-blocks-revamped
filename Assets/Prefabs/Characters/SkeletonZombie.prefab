@@ -1712,11 +1712,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7915193722213626511}
   - component: {fileID: 7391456388179929096}
+  - component: {fileID: 4267237700686063861}
+  - component: {fileID: 7391456388179929140}
   - component: {fileID: 7391456388179929097}
   - component: {fileID: 7391456388179929142}
   - component: {fileID: 7391456388179929143}
-  - component: {fileID: 4267237700686063861}
-  - component: {fileID: 7391456388179929140}
+  - component: {fileID: -6878423098060817922}
   m_Layer: 12
   m_Name: SkeletonZombie
   m_TagString: Untagged
@@ -1763,6 +1764,39 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &4267237700686063861
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391456388179929141}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7f7c8e1290d8f114fbf24e9378ed65cd, type: 3}
+  m_Controller: {fileID: 9100000, guid: b0df7ca88b027b4478f6b68537c61291, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &7391456388179929140
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391456388179929141}
+  m_Material: {fileID: 13400000, guid: a3b1acc231782d54386cde9abee56589, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!54 &7391456388179929097
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1873,6 +1907,7 @@ MonoBehaviour:
   PrintDamageFactors: 0
   TestEnemy: 0
   AI: {fileID: 0}
+  EnemyInventoryScript: {fileID: 0}
   MainRigidbody: {fileID: 0}
   AliveLayer: 12
   DeadLayer: 15
@@ -1882,39 +1917,35 @@ MonoBehaviour:
   AttackEffect: {fileID: 0}
   Spawner: {fileID: 0}
   TargetStats: []
---- !u!95 &4267237700686063861
-Animator:
-  serializedVersion: 3
+--- !u!114 &-6878423098060817922
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7391456388179929141}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 7f7c8e1290d8f114fbf24e9378ed65cd, type: 3}
-  m_Controller: {fileID: 9100000, guid: b0df7ca88b027b4478f6b68537c61291, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &7391456388179929140
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7391456388179929141}
-  m_Material: {fileID: 13400000, guid: a3b1acc231782d54386cde9abee56589, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 2.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.4, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3215c6967fe1846a33ee4fe0bd0146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventorySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  DropForce: {x: 0, y: 0.5, z: 2}
+  DropSpin: {x: 0, y: 0, z: 0}
+  RandomDropSpin: 1
+  Enemy: {fileID: 0}
+  Movement: {fileID: 0}
+  DefaultItem: {fileID: 0}
 --- !u!1 &7556066218286188265
 GameObject:
   m_ObjectHideFlags: 0

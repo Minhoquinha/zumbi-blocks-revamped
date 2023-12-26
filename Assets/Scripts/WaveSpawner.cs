@@ -172,6 +172,7 @@ public class WaveSpawner : MonoBehaviour
         for (int ZombieNum = 0; ZombieNum < ZombieAmount; ZombieNum++)
         {
             Transform CurrentZombie = DefaultZombie.ZombiePrefab;
+            Item [] CurrentZombieItems = DefaultZombie.ZombieInventorySlots;
 
             for (int i = 0; i < ZombieArray.Length; i++)
             {
@@ -180,6 +181,8 @@ public class WaveSpawner : MonoBehaviour
                     if (ZombieArray [i].Chance >= Random.Range(0f, 100f))
                     {
                         CurrentZombie = ZombieArray [i].ZombiePrefab;
+                        CurrentZombieItems = ZombieArray [i].ZombieInventorySlots;
+
                         SpawnedZombiesPerType [i]++;
                         SpawnedDefaultZombies--;
                         break;
@@ -191,7 +194,7 @@ public class WaveSpawner : MonoBehaviour
 
             if (SpawnerArray[RandomSpawner] != null)
             {
-                SpawnerArray [RandomSpawner].Spawn(CurrentZombie, AllZombiesActive);
+                SpawnerArray [RandomSpawner].Spawn(CurrentZombie, AllZombiesActive, CurrentZombieItems);
                 TotalSpawnedZombies++;
                 SpawnedDefaultZombies++;
             }
@@ -210,12 +213,27 @@ public class WaveSpawner : MonoBehaviour
             Debug.Log("ZOMBIE TYPES INFO:");
             for (int i = 0; i < SpawnedZombiesPerType.Length; i++)
             {
-                string ZombieTypeName = ZombieArray [i].ZombiePrefab.name;
+                string ZombieTypeName = ZombieArray [i].ZombieTypeName;
                 Debug.Log("ELEMENT NUMBER: " + i);
                 Debug.Log("TYPE: " + ZombieTypeName);
                 Debug.Log(ZombieTypeName + ": IS ACTIVE: " + ZombieArray [i].Active);
                 Debug.Log(ZombieTypeName + ": IS DEFAULT: " + ZombieArray [i].Default);
                 Debug.Log(ZombieTypeName + ": COUNT EXCEPT DEFAULT: " + SpawnedZombiesPerType [i]);
+                Debug.Log(ZombieTypeName + " INVENTORY: ");
+                if (ZombieArray [i].ZombieInventorySlots != null)
+                {
+                    for (int j = 0; j < ZombieArray [i].ZombieInventorySlots.Length; j++)
+                    {
+                        if (ZombieArray [i].ZombieInventorySlots [j] != null)
+                        {
+                            Debug.Log(ZombieArray [i].ZombieInventorySlots [j]);
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.Log("NO ITEMS");
+                }
             }
         }
     }

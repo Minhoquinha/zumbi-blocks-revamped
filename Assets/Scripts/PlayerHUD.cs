@@ -26,12 +26,18 @@ public class PlayerHUD : MonoBehaviour
     public Image DynamicCrosshair;
 	public Image Hitmarker;
     public Image InteractionCrosshair;
+    private GameManager GameManagerScript;
+    private UIManager UIManagerScript;
     private Canvas CurrentCanvas;
     private SpectatorMovement SpectatorControlScript;
 
     void Awake()
     {
-        CurrentCanvas = FindObjectOfType<Canvas>();
+        //Change this for multiplayer//
+        GameManagerScript = FindObjectOfType<GameManager>();
+        UIManagerScript = GameManagerScript.GetComponent<UIManager>();
+        CurrentCanvas = UIManagerScript.Screen;
+        //Change this for multiplayer//
 
         DeathScreen = Instantiate(DeathScreen, CurrentCanvas.transform);
         HurtScreen = Instantiate(HurtScreen, CurrentCanvas.transform);

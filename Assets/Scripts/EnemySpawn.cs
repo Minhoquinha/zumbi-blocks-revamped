@@ -14,7 +14,7 @@ public class EnemySpawn : MonoBehaviour
         SpawnPoint.position = transform.position;
     }
 
-    public void Spawn(Transform Zombie, bool ZombieAIActive)
+    public void Spawn(Transform Zombie, bool ZombieAIActive, Item [] CurrentZombieInventorySlots)
     {
         SpawnPoint.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
 
@@ -83,6 +83,15 @@ public class EnemySpawn : MonoBehaviour
         if (CurrentZombieMovement != null)
         {
             CurrentZombieMovement.AIActive = ZombieAIActive;
+        }
+
+        EnemyInventory CurrentZombieInventory = CurrentZombie.GetComponent<EnemyInventory>();
+        if (CurrentZombieInventory != null)
+        {
+            for (int i = 0; i < CurrentZombieInventorySlots.Length; i++)
+            {
+                CurrentZombieInventory.AddItem(CurrentZombieInventorySlots [i]);
+            }
         }
 
         Debug.Log("Spawned " + CurrentZombieName + " at [" + SpawnPoint.position + "]");

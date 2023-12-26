@@ -37,8 +37,6 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         Debug.Log(this.name + " loaded;");
-
-        gameObject.GetComponent<Material>();
     }
 
     public void Play (string name) 

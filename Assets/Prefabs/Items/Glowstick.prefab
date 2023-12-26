@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4099928030940176840
 Transform:
   m_ObjectHideFlags: 0
@@ -45,7 +45,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 958131847398759266}
   m_Material: {fileID: 13400000, guid: dc238ac75fe8e5a438f0159f08df5057, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.04
   m_Height: 0.45
   m_Direction: 1
@@ -61,7 +61,7 @@ Rigidbody:
   m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958131847398759266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74c5d197027296442b5ca3661d9b809a, type: 3}
   m_Name: 
@@ -97,13 +97,15 @@ MonoBehaviour:
   ThrowSpin: {x: 180, y: 0, z: 0}
   PlaceableItemPrefab: {fileID: 0}
   PlaceableDistance: 0
+  PlaceableItemOffset: {x: 0, y: 0, z: 0}
+  UseBoxColliderSize: 0
   HealingPower: 0
   CureBleeding: 0
   StaminaPower: 0
   Detonator: 0
-  SolidLayer:
+  WorldLayer:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 0
   DroppedItemPrefab: {fileID: 0}
   DroppedItemLifetime: 0
   DropForce: {x: 0, y: 0, z: 0}

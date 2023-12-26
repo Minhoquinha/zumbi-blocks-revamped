@@ -2005,11 +2005,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8759988696209381223}
   - component: {fileID: 2078122390491645792}
+  - component: {fileID: 3945860151076154771}
+  - component: {fileID: 6442205578040742498}
   - component: {fileID: 8276045883977436632}
   - component: {fileID: 8276045883977436638}
   - component: {fileID: 8276045883977436639}
-  - component: {fileID: 6442205578040742498}
-  - component: {fileID: 3945860151076154771}
+  - component: {fileID: 2230537451415555697}
   m_Layer: 12
   m_Name: CursedZombie
   m_TagString: Shootable
@@ -2056,6 +2057,39 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &3945860151076154771
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8276045883977436637}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 4d78bf3f26db4774e9e45db2232e9634, type: 3}
+  m_Controller: {fileID: 9100000, guid: 1cb651f79dd2af44488f348b5b3c54eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &6442205578040742498
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8276045883977436637}
+  m_Material: {fileID: 13400000, guid: a3b1acc231782d54386cde9abee56589, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!54 &8276045883977436632
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2096,6 +2130,7 @@ MonoBehaviour:
   Jumper: 0
   JumpDistance: 0
   KnockbackDelay: 0
+  FallDelay: 0
   TPoseAnimationName: TPose
   StandingAnimationNameArray:
   - InactiveStanding
@@ -2115,6 +2150,8 @@ MonoBehaviour:
   - TPose
   SpawnAnimationNameArray:
   - ComingOutGround
+  FallingAnimationNameArray:
+  - Falling
   AnimatorController: {fileID: 0}
   PrintPlayerDetection: 0
   AttackTransform: {fileID: 2028098105907015790}
@@ -2161,6 +2198,7 @@ MonoBehaviour:
   PrintDamageFactors: 0
   TestEnemy: 0
   AI: {fileID: 0}
+  EnemyInventoryScript: {fileID: 0}
   MainRigidbody: {fileID: 0}
   AliveLayer: 12
   DeadLayer: 15
@@ -2170,39 +2208,35 @@ MonoBehaviour:
   AttackEffect: {fileID: 0}
   Spawner: {fileID: 0}
   TargetStats: []
---- !u!136 &6442205578040742498
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8276045883977436637}
-  m_Material: {fileID: 13400000, guid: a3b1acc231782d54386cde9abee56589, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 2.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.4, z: 0}
---- !u!95 &3945860151076154771
-Animator:
-  serializedVersion: 3
+--- !u!114 &2230537451415555697
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8276045883977436637}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4d78bf3f26db4774e9e45db2232e9634, type: 3}
-  m_Controller: {fileID: 9100000, guid: 1cb651f79dd2af44488f348b5b3c54eb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3215c6967fe1846a33ee4fe0bd0146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventorySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  DropForce: {x: 0, y: 0, z: 0}
+  DropSpin: {x: 0, y: 0, z: 0}
+  RandomDropSpin: 0
+  Enemy: {fileID: 0}
+  Movement: {fileID: 0}
+  DefaultItem: {fileID: 0}
 --- !u!1 &8816435196592819363
 GameObject:
   m_ObjectHideFlags: 0

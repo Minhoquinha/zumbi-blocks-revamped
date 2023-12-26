@@ -26,7 +26,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &2801110660961233099
 Transform:
@@ -85,6 +85,9 @@ MonoBehaviour:
   LootSpawnerScript: {fileID: 4955813162013777449}
   ZombieTextureCollectionScript: {fileID: 11400000, guid: 172d3f1f92226914cb11f73ea908541e,
     type: 2}
+  SystemTimeString: 
+  ChristmasLightStringArray: []
+  ChristmasBanner: {fileID: 0}
 --- !u!114 &2830266106579504315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,22 +320,60 @@ MonoBehaviour:
   WaveDelay: 5
   AllZombiesActive: 1
   ZombieArray:
-  - ZombiePrefab: {fileID: 2025732057007414708, guid: f818ccb01eeb2f6448e7bc5cc8161586,
+  - ZombieTypeName: Common Zombie
+    ZombiePrefab: {fileID: 2025732057007414708, guid: f818ccb01eeb2f6448e7bc5cc8161586,
       type: 3}
     Default: 1
     Active: 1
-    Chance: 15
-  - ZombiePrefab: {fileID: 8759988696209381223, guid: d52f3e1c5169a6347b705f8e9704fbe5,
+    Chance: 20
+    ZombieInventorySlots: []
+  - ZombieTypeName: Cursed Zombie
+    ZombiePrefab: {fileID: 8759988696209381223, guid: d52f3e1c5169a6347b705f8e9704fbe5,
       type: 3}
     Default: 0
     Active: 0
     Chance: 10
-  - ZombiePrefab: {fileID: 7915193722213626511, guid: 174a7b0a0d278784f99a52b223dd6e27,
+    ZombieInventorySlots: []
+  - ZombieTypeName: Skeleton Zombie
+    ZombiePrefab: {fileID: 7915193722213626511, guid: 174a7b0a0d278784f99a52b223dd6e27,
       type: 3}
     Default: 0
     Active: 1
-    Chance: 15
-  ZombieAmount: 40
+    Chance: 20
+    ZombieInventorySlots: []
+  - ZombieTypeName: Ammo Zombie
+    ZombiePrefab: {fileID: 2025732057007414708, guid: f818ccb01eeb2f6448e7bc5cc8161586,
+      type: 3}
+    Default: 0
+    Active: 1
+    Chance: 8
+    ZombieInventorySlots:
+    - {fileID: 39744257660487821, guid: 0e3e3d7bfc5a35848b4826507480781a, type: 3}
+  - ZombieTypeName: Glow Zombie
+    ZombiePrefab: {fileID: 2025732057007414708, guid: f818ccb01eeb2f6448e7bc5cc8161586,
+      type: 3}
+    Default: 0
+    Active: 1
+    Chance: 2
+    ZombieInventorySlots:
+    - {fileID: 4848265318514703229, guid: f62eaa436a3afba42824368312635f54, type: 3}
+  - ZombieTypeName: Road Zombie
+    ZombiePrefab: {fileID: 2025732057007414708, guid: f818ccb01eeb2f6448e7bc5cc8161586,
+      type: 3}
+    Default: 0
+    Active: 1
+    Chance: 2
+    ZombieInventorySlots:
+    - {fileID: 8176115687171962575, guid: 1e1aa7991861bd54e80a714ef596a5a7, type: 3}
+  - ZombieTypeName: Deagle Zombie
+    ZombiePrefab: {fileID: 2025732057007414708, guid: f818ccb01eeb2f6448e7bc5cc8161586,
+      type: 3}
+    Default: 0
+    Active: 1
+    Chance: 0.5
+    ZombieInventorySlots:
+    - {fileID: 7490743481555882848, guid: 696c62133a79bde409356885abaec1c6, type: 3}
+  ZombieAmount: 50
   ZombieKillPercent: 80
   ZombieDeathCount: 1
   PrintWaveInfo: 1
@@ -500,16 +541,10 @@ MonoBehaviour:
     Chance: 1
     WaitTime: 300
     CurrentWaitTime: 0
-  - LootPrefab: {fileID: 1752827354433517756, guid: 6c5581881dc2e0c458b609fa23564e0c,
-      type: 3}
-    Active: 1
-    Chance: 15
-    WaitTime: 30
-    CurrentWaitTime: 0
   - LootPrefab: {fileID: 7097283284843104878, guid: e5e8cccd4e86c6a4b9a81b6d078fa8a5,
       type: 3}
     Active: 1
-    Chance: 5
+    Chance: 10
     WaitTime: 30
     CurrentWaitTime: 0
   - LootPrefab: {fileID: 7295855499157620417, guid: 315fc65a6758f4d4090d172a45190099,
@@ -525,6 +560,30 @@ MonoBehaviour:
     WaitTime: 60
     CurrentWaitTime: 0
   - LootPrefab: {fileID: 782153723455679610, guid: 1e1aa7991861bd54e80a714ef596a5a7,
+      type: 3}
+    Active: 1
+    Chance: 15
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 8479784093832428627, guid: 3710c3c35d4094d4eacb46056c36c514,
+      type: 3}
+    Active: 1
+    Chance: 5
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 7100877920019296724, guid: 729277d609e445a40abddabb8ae5bae6,
+      type: 3}
+    Active: 1
+    Chance: 5
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 161180825826614834, guid: 78107c8a5b7e31c4b89a166efe188dcd,
+      type: 3}
+    Active: 1
+    Chance: 5
+    WaitTime: 30
+    CurrentWaitTime: 0
+  - LootPrefab: {fileID: 4063181960751190457, guid: 42eaf55770a3d124dbd389c73ac69bc8,
       type: 3}
     Active: 1
     Chance: 15
@@ -569,7 +628,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpawnLoots: 0
+  SpawnLoots: 1
 --- !u!114 &2829640071977145257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,12 +718,12 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2797918815416727601}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1

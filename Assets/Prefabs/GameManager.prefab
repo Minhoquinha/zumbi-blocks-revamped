@@ -86,8 +86,18 @@ MonoBehaviour:
   ZombieTextureCollectionScript: {fileID: 11400000, guid: 172d3f1f92226914cb11f73ea908541e,
     type: 2}
   SystemTimeString: 
-  ChristmasLightStringArray: []
-  ChristmasBanner: {fileID: 0}
+  ChristmasLightStringArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ChristmasBanner: {fileID: 7285143307333311978, guid: 0ed0b7ea2d3c11b4891d2e43cb47598b,
+    type: 3}
 --- !u!114 &2830266106579504315
 MonoBehaviour:
   m_ObjectHideFlags: 0
